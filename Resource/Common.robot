@@ -12,7 +12,6 @@ ${BROWSER} =  headlesschrome
 *** Keywords ***
 Begin Web Test
     Open Browser  about:blank  ${BROWSER}
-    Sleep  2s
     Go To  ${URL.${ENVIROMENT}}
     Set Screenshot Directory  ./Report/image
 End Web Test

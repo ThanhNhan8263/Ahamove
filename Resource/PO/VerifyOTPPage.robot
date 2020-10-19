@@ -17,12 +17,12 @@ ${ERR_CODE}  xpath://div[contains(text(),'Bạn đã nhập sai OTP, vui lòng n
 
 *** Keywords ***
 Input Activate Code
-    [Arguments]  @{OTP}
+    [Arguments]  @{otp}
     wait until element is visible  ${TXT_OTP1}  15s  not found
-    Input Text  ${TXT_OTP1}   ${OTP}[0]
-    Input Text  ${TXT_OTP2}   ${OTP}[1]
-    Input Text  ${TXT_OTP3}   ${OTP}[2]
-    Input Text  ${TXT_OTP4}   ${OTP}[3]
+    Input Text  ${TXT_OTP1}   ${otp}[0]
+    Input Text  ${TXT_OTP2}   ${otp}[1]
+    Input Text  ${TXT_OTP3}   ${otp}[2]
+    Input Text  ${TXT_OTP4}   ${otp}[3]
 
 Error Mess Invalid Activate Code
     Wait Until Page Contains  Mã kích hoạt của bạn đã hết hạn.  15s  not found

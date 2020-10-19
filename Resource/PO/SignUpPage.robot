@@ -36,24 +36,24 @@ ${BTN_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--la
 
 *** Keywords ***
 Input Name At SignUp
-    [Arguments]  ${Name}
+    [Arguments]  ${name}
     Wait Until Element Is Visible  ${TXT_NAME}  15s  Not found
-    Input Text  ${TXT_NAME}  ${Name}
+    Input Text  ${TXT_NAME}  ${name}
 
 Input Email At SignUp
-    [Arguments]  ${Email}
+    [Arguments]  ${email}
     Wait Until Element Is Visible  ${TXT_EMAIL}  15s  Not found
-    Input Text  ${TXT_EMAIL}  ${Email}
+    Input Text  ${TXT_EMAIL}  ${email}
 
 Input Phone At SignUp
-    [Arguments]  ${Phone}
+    [Arguments]  ${phone}
     Wait Until Element Is Visible  ${TXT_PHONE_SIGNUP}  25s  Not found
-    Input Text  ${TXT_PHONE_SIGNUP}  ${Phone}
+    Input Text  ${TXT_PHONE_SIGNUP}  ${phone}
 
 Input Referral Code At SignUp
-    [Arguments]  ${Ref}
+    [Arguments]  ${ref}
     Wait Until Element Is Visible  ${TXT_REF}  15s  Not found
-    Input Text  ${TXT_REF}  ${Ref}
+    Input Text  ${TXT_REF}  ${ref}
 
 Click Button Sign Up At Sign Up
     Click Button  ${BTN_SIGNUP}

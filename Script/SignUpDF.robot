@@ -23,28 +23,28 @@ User open app to sign up screen
     Click To Tap SignUp At Login
 
 User input success full all info
-    [Arguments]  ${Name}  ${Email}  ${Phone}
-    Input Name At SignUp  ${Name}
-    Input Email At SignUp  ${Email}
-    Input Phone At SignUp  ${Phone}
+    [Arguments]  ${name}  ${email}  ${phone}
+    Input Name At SignUp  ${name}
+    Input Email At SignUp  ${email}
+    Input Phone At SignUp  ${phone}
 
 User input success full all info but phone is existed
-    [Arguments]  ${Name}  ${Email}  ${Phone}
-    Input Name At SignUp  ${Name}
-    Input Email At SignUp  ${Email}
-    Input Phone At SignUp  ${Phone}
+    [Arguments]  ${name}  ${email}  ${phone}
+    Input Name At SignUp  ${name}
+    Input Email At SignUp  ${email}
+    Input Phone At SignUp  ${phone}
 
 User input success full all info but email is existed
-    [Arguments]  ${Name}  ${Email}  ${Phone}
-    Input Name At SignUp  ${Name}
-    Input Email At SignUp  ${Email}
-    Input Phone At SignUp  ${Phone}
+    [Arguments]  ${name}  ${email}  ${phone}
+    Input Name At SignUp  ${name}
+    Input Email At SignUp  ${email}
+    Input Phone At SignUp  ${phone}
 
 When User input all invalid info
-    [Arguments]  ${Name}  ${Email}  ${Phone}
-    Input Name At SignUp  ${Name}
-    Input Email At SignUp  ${Email}
-    Input Phone At SignUp  ${Phone}
+    [Arguments]  ${name}  ${email}  ${phone}
+    Input Name At SignUp  ${name}
+    Input Email At SignUp  ${email}
+    Input Phone At SignUp  ${phone}
 
 User choosing category is Individual
     Click Menu Category
@@ -59,19 +59,19 @@ User choosing category is Corporate
     Choose Category Corporate
 
 User input referral code
-    [Arguments]  ${Ref}
-    Input Referral Code At SignUp  ${Ref}
+    [Arguments]  ${ref}
+    Input Referral Code At SignUp  ${ref}
 
 User click to Sign Up button
     Click Button Sign Up At Sign Up
 
 Go to input activation code screen and input code success
-    [Arguments]  @{OTP}
-    Input Activate Code  @{OTP}
+    [Arguments]  @{otp}
+    Input Activate Code  @{otp}
 
 Go to input activation code screen and input invalid code
-    [Arguments]  @{OTP}
-    Input Activate Code  @{OTP}
+    [Arguments]  @{otp}
+    Input Activate Code  @{otp}
 
 User sign up success to new order screen
     Title New Order Page Is Valid
