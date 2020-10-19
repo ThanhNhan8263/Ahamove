@@ -16,7 +16,9 @@ Begin Web Test
     Go To  ${URL.${ENVIROMENT}}
     Set Screenshot Directory  ./Report/image
 End Web Test
-    Close Browser
+    Capture Page Screenshot  filename=selenium-element-screenshot-{index}.png
+    Close All Browsers
+
 
 
 #{biến check}BuldIn.Run Keyeord and Return Status Element SHould Be Visiable {Xpath-nút đó}

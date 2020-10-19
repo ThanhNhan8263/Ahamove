@@ -23,28 +23,28 @@ User open app to sign up screen
     Click To Tap SignUp At Login
 
 User input success full all info
-    [Arguments]  @{Info}
-    Input Name At SignUp  ${Info}[0]
-    Input Email At SignUp  ${Info}[1]
-    Input Phone At SignUp  ${Info}[2]
+    [Arguments]  ${Name}  ${Email}  ${Phone}
+    Input Name At SignUp  ${Name}
+    Input Email At SignUp  ${Email}
+    Input Phone At SignUp  ${Phone}
 
 User input success full all info but phone is existed
-    [Arguments]  @{Info}
-    Input Name At SignUp  ${Info}[0]
-    Input Email At SignUp  ${Info}[1]
-    Input Phone At SignUp  ${Info}[2]
+    [Arguments]  ${Name}  ${Email}  ${Phone}
+    Input Name At SignUp  ${Name}
+    Input Email At SignUp  ${Email}
+    Input Phone At SignUp  ${Phone}
 
 User input success full all info but email is existed
-    [Arguments]  @{Info}
-    Input Name At SignUp  ${Info}[0]
-    Input Email At SignUp  ${Info}[1]
-    Input Phone At SignUp  ${Info}[2]
+    [Arguments]  ${Name}  ${Email}  ${Phone}
+    Input Name At SignUp  ${Name}
+    Input Email At SignUp  ${Email}
+    Input Phone At SignUp  ${Phone}
 
 When User input all invalid info
-    [Arguments]  @{Info}
-    Input Name At SignUp  ${Info}[0]
-    Input Email At SignUp  ${Info}[1]
-    Input Phone At SignUp  ${Info}[2]
+    [Arguments]  ${Name}  ${Email}  ${Phone}
+    Input Name At SignUp  ${Name}
+    Input Email At SignUp  ${Email}
+    Input Phone At SignUp  ${Phone}
 
 User choosing category is Individual
     Click Menu Category
@@ -98,6 +98,7 @@ SignUp Button is disable
 
 Show error input invalid referral code
     Error Referral Code At SignUp
+
 
 
 

@@ -1,0 +1,2975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201019 17:46:04.578" rpa="false">
+<suite id="s1" name="SignUp" source="/Users/mac/Desktop/Ahamove/TestCase/BeforeBooking/SignUp.robot">
+<test id="s1-t1" name="Verify that user can sign up success with category individual">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:04.885" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:46:04.885" endtime="20201019 17:46:06.372"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:46:08.375" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:46:06.372" endtime="20201019 17:46:08.375"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:08.377" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:46:08.375" endtime="20201019 17:46:12.075"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.075" endtime="20201019 17:46:12.076"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:04.884" endtime="20201019 17:46:12.076"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.077" endtime="20201019 17:46:12.103"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:12.104" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:12.104" endtime="20201019 17:46:12.253"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.077" endtime="20201019 17:46:12.253"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.076" endtime="20201019 17:46:12.254"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc1@gmail.com</arg>
+<arg>0910000001</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.256" endtime="20201019 17:46:12.291"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:12.292" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:12.292" endtime="20201019 17:46:12.426"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.256" endtime="20201019 17:46:12.426"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.427" endtime="20201019 17:46:12.444"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:12.445" level="INFO">Typing text 'abc1@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:12.444" endtime="20201019 17:46:12.643"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.426" endtime="20201019 17:46:12.643"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.644" endtime="20201019 17:46:12.697"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:12.697" level="INFO">Typing text '0910000001' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:12.697" endtime="20201019 17:46:12.879"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.644" endtime="20201019 17:46:12.880"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.255" endtime="20201019 17:46:12.880"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.881" endtime="20201019 17:46:12.913"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:12.914" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:46:12.913" endtime="20201019 17:46:12.990"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.880" endtime="20201019 17:46:12.990"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:12.991" endtime="20201019 17:46:13.084"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:13.085" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:13.084" endtime="20201019 17:46:13.315"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:13.315" endtime="20201019 17:46:13.377"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:13.378" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:46:13.378" endtime="20201019 17:46:13.433"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:13.434" endtime="20201019 17:46:13.454"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:13.455" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:13.454" endtime="20201019 17:46:13.552"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:13.434" endtime="20201019 17:46:13.552"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.990" endtime="20201019 17:46:13.552"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:12.880" endtime="20201019 17:46:13.553"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:13.554" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:13.554" endtime="20201019 17:46:13.634"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:13.553" endtime="20201019 17:46:13.634"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:13.553" endtime="20201019 17:46:13.634"></status>
+</kw>
+<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
+<arguments>
+<arg>2</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>7</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:13.635" endtime="20201019 17:46:14.074"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.074" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.074" endtime="20201019 17:46:14.119"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.119" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.119" endtime="20201019 17:46:14.168"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.169" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.169" endtime="20201019 17:46:14.220"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.221" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.220" endtime="20201019 17:46:14.283"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:13.635" endtime="20201019 17:46:14.283"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:13.634" endtime="20201019 17:46:14.283"></status>
+</kw>
+<kw name="Then User sign up success to new order screen" library="SignUpDF">
+<kw name="Title New Order Page Is Valid" library="NewOrderPage">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${LBL_TITLE}</arg>
+<arg>Đơn hàng mới</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.284" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.284" endtime="20201019 17:46:14.305"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:14.284" endtime="20201019 17:46:14.306"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:14.283" endtime="20201019 17:46:14.306"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.781" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-1.png"&gt;&lt;img src="image/selenium-element-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:46:14.309" endtime="20201019 17:46:14.781"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:46:14.781" endtime="20201019 17:46:14.858"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:14.308" endtime="20201019 17:46:14.858"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_category_Individual</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:46:04.883" endtime="20201019 17:46:14.858" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Verify that user can sign up success with category SMEs">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:14.862" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:46:14.861" endtime="20201019 17:46:16.254"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:46:18.256" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:46:16.255" endtime="20201019 17:46:18.257"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:18.258" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:46:18.257" endtime="20201019 17:46:21.353"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:21.353" endtime="20201019 17:46:21.353"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:14.861" endtime="20201019 17:46:21.354"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:21.356" endtime="20201019 17:46:21.408"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:21.409" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:21.409" endtime="20201019 17:46:21.635"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:21.355" endtime="20201019 17:46:21.635"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:21.354" endtime="20201019 17:46:21.635"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc2@gmail.com</arg>
+<arg>0910000002</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:21.636" endtime="20201019 17:46:21.668"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:21.668" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:21.668" endtime="20201019 17:46:21.821"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:21.636" endtime="20201019 17:46:21.821"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:21.822" endtime="20201019 17:46:21.839"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:21.840" level="INFO">Typing text 'abc2@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:21.839" endtime="20201019 17:46:22.065"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:21.821" endtime="20201019 17:46:22.065"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:22.066" endtime="20201019 17:46:22.126"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:22.126" level="INFO">Typing text '0910000002' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:22.126" endtime="20201019 17:46:22.359"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:22.065" endtime="20201019 17:46:22.359"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:21.636" endtime="20201019 17:46:22.359"></status>
+</kw>
+<kw name="And User choosing category is SMEs" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:22.360" endtime="20201019 17:46:22.380"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:22.381" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:46:22.380" endtime="20201019 17:46:22.468"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:22.360" endtime="20201019 17:46:22.468"></status>
+</kw>
+<kw name="Choose Category SMEs" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_SMEs}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:22.469" endtime="20201019 17:46:22.546"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SMEs}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:22.546" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:22.546" endtime="20201019 17:46:22.853"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTNCAT_SMEs}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:22.854" endtime="20201019 17:46:22.889"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTNCAT_SMEs}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:22.889" level="INFO">Clicking element 'xpath://*[@class='select-category-group']/*[@class='category-group'][1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:22.889" endtime="20201019 17:46:23.161"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_SMEs}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:23.161" endtime="20201019 17:46:23.220"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_SMEs}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.220" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.220" endtime="20201019 17:46:23.329"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:23.330" endtime="20201019 17:46:23.354"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.354" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.354" endtime="20201019 17:46:23.514"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:23.329" endtime="20201019 17:46:23.514"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:22.469" endtime="20201019 17:46:23.514"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:22.360" endtime="20201019 17:46:23.514"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.516" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.516" endtime="20201019 17:46:23.570"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:23.515" endtime="20201019 17:46:23.570"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:23.515" endtime="20201019 17:46:23.570"></status>
+</kw>
+<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
+<arguments>
+<arg>2</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>7</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:23.572" endtime="20201019 17:46:23.844"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.845" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.844" endtime="20201019 17:46:23.913"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.913" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.913" endtime="20201019 17:46:23.963"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:23.964" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:46:23.964" endtime="20201019 17:46:24.011"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:24.012" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:46:24.011" endtime="20201019 17:46:24.073"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:23.571" endtime="20201019 17:46:24.073"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:23.571" endtime="20201019 17:46:24.073"></status>
+</kw>
+<kw name="Then User sign up success to new order screen" library="SignUpDF">
+<kw name="Title New Order Page Is Valid" library="NewOrderPage">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${LBL_TITLE}</arg>
+<arg>Đơn hàng mới</arg>
+</arguments>
+<msg timestamp="20201019 17:46:24.074" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
+<status status="PASS" starttime="20201019 17:46:24.074" endtime="20201019 17:46:24.103"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:24.074" endtime="20201019 17:46:24.103"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:24.074" endtime="20201019 17:46:24.103"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:46:24.551" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-2.png"&gt;&lt;img src="image/selenium-element-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:46:24.105" endtime="20201019 17:46:24.552"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:46:24.552" endtime="20201019 17:46:24.634"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:24.104" endtime="20201019 17:46:24.635"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_category_SMEs</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:46:14.860" endtime="20201019 17:46:24.635" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Verify that user can sign up success with category Corporate">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:24.639" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:46:24.638" endtime="20201019 17:46:26.038"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:46:28.041" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:46:26.038" endtime="20201019 17:46:28.041"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:28.042" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:46:28.041" endtime="20201019 17:46:30.280"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:30.281" endtime="20201019 17:46:30.282"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:24.638" endtime="20201019 17:46:30.282"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:30.283" endtime="20201019 17:46:30.305"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:30.307" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:30.306" endtime="20201019 17:46:30.469"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.283" endtime="20201019 17:46:30.469"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.282" endtime="20201019 17:46:30.470"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc3@gmail.com</arg>
+<arg>0910000003</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:30.471" endtime="20201019 17:46:30.493"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:30.493" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:30.493" endtime="20201019 17:46:30.629"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.471" endtime="20201019 17:46:30.629"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:30.630" endtime="20201019 17:46:30.647"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:30.648" level="INFO">Typing text 'abc3@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:30.648" endtime="20201019 17:46:30.845"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.629" endtime="20201019 17:46:30.846"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:30.846" endtime="20201019 17:46:30.879"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:30.879" level="INFO">Typing text '0910000003' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:30.879" endtime="20201019 17:46:31.056"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.846" endtime="20201019 17:46:31.056"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:30.470" endtime="20201019 17:46:31.056"></status>
+</kw>
+<kw name="And User choosing category is Corporate" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:31.057" endtime="20201019 17:46:31.081"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:31.082" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:46:31.082" endtime="20201019 17:46:31.188"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:31.057" endtime="20201019 17:46:31.188"></status>
+</kw>
+<kw name="Choose Category Corporate" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_CORPORATE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:31.189" endtime="20201019 17:46:31.324"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_CORPORATE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:31.324" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[3]'.</msg>
+<status status="PASS" starttime="20201019 17:46:31.324" endtime="20201019 17:46:31.480"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_CAT_SMEs}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:31.480" endtime="20201019 17:46:31.539"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_CAT_SMEs}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:31.540" level="INFO">Clicking element 'xpath://*[@class='select-category-group']/*[@class='category-group'][1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:31.539" endtime="20201019 17:46:31.810"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_CORPORATE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:31.810" endtime="20201019 17:46:31.858"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_CORPORATE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:31.859" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:46:31.859" endtime="20201019 17:46:31.964"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:31.965" endtime="20201019 17:46:31.985"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:31.985" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:31.985" endtime="20201019 17:46:32.131"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:31.964" endtime="20201019 17:46:32.132"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:31.188" endtime="20201019 17:46:32.132"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:31.057" endtime="20201019 17:46:32.132"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.133" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.133" endtime="20201019 17:46:32.199"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.133" endtime="20201019 17:46:32.199"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.132" endtime="20201019 17:46:32.199"></status>
+</kw>
+<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
+<arguments>
+<arg>2</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>7</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:32.201" endtime="20201019 17:46:32.439"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.440" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.439" endtime="20201019 17:46:32.513"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.514" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.513" endtime="20201019 17:46:32.578"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.578" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.578" endtime="20201019 17:46:32.634"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.634" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.634" endtime="20201019 17:46:32.706"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.200" endtime="20201019 17:46:32.707"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.200" endtime="20201019 17:46:32.707"></status>
+</kw>
+<kw name="Then User sign up success to new order screen" library="SignUpDF">
+<kw name="Title New Order Page Is Valid" library="NewOrderPage">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${LBL_TITLE}</arg>
+<arg>Đơn hàng mới</arg>
+</arguments>
+<msg timestamp="20201019 17:46:32.708" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
+<status status="PASS" starttime="20201019 17:46:32.708" endtime="20201019 17:46:32.728"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.707" endtime="20201019 17:46:32.729"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.707" endtime="20201019 17:46:32.729"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:46:33.149" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-3.png"&gt;&lt;img src="image/selenium-element-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:46:32.730" endtime="20201019 17:46:33.149"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:46:33.149" endtime="20201019 17:46:33.228"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:32.729" endtime="20201019 17:46:33.228"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_category_Corporate</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:46:24.637" endtime="20201019 17:46:33.228" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Verify that user can sign up success with valid referral code">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:33.232" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:46:33.232" endtime="20201019 17:46:34.644"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:46:36.646" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:46:34.645" endtime="20201019 17:46:36.646"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:36.648" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:46:36.647" endtime="20201019 17:46:39.136"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.136" endtime="20201019 17:46:39.136"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:33.231" endtime="20201019 17:46:39.137"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.138" endtime="20201019 17:46:39.165"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:39.165" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:39.165" endtime="20201019 17:46:39.320"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.137" endtime="20201019 17:46:39.321"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.137" endtime="20201019 17:46:39.321"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc4@gmail.com</arg>
+<arg>0910000004</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.322" endtime="20201019 17:46:39.350"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:39.350" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:39.350" endtime="20201019 17:46:39.478"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.321" endtime="20201019 17:46:39.478"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.479" endtime="20201019 17:46:39.497"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:39.498" level="INFO">Typing text 'abc4@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:39.498" endtime="20201019 17:46:39.683"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.478" endtime="20201019 17:46:39.684"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.685" endtime="20201019 17:46:39.720"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:39.721" level="INFO">Typing text '0910000004' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:39.721" endtime="20201019 17:46:39.908"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.684" endtime="20201019 17:46:39.909"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.321" endtime="20201019 17:46:39.909"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:39.911" endtime="20201019 17:46:39.938"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:39.939" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:46:39.938" endtime="20201019 17:46:40.032"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.910" endtime="20201019 17:46:40.032"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:40.033" endtime="20201019 17:46:40.114"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:40.115" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:40.114" endtime="20201019 17:46:40.314"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:40.314" endtime="20201019 17:46:40.390"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:40.390" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:46:40.390" endtime="20201019 17:46:40.445"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:40.445" endtime="20201019 17:46:40.473"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:40.474" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:40.473" endtime="20201019 17:46:40.560"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.445" endtime="20201019 17:46:40.560"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.032" endtime="20201019 17:46:40.561"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:39.910" endtime="20201019 17:46:40.561"></status>
+</kw>
+<kw name="And User input referral code" library="SignUpDF">
+<arguments>
+<arg>NHAN</arg>
+</arguments>
+<kw name="Input Referral Code At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Ref}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_REF}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:40.562" endtime="20201019 17:46:40.599"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_REF}</arg>
+<arg>${Ref}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:40.600" level="INFO">Typing text 'NHAN' into text field 'xpath://*[@data-test-id='signupReferralCode']//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:40.600" endtime="20201019 17:46:40.815"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.562" endtime="20201019 17:46:40.815"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.561" endtime="20201019 17:46:40.815"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:40.817" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:40.816" endtime="20201019 17:46:40.898"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.816" endtime="20201019 17:46:40.898"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.816" endtime="20201019 17:46:40.899"></status>
+</kw>
+<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
+<arguments>
+<arg>2</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>7</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:40.900" endtime="20201019 17:46:41.156"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.157" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.156" endtime="20201019 17:46:41.223"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.223" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.223" endtime="20201019 17:46:41.272"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.272" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.272" endtime="20201019 17:46:41.324"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.324" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.324" endtime="20201019 17:46:41.391"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.899" endtime="20201019 17:46:41.391"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:40.899" endtime="20201019 17:46:41.391"></status>
+</kw>
+<kw name="Then User sign up success to new order screen" library="SignUpDF">
+<kw name="Title New Order Page Is Valid" library="NewOrderPage">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${LBL_TITLE}</arg>
+<arg>Đơn hàng mới</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.392" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.392" endtime="20201019 17:46:41.422"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:41.392" endtime="20201019 17:46:41.423"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:41.391" endtime="20201019 17:46:41.423"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.832" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-4.png"&gt;&lt;img src="image/selenium-element-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:46:41.424" endtime="20201019 17:46:41.833"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:46:41.833" endtime="20201019 17:46:41.912"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:41.423" endtime="20201019 17:46:41.912"></status>
+</kw>
+<tags>
+<tag>TC_sign_up_with_valid_referral_code</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:46:33.230" endtime="20201019 17:46:41.912" critical="yes"></status>
+</test>
+<test id="s1-t5" name="Verify that user can sign up success with invalid referral code">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:41.914" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:46:41.914" endtime="20201019 17:46:43.315"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:46:45.317" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:46:43.316" endtime="20201019 17:46:45.317"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:45.318" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:46:45.317" endtime="20201019 17:46:48.138"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.138" endtime="20201019 17:46:48.139"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:41.913" endtime="20201019 17:46:48.139"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.140" endtime="20201019 17:46:48.161"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:48.161" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:46:48.161" endtime="20201019 17:46:48.295"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.140" endtime="20201019 17:46:48.295"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.140" endtime="20201019 17:46:48.295"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc4@gmail.com</arg>
+<arg>0910000005</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.297" endtime="20201019 17:46:48.321"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:48.322" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:48.321" endtime="20201019 17:46:48.442"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.296" endtime="20201019 17:46:48.442"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.443" endtime="20201019 17:46:48.459"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:48.460" level="INFO">Typing text 'abc4@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:48.459" endtime="20201019 17:46:48.654"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.443" endtime="20201019 17:46:48.654"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.656" endtime="20201019 17:46:48.698"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:48.699" level="INFO">Typing text '0910000005' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:48.698" endtime="20201019 17:46:48.869"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.654" endtime="20201019 17:46:48.869"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.295" endtime="20201019 17:46:48.869"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.870" endtime="20201019 17:46:48.890"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:48.890" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:46:48.890" endtime="20201019 17:46:48.980"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.869" endtime="20201019 17:46:48.980"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:48.982" endtime="20201019 17:46:49.062"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:49.063" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:46:49.063" endtime="20201019 17:46:49.276"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:49.276" endtime="20201019 17:46:49.335"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:49.336" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:46:49.335" endtime="20201019 17:46:49.389"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:49.389" endtime="20201019 17:46:49.411"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:49.411" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:49.411" endtime="20201019 17:46:49.484"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:49.389" endtime="20201019 17:46:49.484"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.980" endtime="20201019 17:46:49.485"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:48.869" endtime="20201019 17:46:49.485"></status>
+</kw>
+<kw name="And User input referral code" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+</arguments>
+<kw name="Input Referral Code At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Ref}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_REF}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:46:49.486" endtime="20201019 17:46:49.511"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_REF}</arg>
+<arg>${Ref}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:49.511" level="INFO">Typing text 'abc' into text field 'xpath://*[@data-test-id='signupReferralCode']//input'.</msg>
+<status status="PASS" starttime="20201019 17:46:49.511" endtime="20201019 17:46:49.604"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:49.485" endtime="20201019 17:46:49.604"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:49.485" endtime="20201019 17:46:49.605"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:46:49.606" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:46:49.605" endtime="20201019 17:46:49.682"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:49.605" endtime="20201019 17:46:49.682"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:46:49.605" endtime="20201019 17:46:49.683"></status>
+</kw>
+<kw name="Then Show error input invalid referral code" library="SignUpDF">
+<kw name="Error Referral Code At SignUp" library="SignUpPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Mã giới thiệu không tồn tại</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201019 17:47:05.227" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-screenshot-1.png"&gt;&lt;img src="image/selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:04.893" endtime="20201019 17:47:05.227"></status>
+</kw>
+<msg timestamp="20201019 17:47:05.232" level="FAIL">not found</msg>
+<status status="FAIL" starttime="20201019 17:46:49.684" endtime="20201019 17:47:05.232"></status>
+</kw>
+<status status="FAIL" starttime="20201019 17:46:49.683" endtime="20201019 17:47:05.233"></status>
+</kw>
+<status status="FAIL" starttime="20201019 17:46:49.683" endtime="20201019 17:47:05.233"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:05.561" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-5.png"&gt;&lt;img src="image/selenium-element-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:05.234" endtime="20201019 17:47:05.562"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:05.562" endtime="20201019 17:47:05.639"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:05.234" endtime="20201019 17:47:05.639"></status>
+</kw>
+<tags>
+<tag>TC_sign_up_with_invalid_referral_code</tag>
+</tags>
+<status status="FAIL" starttime="20201019 17:46:41.913" endtime="20201019 17:47:05.640" critical="yes">not found</status>
+</test>
+<test id="s1-t6" name="Verify that user can't sign up with invalid OTP">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:05.644" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:47:05.643" endtime="20201019 17:47:07.064"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:47:09.066" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:47:07.064" endtime="20201019 17:47:09.066"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:09.067" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:47:09.067" endtime="20201019 17:47:11.414"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:11.414" endtime="20201019 17:47:11.414"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:05.642" endtime="20201019 17:47:11.415"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:11.416" endtime="20201019 17:47:11.436"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:11.436" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:11.436" endtime="20201019 17:47:11.576"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.415" endtime="20201019 17:47:11.576"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.415" endtime="20201019 17:47:11.576"></status>
+</kw>
+<kw name="When User input success full all info" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc6@gmail.com</arg>
+<arg>0910000006</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:11.578" endtime="20201019 17:47:11.600"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:11.601" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:11.600" endtime="20201019 17:47:11.724"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.577" endtime="20201019 17:47:11.724"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:11.724" endtime="20201019 17:47:11.743"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:11.743" level="INFO">Typing text 'abc6@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:11.743" endtime="20201019 17:47:11.979"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.724" endtime="20201019 17:47:11.979"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:11.980" endtime="20201019 17:47:12.036"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.036" level="INFO">Typing text '0910000006' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.036" endtime="20201019 17:47:12.191"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.979" endtime="20201019 17:47:12.191"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:11.577" endtime="20201019 17:47:12.191"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:12.192" endtime="20201019 17:47:12.211"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.211" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.211" endtime="20201019 17:47:12.346"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.192" endtime="20201019 17:47:12.346"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:12.347" endtime="20201019 17:47:12.379"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.379" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.379" endtime="20201019 17:47:12.563"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:12.564" endtime="20201019 17:47:12.613"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.614" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.614" endtime="20201019 17:47:12.695"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:12.696" endtime="20201019 17:47:12.725"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.726" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.726" endtime="20201019 17:47:12.798"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.695" endtime="20201019 17:47:12.798"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.346" endtime="20201019 17:47:12.798"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.192" endtime="20201019 17:47:12.798"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:12.800" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:12.799" endtime="20201019 17:47:12.872"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.799" endtime="20201019 17:47:12.872"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.799" endtime="20201019 17:47:12.872"></status>
+</kw>
+<kw name="And Go to input activation code screen and input invalid code" library="SignUpDF">
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:12.874" endtime="20201019 17:47:13.121"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:13.122" level="INFO">Typing text '1' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:47:13.121" endtime="20201019 17:47:13.216"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:13.216" level="INFO">Typing text '1' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:13.216" endtime="20201019 17:47:13.263"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:13.264" level="INFO">Typing text '1' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:47:13.264" endtime="20201019 17:47:13.314"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:13.315" level="INFO">Typing text '1' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:47:13.314" endtime="20201019 17:47:13.380"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.873" endtime="20201019 17:47:13.381"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:12.873" endtime="20201019 17:47:13.381"></status>
+</kw>
+<kw name="Then Show error input invalid acctivated code" library="SignUpDF">
+<kw name="Error Mess Invalid Activate Code" library="VerifyOTPPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Mã kích hoạt của bạn đã hết hạn.</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:13.382" endtime="20201019 17:47:13.602"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:13.381" endtime="20201019 17:47:13.602"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:13.381" endtime="20201019 17:47:13.602"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:13.943" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-6.png"&gt;&lt;img src="image/selenium-element-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:13.603" endtime="20201019 17:47:13.943"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:13.943" endtime="20201019 17:47:14.023"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:13.603" endtime="20201019 17:47:14.023"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_invalid_OTP</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:47:05.641" endtime="20201019 17:47:14.023" critical="yes"></status>
+</test>
+<test id="s1-t7" name="Verify that go to login when user sign up with exist phone">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:14.026" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:47:14.026" endtime="20201019 17:47:15.499"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:47:17.500" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:47:15.499" endtime="20201019 17:47:17.501"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:17.503" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:47:17.502" endtime="20201019 17:47:19.884"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:19.885" endtime="20201019 17:47:19.885"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:14.025" endtime="20201019 17:47:19.885"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:19.887" endtime="20201019 17:47:19.916"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:19.917" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:19.916" endtime="20201019 17:47:20.071"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:19.886" endtime="20201019 17:47:20.071"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:19.886" endtime="20201019 17:47:20.071"></status>
+</kw>
+<kw name="When User input success full all info but phone is existed" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>abc7@gmail.com</arg>
+<arg>0981875523</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:20.073" endtime="20201019 17:47:20.097"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:20.097" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:20.097" endtime="20201019 17:47:20.233"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.072" endtime="20201019 17:47:20.233"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:20.234" endtime="20201019 17:47:20.253"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:20.253" level="INFO">Typing text 'abc7@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:20.253" endtime="20201019 17:47:20.462"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.233" endtime="20201019 17:47:20.463"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:20.463" endtime="20201019 17:47:20.514"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:20.514" level="INFO">Typing text '0981875523' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:20.514" endtime="20201019 17:47:20.674"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.463" endtime="20201019 17:47:20.674"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.072" endtime="20201019 17:47:20.674"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:20.675" endtime="20201019 17:47:20.707"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:20.707" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:47:20.707" endtime="20201019 17:47:20.845"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.675" endtime="20201019 17:47:20.845"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:20.846" endtime="20201019 17:47:20.876"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:20.877" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:47:20.877" endtime="20201019 17:47:21.058"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:21.058" endtime="20201019 17:47:21.102"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.103" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.103" endtime="20201019 17:47:21.152"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:21.153" endtime="20201019 17:47:21.177"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.178" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.178" endtime="20201019 17:47:21.253"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.152" endtime="20201019 17:47:21.253"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.845" endtime="20201019 17:47:21.254"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:20.674" endtime="20201019 17:47:21.254"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.255" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.255" endtime="20201019 17:47:21.325"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.255" endtime="20201019 17:47:21.325"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.254" endtime="20201019 17:47:21.325"></status>
+</kw>
+<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
+<arguments>
+<arg>2</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>7</arg>
+</arguments>
+<kw name="Input Activate Code" library="VerifyOTPPage">
+<arguments>
+<arg>@{OTP}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:21.326" endtime="20201019 17:47:21.563"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP1}</arg>
+<arg>${OTP}[0]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.563" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.563" endtime="20201019 17:47:21.635"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP2}</arg>
+<arg>${OTP}[1]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.636" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.636" endtime="20201019 17:47:21.688"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP3}</arg>
+<arg>${OTP}[2]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.689" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.688" endtime="20201019 17:47:21.740"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_OTP4}</arg>
+<arg>${OTP}[3]</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.741" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.740" endtime="20201019 17:47:21.805"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.326" endtime="20201019 17:47:21.805"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.325" endtime="20201019 17:47:21.805"></status>
+</kw>
+<kw name="Then User sign up success to new order screen" library="SignUpDF">
+<kw name="Title New Order Page Is Valid" library="NewOrderPage">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${LBL_TITLE}</arg>
+<arg>Đơn hàng mới</arg>
+</arguments>
+<msg timestamp="20201019 17:47:21.807" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
+<status status="PASS" starttime="20201019 17:47:21.806" endtime="20201019 17:47:21.832"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.806" endtime="20201019 17:47:21.832"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.806" endtime="20201019 17:47:21.833"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:22.211" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-7.png"&gt;&lt;img src="image/selenium-element-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:21.833" endtime="20201019 17:47:22.211"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:22.211" endtime="20201019 17:47:22.287"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:21.833" endtime="20201019 17:47:22.287"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_exist_phone</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:47:14.025" endtime="20201019 17:47:22.287" critical="yes"></status>
+</test>
+<test id="s1-t8" name="Verify that user can't sign up when input exist email">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:22.291" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:47:22.290" endtime="20201019 17:47:23.707"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:47:25.709" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:47:23.708" endtime="20201019 17:47:25.710"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:25.711" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:47:25.710" endtime="20201019 17:47:28.261"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:28.261" endtime="20201019 17:47:28.262"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:22.290" endtime="20201019 17:47:28.263"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:28.264" endtime="20201019 17:47:28.288"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:28.288" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:28.288" endtime="20201019 17:47:28.446"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.264" endtime="20201019 17:47:28.446"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.264" endtime="20201019 17:47:28.447"></status>
+</kw>
+<kw name="When User input success full all info but email is existed" library="SignUpDF">
+<arguments>
+<arg>abc</arg>
+<arg>thanh@gmail.com</arg>
+<arg>0910000007</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:28.448" endtime="20201019 17:47:28.471"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:28.471" level="INFO">Typing text 'abc' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:28.471" endtime="20201019 17:47:28.601"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.447" endtime="20201019 17:47:28.602"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:28.602" endtime="20201019 17:47:28.619"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:28.619" level="INFO">Typing text 'thanh@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:28.619" endtime="20201019 17:47:28.820"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.602" endtime="20201019 17:47:28.820"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:28.821" endtime="20201019 17:47:28.879"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:28.880" level="INFO">Typing text '0910000007' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:28.879" endtime="20201019 17:47:29.039"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.820" endtime="20201019 17:47:29.040"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:28.447" endtime="20201019 17:47:29.040"></status>
+</kw>
+<kw name="And User choosing category is Individual" library="SignUpDF">
+<kw name="Click Menu Category" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+<arg>15s</arg>
+<arg>${MNU_CAT} not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:29.041" endtime="20201019 17:47:29.062"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${MNU_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:29.062" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
+<status status="PASS" starttime="20201019 17:47:29.062" endtime="20201019 17:47:29.199"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.041" endtime="20201019 17:47:29.199"></status>
+</kw>
+<kw name="Choose Category Individual" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:29.200" endtime="20201019 17:47:29.232"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:29.232" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
+<status status="PASS" starttime="20201019 17:47:29.232" endtime="20201019 17:47:29.491"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:29.491" endtime="20201019 17:47:29.531"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CHK_SUBCAT_INDIVIDUAL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:29.532" level="INFO">Clicking element 'xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']'.</msg>
+<status status="PASS" starttime="20201019 17:47:29.531" endtime="20201019 17:47:29.578"></status>
+</kw>
+<kw name="Click On Save Category" library="CategoryPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:29.579" endtime="20201019 17:47:29.601"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN-SAVE}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:29.601" level="INFO">Clicking button 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:29.601" endtime="20201019 17:47:29.687"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.579" endtime="20201019 17:47:29.687"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.199" endtime="20201019 17:47:29.687"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.040" endtime="20201019 17:47:29.688"></status>
+</kw>
+<kw name="And User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:29.689" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:29.689" endtime="20201019 17:47:29.749"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.688" endtime="20201019 17:47:29.749"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.688" endtime="20201019 17:47:29.749"></status>
+</kw>
+<kw name="Then Show error message email is existed" library="SignUpDF">
+<kw name="Error Existed Mail" library="SignUpPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Email này đã được đăng ký</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:29.751" endtime="20201019 17:47:30.184"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.750" endtime="20201019 17:47:30.184"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:29.749" endtime="20201019 17:47:30.184"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:30.537" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-8.png"&gt;&lt;img src="image/selenium-element-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:30.185" endtime="20201019 17:47:30.538"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:30.538" endtime="20201019 17:47:30.618"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:30.185" endtime="20201019 17:47:30.618"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_exist_email</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:47:22.288" endtime="20201019 17:47:30.618" critical="yes"></status>
+</test>
+<test id="s1-t9" name="Verify that user can't sign up when not input request info">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:30.622" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:47:30.621" endtime="20201019 17:47:32.019"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:47:34.021" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:47:32.019" endtime="20201019 17:47:34.022"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:34.023" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:47:34.022" endtime="20201019 17:47:36.237"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:36.238" endtime="20201019 17:47:36.238"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:30.621" endtime="20201019 17:47:36.238"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:36.240" endtime="20201019 17:47:36.267"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.267" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:36.267" endtime="20201019 17:47:36.400"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.240" endtime="20201019 17:47:36.400"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.239" endtime="20201019 17:47:36.400"></status>
+</kw>
+<kw name="When User click to Sign Up button" library="SignUpDF">
+<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${BTN_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.402" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201019 17:47:36.402" endtime="20201019 17:47:36.505"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.401" endtime="20201019 17:47:36.505"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.401" endtime="20201019 17:47:36.505"></status>
+</kw>
+<kw name="Then Show error message need to input at require field" library="SignUpDF">
+<kw name="Show Error Message Blank Name" library="SignUpPage">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_BLANK_NAME}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.532" level="INFO">Element 'xpath://*[contains(@data-test-id,'signupName')]//*[contains(text(),'Vui lòng nhập họ tên')]' is displayed.</msg>
+<status status="PASS" starttime="20201019 17:47:36.506" endtime="20201019 17:47:36.532"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.506" endtime="20201019 17:47:36.532"></status>
+</kw>
+<kw name="Show Error Message Blank Email" library="SignUpPage">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_BLANK_EMAIL}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.554" level="INFO">Element 'xpath://*[contains(@data-test-id,'signupEmail')]//*[contains(text(),'Vui lòng nhập email')]' is displayed.</msg>
+<status status="PASS" starttime="20201019 17:47:36.532" endtime="20201019 17:47:36.555"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.532" endtime="20201019 17:47:36.555"></status>
+</kw>
+<kw name="Show Error Message Blank Phone" library="SignUpPage">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_BLANK_PHONE}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.572" level="INFO">Element 'xpath://*[contains(@data-test-id,'signupPhone')]//*[contains(text(),'Vui lòng nhập số điện thoại')]' is displayed.</msg>
+<status status="PASS" starttime="20201019 17:47:36.555" endtime="20201019 17:47:36.572"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.555" endtime="20201019 17:47:36.572"></status>
+</kw>
+<kw name="Show Error Message Blank Category" library="SignUpPage">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_BLANK_CAT}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.591" level="INFO">Element 'xpath://*[contains(@class,'sign-up__category')][contains(text(),'Vui lòng chọn loại tài khoản')]' is displayed.</msg>
+<status status="PASS" starttime="20201019 17:47:36.573" endtime="20201019 17:47:36.591"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.573" endtime="20201019 17:47:36.591"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.505" endtime="20201019 17:47:36.591"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:36.991" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-9.png"&gt;&lt;img src="image/selenium-element-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:36.592" endtime="20201019 17:47:36.991"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:36.991" endtime="20201019 17:47:37.067"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:36.591" endtime="20201019 17:47:37.067"></status>
+</kw>
+<tags>
+<tag>TC_signup_when_not_input_request_info</tag>
+</tags>
+<status status="PASS" starttime="20201019 17:47:30.620" endtime="20201019 17:47:37.067" critical="yes"></status>
+</test>
+<test id="s1-t10" name="Verify that user can't sign up when input invalid infomation">
+<kw name="Begin Web Test" library="Common" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:37.069" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201019 17:47:37.069" endtime="20201019 17:47:38.470"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201019 17:47:40.473" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201019 17:47:38.470" endtime="20201019 17:47:40.474"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL.${ENVIROMENT}}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:40.475" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
+<status status="PASS" starttime="20201019 17:47:40.474" endtime="20201019 17:47:42.799"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>./Report/image</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:42.799" endtime="20201019 17:47:42.800"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:37.069" endtime="20201019 17:47:42.800"></status>
+</kw>
+<kw name="Given User open app to sign up screen" library="SignUpDF">
+<kw name="Click To Tap SignUp At Login" library="SignInPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:42.802" endtime="20201019 17:47:42.827"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TAB_SIGNUP}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:42.828" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
+<status status="PASS" starttime="20201019 17:47:42.827" endtime="20201019 17:47:42.977"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:42.801" endtime="20201019 17:47:42.977"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:42.800" endtime="20201019 17:47:42.977"></status>
+</kw>
+<kw name="When User input all invalid info" library="SignUpDF">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+<arg>c</arg>
+</arguments>
+<kw name="Input Name At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:42.978" endtime="20201019 17:47:43.008"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_NAME}</arg>
+<arg>${Name}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:43.008" level="INFO">Typing text 'a' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:43.008" endtime="20201019 17:47:43.120"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:42.978" endtime="20201019 17:47:43.120"></status>
+</kw>
+<kw name="Input Email At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Email}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>15s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:43.121" endtime="20201019 17:47:43.139"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_EMAIL}</arg>
+<arg>${Email}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:43.140" level="INFO">Typing text 'b' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:43.140" endtime="20201019 17:47:43.239"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.120" endtime="20201019 17:47:43.239"></status>
+</kw>
+<kw name="Input Phone At SignUp" library="SignUpPage">
+<arguments>
+<arg>${Phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:43.240" endtime="20201019 17:47:43.257"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${TXT_PHONE_SIGNUP}</arg>
+<arg>${Phone}</arg>
+</arguments>
+<msg timestamp="20201019 17:47:43.257" level="INFO">Typing text 'c' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
+<status status="PASS" starttime="20201019 17:47:43.257" endtime="20201019 17:47:43.386"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.239" endtime="20201019 17:47:43.386"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:42.977" endtime="20201019 17:47:43.386"></status>
+</kw>
+<kw name="Then Show error message invalid info at require field" library="SignUpDF">
+<kw name="Show Error Message Invalid Name" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_INVALID_NAME}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:43.388" endtime="20201019 17:47:43.446"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.387" endtime="20201019 17:47:43.446"></status>
+</kw>
+<kw name="Show Error Message Invalid Email" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_INVALID_EMAIL}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:43.447" endtime="20201019 17:47:43.492"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.446" endtime="20201019 17:47:43.493"></status>
+</kw>
+<kw name="Show Error Message Invalid Phone" library="SignUpPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ERR_INVALID_PHONE}</arg>
+<arg>15s</arg>
+<arg>not found</arg>
+</arguments>
+<status status="PASS" starttime="20201019 17:47:43.493" endtime="20201019 17:47:43.514"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.493" endtime="20201019 17:47:43.514"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.387" endtime="20201019 17:47:43.514"></status>
+</kw>
+<kw name="And Login button is disable">
+<msg timestamp="20201019 17:47:43.522" level="FAIL">No keyword with name 'And Login button is disable' found.</msg>
+<status status="FAIL" starttime="20201019 17:47:43.522" endtime="20201019 17:47:43.522"></status>
+</kw>
+<kw name="End Web Test" library="Common" type="teardown">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=selenium-element-screenshot-{index}.png</arg>
+</arguments>
+<msg timestamp="20201019 17:47:43.894" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/selenium-element-screenshot-10.png"&gt;&lt;img src="image/selenium-element-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201019 17:47:43.523" endtime="20201019 17:47:43.894"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201019 17:47:43.895" endtime="20201019 17:47:43.977"></status>
+</kw>
+<status status="PASS" starttime="20201019 17:47:43.522" endtime="20201019 17:47:43.977"></status>
+</kw>
+<tags>
+<tag>TC_signup_with_invalid_infomation</tag>
+</tags>
+<status status="FAIL" starttime="20201019 17:47:37.068" endtime="20201019 17:47:43.977" critical="yes">No keyword with name 'And Login button is disable' found.</status>
+</test>
+<status status="FAIL" starttime="20201019 17:46:04.580" endtime="20201019 17:47:43.981"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="2">Critical Tests</stat>
+<stat pass="8" fail="2">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">TC_signup_when_not_input_request_info</stat>
+<stat pass="1" fail="0">TC_signup_with_category_Corporate</stat>
+<stat pass="1" fail="0">TC_signup_with_category_Individual</stat>
+<stat pass="1" fail="0">TC_signup_with_category_SMEs</stat>
+<stat pass="1" fail="0">TC_signup_with_exist_email</stat>
+<stat pass="1" fail="0">TC_signup_with_exist_phone</stat>
+<stat pass="0" fail="1">TC_signup_with_invalid_infomation</stat>
+<stat pass="1" fail="0">TC_signup_with_invalid_OTP</stat>
+<stat pass="0" fail="1">TC_sign_up_with_invalid_referral_code</stat>
+<stat pass="1" fail="0">TC_sign_up_with_valid_referral_code</stat>
+</tag>
+<suite>
+<stat pass="8" fail="2" id="s1" name="SignUp">SignUp</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -13,12 +13,12 @@ ${BTN_INDIVIDUAL}  xpath://*[@class='business__types']/div[1]
 ${BTN_SMEs}  xpath://*[@class='business__types']/div[2]
 ${BTN_CORPORATE}  xpath://*[@class='business__types']/div[3]
 
-${BTN_CAT_SMEs}  xpath://*[contains(@class,'select-category-group')]//*[contains(text(),'Đồ ăn')]
-${BTN_CAT_CORPORATE}  xpath://*[contains(@class,'select-category-group')]//*[contains(text(),'Đồ ăn')]
+${BTN_CAT_SMEs}  xpath://*[@class='select-category-group']/*[@class='category-group'][1]
+${BTN_CAT_CORPORATE}  xpath://*[@class='select-category-group']/*[@class='category-group'][1]
 
-${CHK_SUBCAT_INDIVIDUAL}  xpath://*[@class='category-item__wrapper']/div[1]//*[@class='v-input v-input--selection-controls v-input--checkbox theme--light']//*[@class='v-input--selection-controls__ripple']
-${CHK_SUBCAT_SMEs}  xpath://*[contains(@class,'v-input v-input--selection-controls v-input--checkbox theme--light')]//*[contains(text(),'Đồ ăn nhanh')]
-${CHK_SUBCAT_CORPORATE}  xpath://*[contains(@class,'v-input v-input--selection-controls v-input--checkbox theme--light')]//*[contains(text(),'Đồ ăn nhanh')]
+${CHK_SUBCAT_INDIVIDUAL}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
+${CHK_SUBCAT_SMEs}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
+${CHK_SUBCAT_CORPORATE}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
 ${BTN-SAVE}  xpath://*[@class='v-btn v-btn--depressed theme--light accent']
 
 *** Keywords ***
