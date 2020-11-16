@@ -18,7 +18,7 @@ ${ERR_CODE}  xpath://div[contains(text(),'Bạn đã nhập sai OTP, vui lòng n
 *** Keywords ***
 Input Activate Code
     [Arguments]  @{otp}
-    wait until element is visible  ${TXT_OTP1}  15s  not found
+    wait until element is visible  ${TXT_OTP1}  25s  not found
     Input Text  ${TXT_OTP1}   ${otp}[0]
     Input Text  ${TXT_OTP2}   ${otp}[1]
     Input Text  ${TXT_OTP3}   ${otp}[2]

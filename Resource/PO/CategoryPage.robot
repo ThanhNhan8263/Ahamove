@@ -7,46 +7,50 @@ Library  Collections
 Library  BuiltIn
 
 Resource  ../Common.robot
+Resource   ${EXECDIR}/Resource/DB/User_categoryDB.robot
+Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 
 *** Variables ***
 ${BTN_INDIVIDUAL}  xpath://*[@class='business__types']/div[1]
 ${BTN_SMEs}  xpath://*[@class='business__types']/div[2]
 ${BTN_CORPORATE}  xpath://*[@class='business__types']/div[3]
 
-${BTN_CAT_SMEs}  xpath://*[@class='select-category-group']/*[@class='category-group'][1]
-${BTN_CAT_CORPORATE}  xpath://*[@class='select-category-group']/*[@class='category-group'][1]
-
-${CHK_SUBCAT_INDIVIDUAL}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
-${CHK_SUBCAT_SMEs}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
-${CHK_SUBCAT_CORPORATE}  xpath://*[@class='category-items__wrapper']/div/div[2]/div[1]//*[@class='v-input--selection-controls__ripple']
 ${BTN-SAVE}  xpath://*[@class='v-btn v-btn--depressed theme--light accent']
+${MNU_CAT}  xpath://*[@class='category__label__content-placeholder']
+
 
 *** Keywords ***
 Choose Category Individual
-    Wait until element is visible  ${BTN_INDIVIDUAL}  15s  not found
-    Click Element  ${BTN_INDIVIDUAL}
-    Wait until element is visible  ${CHK_SUBCAT_INDIVIDUAL}  15s  not found
-    Click Element  ${CHK_SUBCAT_INDIVIDUAL}
-    Click On Save Category
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    BasePage.Wait And Click  ${BTN_INDIVIDUAL}
+    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    Click Save Category
 
 Choose Category SMEs
-    Wait until element is visible  ${BTN_SMEs}  15s  not found
-    Click Element  ${BTN_SMEs}
-    Wait until element is visible  ${BTNCAT_SMEs}  15s  not found
-    Click Element  ${BTNCAT_SMEs}
-    Wait until element is visible  ${CHK_SUBCAT_SMEs}  15s  not found
-    Click Element  ${CHK_SUBCAT_SMEs}
-    Click On Save Category
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    BasePage.Wait And Click  ${BTN_SMEs}
+    ${text_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${lang}
+    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${text_cat}')]
+    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    Click Save Category
 
 Choose Category Corporate
-    Wait until element is visible  ${BTN_CORPORATE}  15s  not found
-    Click Element  ${BTN_CORPORATE}
-    Wait until element is visible  ${BTN_CAT_SMEs}  15s  not found
-    Click Element  ${BTN_CAT_SMEs}
-    Wait until element is visible  ${CHK_SUBCAT_CORPORATE}  15s  not found
-    Click Element  ${CHK_SUBCAT_CORPORATE}
-    Click On Save Category
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    BasePage.Wait And Click  ${BTN_CORPORATE}
+    ${text_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${lang}
+    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${text_cat}')]
+    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    Click Save Category
 
-Click On Save Category
-    Wait until element is visible  ${BTN-SAVE}  15s  not found
-    Click Button  ${BTN-SAVE}
+Click Save Category
+    BasePage.Wait And Click  ${BTN-SAVE}
+
+#*** Test Cases ***
+#Click category
+#    Open browser   https://appstg.ahamove.com/sign-up  chrome
+#    Wait And Click  ${MNU_CAT}
+#    Choose category  Corporation  OTHER  CONVENIENCE STORES  vi
+#    Close All Browsers

@@ -3,19 +3,18 @@ Library  SeleniumLibrary  #run_on_failure=Nothing k chụp lại hình
 Library  OperatingSystem
 
 *** Variables ***
-&{URL}  stg=https://appstg.ahamove.com
+&{URL}  stg=https://appstg.ahamove.com  uat=https://appuat.ahamove.com  prod=https://app.ahamove.com
 ${ENVIROMENT} =  stg
-#default value, run -V ENVIROMENT:prod
 ${BROWSER} =  headlesschrome
-# chạy ngầm => run -v BROWSER:headlesschrome
+#run -v BROWSER:headlesschrome
 
 *** Keywords ***
 Begin Web Test
     Open Browser  about:blank  ${BROWSER}
     Go To  ${URL.${ENVIROMENT}}
-    Set Screenshot Directory  ./Report/image
+    Set Screenshot Directory  ${EXECDIR}/Report/image
 End Web Test
-    Capture Page Screenshot  filename=selenium-element-screenshot-{index}.png
+    Capture Page Screenshot  ${EXECDIR}/Report/image/custom_name_{index}.png
     Close All Browsers
 
 

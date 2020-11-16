@@ -6,21 +6,22 @@ Library  String
 Library  Collections
 Library  BuiltIn
 
+
+Resource   ${EXECDIR}/Resource/DB/UserDB.robot
+Resource   ${EXECDIR}/Resource/Base/FakeData.robot
+Resource   ${EXECDIR}/Resource/Base/BasePage.robot
+
 *** Variables ***
 ${TXT_NAME}  xpath://*[contains(@data-test-id,'signupName')]//input
-#${CON_TBOX_NAME}  xpath://*[@class='v-input a-text-field sign-up__name v-text-field theme--light dark']//label
 ${ERR_BLANK_NAME}  xpath://*[contains(@data-test-id,'signupName')]//*[contains(text(),'Vui lòng nhập họ tên')]
 ${ERR_INVALID_NAME}  xpath://*[contains(@data-test-id,'signupName')]//*[contains(text(),'Nhập Tên tối thiểu 3 ký tự')]
 
 ${TXT_EMAIL}  xpath://*[contains(@data-test-id,'signupEmail')]//input
-#${CON_TBOX_EMAIL}  xpath://*[@class='layout mb-3 row']//*[@class='v-input a-text-field v-text-field theme--light dark']//*[@class='v-text-field__slot']//label
 ${ERR_BLANK_EMAIL}  xpath://*[contains(@data-test-id,'signupEmail')]//*[contains(text(),'Vui lòng nhập email')]
 ${ERR_INVALID_EMAIL}  xpath://*[contains(@data-test-id,'signupEmail')]//*[contains(text(),'Địa chỉ email không hợp lệ')]
 
 
-#${LB_SIGNUP_COUNTRY}  xpath://*[@class='sign-up__phone-country']
 ${TXT_PHONE_SIGNUP}  xpath://*[contains(@data-test-id,'signupPhone')]//input
-#${CON_TBOX_PHONE}  xpath://*[@class='flex sign-up__phone mb-3 xs12']//*[@class='v-input a-text-field title v-text-field theme--light dark']//label
 ${ERR_BLANK_PHONE}  xpath://*[contains(@data-test-id,'signupPhone')]//*[contains(text(),'Vui lòng nhập số điện thoại')]
 ${ERR_INVALID_PHONE}  xpath://*[contains(@data-test-id,'signupPhone')]//*[contains(text(),'Số điện thoại không hợp lệ')]
 
@@ -28,63 +29,101 @@ ${ERR_BLANK_CAT}  xpath://*[contains(@class,'sign-up__category')][contains(text(
 ${MNU_CAT}  xpath://*[@class='category__label__content-placeholder']
 
 ${TXT_REF}  xpath://*[@data-test-id='signupReferralCode']//input
-#${CON_TBOX_REF}  xpath://*[@class='flex xs12']//*[@class='v-input a-text-field v-text-field theme--light dark']//label
 
 ${BTN_SIGNUP_DISABLE}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--disabled v-btn--large v-btn--depressed theme--light accent--text']
 ${BTN_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']
-#${CON_BUT_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']/div[1]
 
 *** Keywords ***
+Input user info
+    @{data_info} =  FakeData.Fake Data Info
+    Set suite variable  @{data_info}  @{data_info}
+    BasePage.Wait And Input  ${TXT_NAME}  ${data_info}[0]
+    BasePage.Wait And Input  ${TXT_EMAIL}  ${data_info}[1]
+    BasePage.Wait And Input  ${TXT_PHONE_SIGNUP}  ${data_info}[2]
+
+
 Input Name At SignUp
     [Arguments]  ${name}
-    Wait Until Element Is Visible  ${TXT_NAME}  15s  Not found
-    Input Text  ${TXT_NAME}  ${name}
+    BasePage.Wait And Input  ${TXT_NAME}  ${name}
 
 Input Email At SignUp
     [Arguments]  ${email}
-    Wait Until Element Is Visible  ${TXT_EMAIL}  15s  Not found
-    Input Text  ${TXT_EMAIL}  ${email}
+    BasePage.Wait And Input  ${TXT_EMAIL}  ${email}
 
 Input Phone At SignUp
     [Arguments]  ${phone}
-    Wait Until Element Is Visible  ${TXT_PHONE_SIGNUP}  25s  Not found
-    Input Text  ${TXT_PHONE_SIGNUP}  ${phone}
+    BasePage.Wait And Input  ${TXT_PHONE_SIGNUP}  ${phone}
 
 Input Referral Code At SignUp
     [Arguments]  ${ref}
-    Wait Until Element Is Visible  ${TXT_REF}  15s  Not found
-    Input Text  ${TXT_REF}  ${ref}
+    BasePage.Wait And Input  ${TXT_REF}  ${ref}
 
 Click Button Sign Up At Sign Up
     Click Button  ${BTN_SIGNUP}
 
 Show Error Message Blank Name
-    Element Should Be Visible  ${ERR_BLANK_NAME}
+    BasePage.Wait visible  ${ERR_BLANK_NAME}
 Show Error Message Blank Email
-    Element Should Be Visible  ${ERR_BLANK_EMAIL}
+    BasePage.Wait visible  ${ERR_BLANK_EMAIL}
 Show Error Message Blank Phone
-    Element Should Be Visible  ${ERR_BLANK_PHONE}
+    BasePage.Wait visible  ${ERR_BLANK_PHONE}
 Show Error Message Blank Category
-    Element Should Be Visible  ${ERR_BLANK_CAT}
+    BasePage.Wait visible  ${ERR_BLANK_CAT}
 
 Show Error Message Invalid Name
-    Wait until element is visible  ${ERR_INVALID_NAME}  15s  not found
+    BasePage.Wait visible  ${ERR_INVALID_NAME}
 Show Error Message Invalid Email
-    Wait until element is visible  ${ERR_INVALID_EMAIL}  15s  not found
+    BasePage.Wait visible  ${ERR_INVALID_EMAIL}
 Show Error Message Invalid Phone
-    Wait until element is visible  ${ERR_INVALID_PHONE}  15s  not found
+    BasePage.Wait visible  ${ERR_INVALID_PHONE}
 
 Error Existed Mail
-    Wait Until Page Contains  Email này đã được đăng ký  15s  not found
+    Wait Page Contains  Email này đã được đăng ký
 
 Button SignUp Is Disable
     Element Should Be Visible  ${BTN_SIGNUP_DISABLE}
 
 Error Referral Code At SignUp
-    Wait Until Page Contains  Mã giới thiệu không tồn tại  15s  not found
+    Wait Page Contains  Mã giới thiệu không tồn tại
 
 Click Menu Category
-    Wait until element is visible  ${MNU_CAT}  15s  ${MNU_CAT} not found
-    Click Element  ${MNU_CAT}
+    BasePage.Wait And Click  ${MNU_CAT}
+
+Verify user info
+    [Arguments]  ${user_type}  ${cat}  ${subcat}
+    @{user_info} =  UserDB.Get User Info When Sign Up  ${data_info}[2]
+    Should Be Equal As Strings  ${data_info}[2]  ${user_info}[0]  msg=Fail
+    Should Be Equal As Strings  ${data_info}[0]  ${user_info}[1]  msg=Fail
+    Should Be Equal As Strings  ${data_info}[1]  ${user_info}[2]  msg=Fail
+    Should Be Equal As Strings  ${user_type}  ${user_info}[3]  msg=Fail
+    Should Be Equal As Strings  ${cat}  ${user_info}[4]  msg=Fail
+    Should Be Equal As Strings  ${subcat}  ${user_info}[5]  msg=Fail
+    Log  ${user_info}
+
+
+Have user id in database
+    [Arguments]  ${data}
+    UserDB.Get User Id  ${data}
+
+Don't have user id in database
+    [Arguments]  ${data}
+    UserDB.Get Blank User Id  ${data}
+
+Have email in database
+    [Arguments]  ${data}
+    UserDB.Get User Email  ${data}
+
+
+
+
+
+
+#*** Test Cases ***
+#Input data
+#    Open Browser  https://appstg.ahamove.com/sign-up  chrome
+#    Input user info
+#    Close Browser
+
+
 
 

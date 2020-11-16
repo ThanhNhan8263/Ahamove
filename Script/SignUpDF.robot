@@ -11,22 +11,22 @@ Resource   ${EXECDIR}/Resource/PO/SignUpPage.robot
 Resource   ${EXECDIR}/Resource/PO/CategoryPage.robot
 Resource   ${EXECDIR}/Resource/PO/VerifyOTPPage.robot
 Resource   ${EXECDIR}/Resource/PO/NewOrderPage.robot
+Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
 *** Keywords ***
-User is not register
-    Input Phone
-    Click button Login
-    Click to sign up at popup account not found
-
 User open app to sign up screen
-    #Handle Alert  action=DISMISS  timeout=30 s
     Click To Tap SignUp At Login
 
+User already exist on system
+    [Arguments]  ${data}
+    Have user id in database  ${data}
+
+Email already exist in system
+    [Arguments]  ${data}
+    Have email in database  ${data}
+
 User input success full all info
-    [Arguments]  ${name}  ${email}  ${phone}
-    Input Name At SignUp  ${name}
-    Input Email At SignUp  ${email}
-    Input Phone At SignUp  ${phone}
+    Input user info
 
 User input success full all info but phone is existed
     [Arguments]  ${name}  ${email}  ${phone}
@@ -47,16 +47,19 @@ When User input all invalid info
     Input Phone At SignUp  ${phone}
 
 User choosing category is Individual
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
     Click Menu Category
-    Choose Category Individual
+    Choose Category Individual  ${type}  ${category}  ${sub_cat}  ${lang}
 
 User choosing category is SMEs
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
     Click Menu Category
-    Choose Category SMEs
+    Choose Category SMEs  ${type}  ${category}  ${sub_cat}  ${lang}
 
 User choosing category is Corporate
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
     Click Menu Category
-    Choose Category Corporate
+    Choose Category Corporate  ${type}  ${category}  ${sub_cat}  ${lang}
 
 User input referral code
     [Arguments]  ${ref}
@@ -74,6 +77,11 @@ Go to input activation code screen and input invalid code
     Input Activate Code  @{otp}
 
 User sign up success to new order screen
+    [Arguments]  ${user_type}  ${cat}  ${subcat}
+    Title New Order Page Is Valid
+    Verify user info  ${user_type}  ${cat}  ${subcat}
+
+User sign up to new order screen
     Title New Order Page Is Valid
 
 Show error input invalid acctivated code
@@ -99,6 +107,8 @@ SignUp Button is disable
 Show error input invalid referral code
     Error Referral Code At SignUp
 
+And SignUp button is disable
+    Button SignUp Is Disable
 
 
 
