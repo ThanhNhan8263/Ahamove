@@ -21,32 +21,48 @@ ${MNU_CAT}  xpath://*[@class='category__label__content-placeholder']
 
 *** Keywords ***
 Choose Category Individual
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_INDIVIDUAL}
-    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
-    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     Click Save Category
 
 Choose Category SMEs
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_SMEs}
-    ${text_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${lang}
-    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${text_cat}')]
-    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
-    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
+    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     Click Save Category
 
 Choose Category Corporate
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_CORPORATE}
-    ${text_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${lang}
-    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${text_cat}')]
-    ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}
-    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]
+    ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
+    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     Click Save Category
 
 Click Save Category
     BasePage.Wait And Click  ${BTN-SAVE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #*** Test Cases ***
 #Click category

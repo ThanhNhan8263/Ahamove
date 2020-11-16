@@ -18,9 +18,9 @@ Wait And Input
     Input Text  ${textbox}  ${data}
 
 Wait visible
-    [Arguments]  ${component}
-    Wait until element is visible  ${component}  25s  not found
+    [Arguments]  ${element}
+    Wait until element is visible  ${element}  25s  not found
 
 Wait Page Contains
-    [Arguments]  ${component}
-    Wait Until Page Contains  ${component}  25s  not found
+    [Arguments]  ${element}
+    Wait Until Page Contains  ${element}  25s  not found

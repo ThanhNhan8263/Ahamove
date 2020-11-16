@@ -15,58 +15,58 @@ Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
 *** Keywords ***
 User open app to sign up screen
-    Click To Tap SignUp At Login
+    Click To Tap SignUp
 
 User already exist on system
     [Arguments]  ${data}
-    Have user id in database  ${data}
+    User Id In Database  ${data}
 
 Email already exist in system
     [Arguments]  ${data}
-    Have email in database  ${data}
+    Email In Database  ${data}
 
 User input success full all info
-    Input user info
+    Input User Info
 
 User input success full all info but phone is existed
     [Arguments]  ${name}  ${email}  ${phone}
-    Input Name At SignUp  ${name}
-    Input Email At SignUp  ${email}
-    Input Phone At SignUp  ${phone}
+    Input Name  ${name}
+    Input Email  ${email}
+    Input Phone  ${phone}
 
 User input success full all info but email is existed
     [Arguments]  ${name}  ${email}  ${phone}
-    Input Name At SignUp  ${name}
-    Input Email At SignUp  ${email}
-    Input Phone At SignUp  ${phone}
+    Input Name  ${name}
+    Input Email  ${email}
+    Input Phone  ${phone}
 
 When User input all invalid info
     [Arguments]  ${name}  ${email}  ${phone}
-    Input Name At SignUp  ${name}
-    Input Email At SignUp  ${email}
-    Input Phone At SignUp  ${phone}
+    Input Name  ${name}
+    Input Email  ${email}
+    Input Phone  ${phone}
 
 User choosing category is Individual
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     Click Menu Category
-    Choose Category Individual  ${type}  ${category}  ${sub_cat}  ${lang}
+    Choose Category Individual  ${type}  ${category}  ${sub_cat}  ${language}
 
 User choosing category is SMEs
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     Click Menu Category
-    Choose Category SMEs  ${type}  ${category}  ${sub_cat}  ${lang}
+    Choose Category SMEs  ${type}  ${category}  ${sub_cat}  ${language}
 
 User choosing category is Corporate
-    [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
+    [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     Click Menu Category
-    Choose Category Corporate  ${type}  ${category}  ${sub_cat}  ${lang}
+    Choose Category Corporate  ${type}  ${category}  ${sub_cat}  ${language}
 
 User input referral code
     [Arguments]  ${ref}
-    Input Referral Code At SignUp  ${ref}
+    Input Referral Code  ${ref}
 
 User click to Sign Up button
-    Click Button Sign Up At Sign Up
+    Click Button Sign Up
 
 Go to input activation code screen and input code success
     [Arguments]  @{otp}
@@ -78,11 +78,11 @@ Go to input activation code screen and input invalid code
 
 User sign up success to new order screen
     [Arguments]  ${user_type}  ${cat}  ${subcat}
-    Title New Order Page Is Valid
-    Verify user info  ${user_type}  ${cat}  ${subcat}
+    Verify Title New Order
+    Verify User Info  ${user_type}  ${cat}  ${subcat}
 
 User sign up to new order screen
-    Title New Order Page Is Valid
+    Verify Title New Order
 
 Show error input invalid acctivated code
     Error Mess Invalid Activate Code
@@ -105,16 +105,12 @@ SignUp Button is disable
     Button SignUp Is Disable
 
 Show error input invalid referral code
-    Error Referral Code At SignUp
+    Error Referral Code
 
-And SignUp button is disable
-    Button SignUp Is Disable
-
-
-
-
-
-
+Referral info matching with input
+    [Arguments]  ${referral_code}
+    #Verify Referral Info  ${referral_code}
+    Verify Referral Info Not Phone  ${referral_code}
 
 
 

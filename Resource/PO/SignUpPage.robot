@@ -8,6 +8,7 @@ Library  BuiltIn
 
 
 Resource   ${EXECDIR}/Resource/DB/UserDB.robot
+Resource   ${EXECDIR}/Resource/DB/User_referralDB.robot
 Resource   ${EXECDIR}/Resource/Base/FakeData.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 
@@ -34,31 +35,30 @@ ${BTN_SIGNUP_DISABLE}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v
 ${BTN_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']
 
 *** Keywords ***
-Input user info
+Input User Info
     @{data_info} =  FakeData.Fake Data Info
-    Set suite variable  @{data_info}  @{data_info}
+    Set Suite Variable  @{data_info}  @{data_info}
     BasePage.Wait And Input  ${TXT_NAME}  ${data_info}[0]
     BasePage.Wait And Input  ${TXT_EMAIL}  ${data_info}[1]
     BasePage.Wait And Input  ${TXT_PHONE_SIGNUP}  ${data_info}[2]
 
-
-Input Name At SignUp
+Input Name
     [Arguments]  ${name}
     BasePage.Wait And Input  ${TXT_NAME}  ${name}
 
-Input Email At SignUp
+Input Email
     [Arguments]  ${email}
     BasePage.Wait And Input  ${TXT_EMAIL}  ${email}
 
-Input Phone At SignUp
+Input Phone
     [Arguments]  ${phone}
     BasePage.Wait And Input  ${TXT_PHONE_SIGNUP}  ${phone}
 
-Input Referral Code At SignUp
+Input Referral Code
     [Arguments]  ${ref}
     BasePage.Wait And Input  ${TXT_REF}  ${ref}
 
-Click Button Sign Up At Sign Up
+Click Button Sign Up
     Click Button  ${BTN_SIGNUP}
 
 Show Error Message Blank Name
@@ -83,13 +83,13 @@ Error Existed Mail
 Button SignUp Is Disable
     Element Should Be Visible  ${BTN_SIGNUP_DISABLE}
 
-Error Referral Code At SignUp
+Error Referral Code
     Wait Page Contains  Mã giới thiệu không tồn tại
 
 Click Menu Category
     BasePage.Wait And Click  ${MNU_CAT}
 
-Verify user info
+Verify User Info
     [Arguments]  ${user_type}  ${cat}  ${subcat}
     @{user_info} =  UserDB.Get User Info When Sign Up  ${data_info}[2]
     Should Be Equal As Strings  ${data_info}[2]  ${user_info}[0]  msg=Fail
@@ -100,18 +100,34 @@ Verify user info
     Should Be Equal As Strings  ${subcat}  ${user_info}[5]  msg=Fail
     Log  ${user_info}
 
+Verify Referral Info
+    [Arguments]  ${referral_code}
+    ${referee_id} =  User_referralDB.Get Referral Info  ${data_info}[2]
+    ${referrer_id} =  Remove String  ${referral_code}  0
+    ${referrer_id} =  Set Variable  84${referrer_id}
+    Should Be Equal As Strings  ${referee_id}  ${referrer_id}  msg=Fail
 
-Have user id in database
-    [Arguments]  ${data}
-    UserDB.Get User Id  ${data}
+Verify Referral Info Not Phone
+    [Arguments]  ${referral_code}
+    ${referrer_ref_code} =  Get User Id Form Referral Code  ${referral_code}
+    ${referee_ref_id} =  Get Referral Id From Id  ${data_info}[2]
+    Should Be Equal As Strings  ${referrer_ref_code}  ${referee_ref_id}  msg=Fail
 
-Don't have user id in database
-    [Arguments]  ${data}
-    UserDB.Get Blank User Id  ${data}
+User Id In Database
+    [Arguments]  ${id}
+    ${user_id} =  UserDB.Get User Id  ${id}
+    Should Be Equal As Strings  ${user_id}  ${id}  msg=Fail
 
-Have email in database
-    [Arguments]  ${data}
-    UserDB.Get User Email  ${data}
+Email In Database
+    [Arguments]  ${email}
+    ${user_email} =  UserDB.Get User Email  ${email}
+    Should Be Equal As Strings  ${user_email}  ${email}  msg=Fail
+
+
+
+
+
+
 
 
 

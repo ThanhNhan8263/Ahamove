@@ -12,7 +12,7 @@ Test Setup  Begin Web Test
 Test Teardown  End Web Test
 
 *** Test Cases ***
-Verify that user can sign up success with category individual
+Verify That User Can Sign Up Success With Category Individual
     [Tags]  TC_signup_with_category_Individual
     Given User open app to sign up screen
     When User input success full all info
@@ -22,7 +22,7 @@ Verify that user can sign up success with category individual
     Then User sign up success to new order screen  Individual  INDIVIDUAL NEEDS  DOCUMENT SHIPPING
 
 
-Verify that user can sign up success with category SMEs
+Verify That User Can Sign Up Success With Category SMEs
     [Tags]  TC_signup_with_category_SMEs
     Given User open app to sign up screen
     When User input success full all info
@@ -32,7 +32,7 @@ Verify that user can sign up success with category SMEs
     Then User sign up success to new order screen  SMEs  DRINK  CAFE
 
 
-Verify that user can sign up success with category Corporate
+Verify That User Can Sign Up Success With Category Corporate
     [Tags]  TC_signup_with_category_Corporate
     Given User open app to sign up screen
     When User input success full all info
@@ -41,17 +41,18 @@ Verify that user can sign up success with category Corporate
     And Go to input activation code screen and input code success  2  0  0  7
     Then User sign up success to new order screen  Corporation  OTHER  CONVENIENCE STORES
 
-Verify that user can sign up success with valid referral code
+Verify That User Can Sign Up Success With Valid Referral Code
     [Tags]  TC_sign_up_with_valid_referral_code
     Given User open app to sign up screen
     When User input success full all info
     And User choosing category is Individual  Individual  INDIVIDUAL NEEDS  DOCUMENT SHIPPING  vi
-    And User input referral code  NHAN
+    And User input referral code  0981875523
     And User click to Sign Up button
     And Go to input activation code screen and input code success  2  0  0  7
     Then User sign up success to new order screen  Individual  INDIVIDUAL NEEDS  DOCUMENT SHIPPING
+    And Referral info matching with input  0981875523
 
-Verify that user can sign up success with invalid referral code
+Verify That User Can Sign Up Success With Invalid Referral Code
     [Tags]  TC_sign_up_with_invalid_referral_code
     Given User open app to sign up screen
     When User input success full all info
@@ -60,7 +61,7 @@ Verify that user can sign up success with invalid referral code
     And User click to Sign Up button
     Then Show error input invalid referral code
 
-Verify that user can't sign up with invalid OTP
+Verify That User Can't Sign Up With Invalid OTP
     [Tags]  TC_signup_with_invalid_OTP
     Given User open app to sign up screen
     When User input success full all info
@@ -70,7 +71,7 @@ Verify that user can't sign up with invalid OTP
     Then Show error input invalid acctivated code
 
 
-Verify that go to login when user sign up with exist phone
+Verify That Go To Login When User Sign Up With Exist Phone
     [Tags]  TC_signup_with_exist_phone
     Given User already exist on system  84981875523
     And User open app to sign up screen
@@ -81,7 +82,7 @@ Verify that go to login when user sign up with exist phone
     Then User sign up to new order screen
 
 
-Verify that user can't sign up when input exist email
+Verify That User Can't Sign Up When Input Exist Email
     [Tags]  TC_signup_with_exist_email
     Given Email already exist in system  thanh@gmail.com
     And User open app to sign up screen
@@ -91,14 +92,14 @@ Verify that user can't sign up when input exist email
     Then Show error message email is existed
 
 
-Verify that user can't sign up when not input request info
+Verify That User Can't Sign Up When Not Input Request Info
     [Tags]  TC_signup_when_not_input_request_info
     Given User open app to sign up screen
     When User click to Sign Up button
     Then Show error message need to input at require field
 
 
-Verify that user can't sign up when input invalid infomation
+Verify That User Can't Sign Up When Input Invalid Infomation
     [Tags]  TC_signup_with_invalid_infomation
     Given User open app to sign up screen
     When User input all invalid info  a  b  c
