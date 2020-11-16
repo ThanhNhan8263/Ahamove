@@ -45,6 +45,7 @@ Get Field
 
 #*** Test Cases ***
 #Get spample
-#    &{user_category} =  Get Records  ahamove  user  {"_id":"84981875523"}
+#    ${user_category} =  Get Records  ahamove  user  {"_id":"84981875523"}
+#    log  ${user_category}
 #    Log  ${user_category.name}
 

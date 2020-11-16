@@ -14,13 +14,15 @@ Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 ${BTN_INDIVIDUAL}  xpath://*[@class='business__types']/div[1]
 ${BTN_SMEs}  xpath://*[@class='business__types']/div[2]
 ${BTN_CORPORATE}  xpath://*[@class='business__types']/div[3]
-
+#BTN-SAVE => BTN_SAVE
 ${BTN-SAVE}  xpath://*[@class='v-btn v-btn--depressed theme--light accent']
 ${MNU_CAT}  xpath://*[@class='category__label__content-placeholder']
 
 
 *** Keywords ***
 Choose Category Individual
+######change variable name ${lang} (for ALL)
+####${txt_subcat} ${txt_cat} (for ALL)
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${lang}
     BasePage.Wait And Click  ${BTN_INDIVIDUAL}
     ${text_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${lang}

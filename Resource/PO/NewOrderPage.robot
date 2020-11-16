@@ -11,5 +11,6 @@ Resource  ../Common.robot
 ${LBL_TITLE}  xpath://*[@class='new-order__form__title']
 
 *** Keywords ***
+### Verify Title New Order
 Title New Order Page Is Valid
     Element Text Should Be  ${LBL_TITLE}  Đơn hàng mới

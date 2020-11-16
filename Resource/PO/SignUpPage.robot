@@ -34,14 +34,16 @@ ${BTN_SIGNUP_DISABLE}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v
 ${BTN_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']
 
 *** Keywords ***
+### Input User Info
 Input user info
     @{data_info} =  FakeData.Fake Data Info
+    ### set suite variable or Set Suite Variable
     Set suite variable  @{data_info}  @{data_info}
     BasePage.Wait And Input  ${TXT_NAME}  ${data_info}[0]
     BasePage.Wait And Input  ${TXT_EMAIL}  ${data_info}[1]
     BasePage.Wait And Input  ${TXT_PHONE_SIGNUP}  ${data_info}[2]
 
-
+### Remove At SignUp (for ALL)
 Input Name At SignUp
     [Arguments]  ${name}
     BasePage.Wait And Input  ${TXT_NAME}  ${name}
@@ -88,7 +90,7 @@ Error Referral Code At SignUp
 
 Click Menu Category
     BasePage.Wait And Click  ${MNU_CAT}
-
+### Verify User Info
 Verify user info
     [Arguments]  ${user_type}  ${cat}  ${subcat}
     @{user_info} =  UserDB.Get User Info When Sign Up  ${data_info}[2]
@@ -100,7 +102,7 @@ Verify user info
     Should Be Equal As Strings  ${subcat}  ${user_info}[5]  msg=Fail
     Log  ${user_info}
 
-
+## Camel Case for ALL
 Have user id in database
     [Arguments]  ${data}
     UserDB.Get User Id  ${data}

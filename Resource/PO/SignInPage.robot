@@ -24,13 +24,14 @@ ${BTN_LOGIN}  xpath://*[@class='uiButton uiButtonConfirm uiButtonLarge']
 
 
 *** Keywords ***
+#### Input Phone Number ###
 Input Phone Number At login
     [Arguments]  ${phone}
     Wait And Input   ${TXT_PHONE}  ${phone}
-
+### Click Login Button
 Click Login Button At Login
     Click Button   ${BTN_LOGIN}
-
+#### Click Login With Facebook
 Click Login With Facebook At Login
     Click Button   ${BTN_LOG_FACE}
 
@@ -39,11 +40,13 @@ Click Login With Facebook At Login
 
 Click To Sign Up At Popup Account Not Found
     Click Button  ${BTN_NOTFOUND_SIGNUP}
-
+#### Click To Tap SignUp
 Click To Tap SignUp At Login
+    ### add xxxx.Wait And Click
     Wait And Click  ${TAB_SIGNUP}
 
 Login With Facebook Success
+### add xxxx.Wait And Click
     Switch Window  NEW  5s  CURRENT
     Wait And Input  ${TXT_ID}  0981875523
     Wait And Input  ${TXT_PASS}

@@ -1,70 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201113 16:41:20.543" rpa="false">
-<suite id="s1" name="SignUp" source="/Users/mac/Desktop/Ahamove/TestCase/BeforeBooking/SignUp.robot">
-<test id="s1-t1" name="Verify that user can sign up success with category individual">
-<kw name="Begin Web Test" library="Common" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:21.411" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20201113 16:41:21.411" endtime="20201113 16:41:23.013"></status>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<arguments>
-<arg>${URL.${ENVIROMENT}}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:23.014" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
-<status status="PASS" starttime="20201113 16:41:23.014" endtime="20201113 16:41:47.057"></status>
-</kw>
-<kw name="Set Screenshot Directory" library="SeleniumLibrary">
-<doc>Sets the directory for captured screenshots.</doc>
-<arguments>
-<arg>${EXECDIR}/Report/image</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.057" endtime="20201113 16:41:47.057"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:21.410" endtime="20201113 16:41:47.058"></status>
-</kw>
-<kw name="Given User open app to sign up screen" library="SignUpDF">
-<kw name="Click To Tap SignUp At Login" library="SignInPage">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${TAB_SIGNUP}</arg>
-<arg>25s</arg>
-<arg>Not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.059" endtime="20201113 16:41:47.085"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${TAB_SIGNUP}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.086" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
-<status status="PASS" starttime="20201113 16:41:47.086" endtime="20201113 16:41:47.177"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.059" endtime="20201113 16:41:47.177"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.058" endtime="20201113 16:41:47.177"></status>
-</kw>
-<kw name="When User input success full all info" library="SignUpDF">
-<kw name="Input user info" library="SignUpPage">
-<kw name="Fake Data Info" library="FakeData">
-<assign>
-<var>@{data_info}</var>
-</assign>
+<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201116 11:02:57.169" rpa="false">
+<suite id="s1" name="FakeData" source="/Users/macbookpro/Desktop/Ahamove/Resource/Base/FakeData.robot">
+<test id="s1-t1" name="Fake data">
+<kw name="Fake Data Info">
 <kw name="Name" library="FakerLibrary">
 <doc>:example 'John Doe'</doc>
 <assign>
 <var>${user_name}</var>
 </assign>
-<msg timestamp="20201113 16:41:47.180" level="INFO">${user_name} = Jennifer Harris</msg>
-<status status="PASS" starttime="20201113 16:41:47.179" endtime="20201113 16:41:47.180"></status>
+<msg timestamp="20201116 11:02:57.697" level="INFO">${user_name} = Melissa Jenkins</msg>
+<status status="PASS" starttime="20201116 11:02:57.697" endtime="20201116 11:02:57.697"></status>
 </kw>
 <kw name="Generate Random String" library="String">
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
@@ -75,8 +20,8 @@
 <assign>
 <var>${random_num}</var>
 </assign>
-<msg timestamp="20201113 16:41:47.181" level="INFO">${random_num} = 43032222</msg>
-<status status="PASS" starttime="20201113 16:41:47.180" endtime="20201113 16:41:47.181"></status>
+<msg timestamp="20201116 11:02:57.698" level="INFO">${random_num} = 71686706</msg>
+<status status="PASS" starttime="20201116 11:02:57.697" endtime="20201116 11:02:57.698"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -86,8 +31,8 @@
 <assign>
 <var>${user_email}</var>
 </assign>
-<msg timestamp="20201113 16:41:47.181" level="INFO">${user_email} = testuseraccount43032222@gmail.com</msg>
-<status status="PASS" starttime="20201113 16:41:47.181" endtime="20201113 16:41:47.181"></status>
+<msg timestamp="20201116 11:02:57.698" level="INFO">${user_email} = testuseraccount71686706@gmail.com</msg>
+<status status="PASS" starttime="20201116 11:02:57.698" endtime="20201116 11:02:57.698"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -97,8 +42,8 @@
 <assign>
 <var>${user_phone}</var>
 </assign>
-<msg timestamp="20201113 16:41:47.182" level="INFO">${user_phone} = 84143032222</msg>
-<status status="PASS" starttime="20201113 16:41:47.182" endtime="20201113 16:41:47.182"></status>
+<msg timestamp="20201116 11:02:57.698" level="INFO">${user_phone} = 84171686706</msg>
+<status status="PASS" starttime="20201116 11:02:57.698" endtime="20201116 11:02:57.698"></status>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <doc>Returns a list containing given items.</doc>
@@ -110,584 +55,22 @@
 <assign>
 <var>@{data_info}</var>
 </assign>
-<msg timestamp="20201113 16:41:47.183" level="INFO">@{data_info} = [ Jennifer Harris | testuseraccount43032222@gmail.com | 84143032222 ]</msg>
-<status status="PASS" starttime="20201113 16:41:47.182" endtime="20201113 16:41:47.183"></status>
+<msg timestamp="20201116 11:02:57.699" level="INFO">@{data_info} = [ Melissa Jenkins | testuseraccount71686706@gmail.com | 84171686706 ]</msg>
+<status status="PASS" starttime="20201116 11:02:57.698" endtime="20201116 11:02:57.699"></status>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${data_info}</arg>
 </arguments>
-<status status="PASS" starttime="20201113 16:41:47.183" endtime="20201113 16:41:47.183"></status>
+<msg timestamp="20201116 11:02:57.699" level="INFO">['Melissa Jenkins', 'testuseraccount71686706@gmail.com', '84171686706']</msg>
+<status status="PASS" starttime="20201116 11:02:57.699" endtime="20201116 11:02:57.699"></status>
 </kw>
-<msg timestamp="20201113 16:41:47.184" level="INFO">@{data_info} = [ Jennifer Harris | testuseraccount43032222@gmail.com | 84143032222 ]</msg>
-<status status="PASS" starttime="20201113 16:41:47.179" endtime="20201113 16:41:47.184"></status>
+<status status="PASS" starttime="20201116 11:02:57.696" endtime="20201116 11:02:57.699"></status>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<arguments>
-<arg>@{data_info}</arg>
-<arg>@{data_info}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.185" level="INFO">@{data_info} = [ Jennifer Harris | testuseraccount43032222@gmail.com | 84143032222 ]</msg>
-<status status="PASS" starttime="20201113 16:41:47.184" endtime="20201113 16:41:47.185"></status>
-</kw>
-<kw name="Wait And Input" library="BasePage">
-<arguments>
-<arg>${TXT_NAME}</arg>
-<arg>${data_info}[0]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>25s</arg>
-<arg>Not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.186" endtime="20201113 16:41:47.238"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.239" level="INFO">Typing text 'Jennifer Harris' into text field 'xpath://*[contains(@data-test-id,'signupName')]//input'.</msg>
-<status status="PASS" starttime="20201113 16:41:47.238" endtime="20201113 16:41:47.444"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.185" endtime="20201113 16:41:47.444"></status>
-</kw>
-<kw name="Wait And Input" library="BasePage">
-<arguments>
-<arg>${TXT_EMAIL}</arg>
-<arg>${data_info}[1]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>25s</arg>
-<arg>Not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.445" endtime="20201113 16:41:47.463"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.464" level="INFO">Typing text 'testuseraccount43032222@gmail.com' into text field 'xpath://*[contains(@data-test-id,'signupEmail')]//input'.</msg>
-<status status="PASS" starttime="20201113 16:41:47.463" endtime="20201113 16:41:47.744"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.444" endtime="20201113 16:41:47.744"></status>
-</kw>
-<kw name="Wait And Input" library="BasePage">
-<arguments>
-<arg>${TXT_PHONE_SIGNUP}</arg>
-<arg>${data_info}[2]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>25s</arg>
-<arg>Not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.745" endtime="20201113 16:41:47.763"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.764" level="INFO">Typing text '84143032222' into text field 'xpath://*[contains(@data-test-id,'signupPhone')]//input'.</msg>
-<status status="PASS" starttime="20201113 16:41:47.764" endtime="20201113 16:41:47.920"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.744" endtime="20201113 16:41:47.920"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.178" endtime="20201113 16:41:47.920"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.178" endtime="20201113 16:41:47.921"></status>
-</kw>
-<kw name="And User choosing category is Individual" library="SignUpDF">
-<arguments>
-<arg>Individual</arg>
-<arg>INDIVIDUAL NEEDS</arg>
-<arg>DOCUMENT SHIPPING</arg>
-<arg>vi</arg>
-</arguments>
-<kw name="Click Menu Category" library="SignUpPage">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${MNU_CAT}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${button}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:47.924" endtime="20201113 16:41:47.995"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${button}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:47.995" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
-<status status="PASS" starttime="20201113 16:41:47.995" endtime="20201113 16:41:48.096"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.923" endtime="20201113 16:41:48.096"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.922" endtime="20201113 16:41:48.096"></status>
-</kw>
-<kw name="Choose Category Individual" library="CategoryPage">
-<arguments>
-<arg>${type}</arg>
-<arg>${category}</arg>
-<arg>${sub_cat}</arg>
-<arg>${lang}</arg>
-</arguments>
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_INDIVIDUAL}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${button}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:48.098" endtime="20201113 16:41:48.219"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${button}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:48.220" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[1]'.</msg>
-<status status="PASS" starttime="20201113 16:41:48.220" endtime="20201113 16:41:48.457"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:48.097" endtime="20201113 16:41:48.457"></status>
-</kw>
-<kw name="Get Category name" library="User_categoryDB">
-<arguments>
-<arg>${sub_cat}</arg>
-<arg>${type}</arg>
-<arg>${lang}</arg>
-</arguments>
-<assign>
-<var>${text_subcat}</var>
-</assign>
-<kw name="Get Field" library="MongoDB">
-<arguments>
-<arg>masterdata</arg>
-<arg>user_category</arg>
-<arg>{"code":"${code}","type":"${type}"}</arg>
-<arg>name</arg>
-</arguments>
-<assign>
-<var>${user_type}</var>
-</assign>
-<kw name="Connect To Mongodb" library="MongoDBLibrary">
-<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
-<arguments>
-<arg>${HOST.${DB_ENV}}</arg>
-<arg>${27017}</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:48.459" endtime="20201113 16:41:48.978"></status>
-</kw>
-<kw name="Retrieve Mongodb Records With Desired Fields" library="MongoDBLibrary">
-<doc>Retrieves from a document(s) the desired projection. In a sql terms: select a and b from table;
-For more details about querying records from Mongodb and comparison to sql see the
-[http://docs.mongodb.org/manual/reference/sql-comparison|Mongodb]
-documentation.</doc>
-<arguments>
-<arg>${dbName}</arg>
-<arg>${dbCollName}</arg>
-<arg>${recordJSON}</arg>
-<arg>${recordField}</arg>
-<arg>True</arg>
-<arg>True</arg>
-</arguments>
-<assign>
-<var>@{allResults}</var>
-</assign>
-<msg timestamp="20201113 16:41:49.958" level="INFO">@{allResults} = [ {'_id': ObjectId('5eb0eae78c34723f2f6ffd52'), 'name': {'en': 'Document shipping', 'vi': 'Giao chứng từ, giấy tờ'}} ]</msg>
-<status status="PASS" starttime="20201113 16:41:48.978" endtime="20201113 16:41:49.958"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${allResults}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:49.960" level="INFO">[{'_id': ObjectId('5eb0eae78c34723f2f6ffd52'), 'name': {'en': 'Document shipping', 'vi': 'Giao chứng từ, giấy tờ'}}]</msg>
-<status status="PASS" starttime="20201113 16:41:49.959" endtime="20201113 16:41:49.960"></status>
-</kw>
-<kw name="Set To Dictionary" library="Collections">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<arguments>
-<arg>@{allResults}</arg>
-</arguments>
-<assign>
-<var>&amp;{dict}</var>
-</assign>
-<msg timestamp="20201113 16:41:49.961" level="INFO">&amp;{dict} = { _id=5eb0eae78c34723f2f6ffd52 | name={'en': 'Document shipping', 'vi': 'Giao chứng từ, giấy tờ'} }</msg>
-<status status="PASS" starttime="20201113 16:41:49.961" endtime="20201113 16:41:49.961"></status>
-</kw>
-<kw name="Disconnect From Mongodb" library="MongoDBLibrary">
-<doc>Disconnects from the MongoDB server.</doc>
-<status status="PASS" starttime="20201113 16:41:49.962" endtime="20201113 16:41:50.043"></status>
-</kw>
-<msg timestamp="20201113 16:41:50.044" level="INFO">${user_type} = {'_id': ObjectId('5eb0eae78c34723f2f6ffd52'), 'name': {'en': 'Document shipping', 'vi': 'Giao chứng từ, giấy tờ'}}</msg>
-<status status="PASS" starttime="20201113 16:41:48.458" endtime="20201113 16:41:50.044"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${user_type.name.${lang}}</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:50.044" endtime="20201113 16:41:50.045"></status>
-</kw>
-<msg timestamp="20201113 16:41:50.045" level="INFO">${text_subcat} = Giao chứng từ, giấy tờ</msg>
-<status status="PASS" starttime="20201113 16:41:48.458" endtime="20201113 16:41:50.045"></status>
-</kw>
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>xpath://*[@class='category-item']//*[contains(text(),'${text_subcat}')]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${button}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:50.046" endtime="20201113 16:41:50.069"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${button}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.069" level="INFO">Clicking element 'xpath://*[@class='category-item']//*[contains(text(),'Giao chứng từ, giấy tờ')]'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.069" endtime="20201113 16:41:50.121"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.045" endtime="20201113 16:41:50.122"></status>
-</kw>
-<kw name="Click On Save Category" library="CategoryPage">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN-SAVE}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${button}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:50.123" endtime="20201113 16:41:50.142"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${button}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.142" level="INFO">Clicking element 'xpath://*[@class='v-btn v-btn--depressed theme--light accent']'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.142" endtime="20201113 16:41:50.196"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.122" endtime="20201113 16:41:50.196"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.122" endtime="20201113 16:41:50.196"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:48.096" endtime="20201113 16:41:50.196"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:47.921" endtime="20201113 16:41:50.197"></status>
-</kw>
-<kw name="And User click to Sign Up button" library="SignUpDF">
-<kw name="Click Button Sign Up At Sign Up" library="SignUpPage">
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
-<arg>${BTN_SIGNUP}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.198" level="INFO">Clicking button 'xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.198" endtime="20201113 16:41:50.290"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.198" endtime="20201113 16:41:50.290"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.197" endtime="20201113 16:41:50.290"></status>
-</kw>
-<kw name="And Go to input activation code screen and input code success" library="SignUpDF">
-<arguments>
-<arg>2</arg>
-<arg>0</arg>
-<arg>0</arg>
-<arg>7</arg>
-</arguments>
-<kw name="Input Activate Code" library="VerifyOTPPage">
-<arguments>
-<arg>@{otp}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${TXT_OTP1}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:50.292" endtime="20201113 16:41:50.558"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${TXT_OTP1}</arg>
-<arg>${otp}[0]</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.558" level="INFO">Typing text '2' into text field 'xpath://*[@class='digits my-4']/input[1]'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.558" endtime="20201113 16:41:50.613"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${TXT_OTP2}</arg>
-<arg>${otp}[1]</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.613" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[2]'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.613" endtime="20201113 16:41:50.663"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${TXT_OTP3}</arg>
-<arg>${otp}[2]</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.664" level="INFO">Typing text '0' into text field 'xpath://*[@class='digits my-4']/input[3]'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.663" endtime="20201113 16:41:50.722"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${TXT_OTP4}</arg>
-<arg>${otp}[3]</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.722" level="INFO">Typing text '7' into text field 'xpath://*[@class='digits my-4']/input[4]'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.722" endtime="20201113 16:41:50.782"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.291" endtime="20201113 16:41:50.782"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.290" endtime="20201113 16:41:50.782"></status>
-</kw>
-<kw name="Then User sign up success to new order screen" library="SignUpDF">
-<arguments>
-<arg>Individual</arg>
-<arg>INDIVIDUAL NEEDS</arg>
-<arg>DOCUMENT SHIPPING</arg>
-</arguments>
-<kw name="Title New Order Page Is Valid" library="NewOrderPage">
-<kw name="Element Text Should Be" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<arguments>
-<arg>${LBL_TITLE}</arg>
-<arg>Đơn hàng mới</arg>
-</arguments>
-<msg timestamp="20201113 16:41:50.784" level="INFO">Verifying element 'xpath://*[@class='new-order__form__title']' contains exact text 'Đơn hàng mới'.</msg>
-<status status="PASS" starttime="20201113 16:41:50.784" endtime="20201113 16:41:50.804"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.783" endtime="20201113 16:41:50.805"></status>
-</kw>
-<kw name="Verify user info" library="SignUpPage">
-<arguments>
-<arg>${user_type}</arg>
-<arg>${cat}</arg>
-<arg>${subcat}</arg>
-</arguments>
-<kw name="Get user info when sign up" library="UserDB">
-<arguments>
-<arg>${data_info}[2]</arg>
-</arguments>
-<assign>
-<var>@{user_info}</var>
-</assign>
-<kw name="Get Records" library="MongoDB">
-<arguments>
-<arg>ahamove</arg>
-<arg>user</arg>
-<arg>{"_id": "${data}"}</arg>
-</arguments>
-<assign>
-<var>&amp;{user_info}</var>
-</assign>
-<kw name="Connect To Mongodb" library="MongoDBLibrary">
-<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
-<arguments>
-<arg>${HOST.${DB_ENV}}</arg>
-<arg>${27017}</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:50.807" endtime="20201113 16:41:51.349"></status>
-</kw>
-<kw name="Retrieve Some Mongodb Records" library="MongoDBLibrary">
-<doc>Retrieve some of the records from a given MongoDB database collection
-based on the JSON entered.
-Returned value must be single quoted for comparison, otherwise you will
-get a TypeError error.</doc>
-<arguments>
-<arg>${dbName}</arg>
-<arg>${dbCollName}</arg>
-<arg>${recordJSON}</arg>
-<arg>True</arg>
-</arguments>
-<assign>
-<var>@{allResults}</var>
-</assign>
-<msg timestamp="20201113 16:41:54.778" level="INFO">@{allResults} = [ {'_id': '84143032222', 'name': 'Jennifer Harris', 'email': 'testuseraccount43032222@gmail.com', 'referral_code': '0143032222', 'country_code': 'VN', 'city_id': None, 'currency': 'VND', 'account_stat...</msg>
-<status status="PASS" starttime="20201113 16:41:51.349" endtime="20201113 16:41:54.778"></status>
-</kw>
-<kw name="Set To Dictionary" library="Collections">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<arguments>
-<arg>@{allResults}</arg>
-</arguments>
-<assign>
-<var>&amp;{dict}</var>
-</assign>
-<msg timestamp="20201113 16:41:54.781" level="INFO">&amp;{dict} = { _id=84143032222 | name=Jennifer Harris | email=testuseraccount43032222@gmail.com | referral_code=0143032222 | country_code=VN | city_id=None | currency=VND | account_status=ACTIVATED | create_time=1...</msg>
-<status status="PASS" starttime="20201113 16:41:54.779" endtime="20201113 16:41:54.781"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${dict}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:54.781" level="INFO">{'_id': '84143032222', 'name': 'Jennifer Harris', 'email': 'testuseraccount43032222@gmail.com', 'referral_code': '0143032222', 'country_code': 'VN', 'city_id': None, 'currency': 'VND', 'account_status': 'ACTIVATED', 'create_time': 1605260510.400179, 'main_account': {}, 'bonus_account': {}, 'categories': [{'code': 'INDIVIDUAL NEEDS', 'child_code': ['DOCUMENT SHIPPING']}], 'user_type': 'Individual', 'activation_code': '4631', 'activation_time': 1605261110.4399247, 'activate_time': 1605260510.0, 'devices': [{'imei': 'web', 'push': 'web', 'type': 'web', 'time': 1605260510.0, 'app': 'AhaMove', 'fcm': True}], 'last_login': 1605260510.0, 'status': 'ONLINE'}</msg>
-<status status="PASS" starttime="20201113 16:41:54.781" endtime="20201113 16:41:54.782"></status>
-</kw>
-<kw name="Disconnect From Mongodb" library="MongoDBLibrary">
-<doc>Disconnects from the MongoDB server.</doc>
-<status status="PASS" starttime="20201113 16:41:54.782" endtime="20201113 16:41:54.856"></status>
-</kw>
-<msg timestamp="20201113 16:41:54.857" level="INFO">&amp;{user_info} = { _id=84143032222 | name=Jennifer Harris | email=testuseraccount43032222@gmail.com | referral_code=0143032222 | country_code=VN | city_id=None | currency=VND | account_status=ACTIVATED | create_time=1...</msg>
-<status status="PASS" starttime="20201113 16:41:50.806" endtime="20201113 16:41:54.857"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${user_info._id}</arg>
-<arg>${user_info.name}</arg>
-<arg>${user_info.email}</arg>
-<arg>${user_info.user_type}</arg>
-<arg>${user_info.categories[0].code}</arg>
-<arg>${user_info.categories[0].child_code[0]}</arg>
-</arguments>
-<assign>
-<var>@{user_info}</var>
-</assign>
-<msg timestamp="20201113 16:41:54.861" level="INFO">@{user_info} = [ 84143032222 | Jennifer Harris | testuseraccount43032222@gmail.com | Individual | INDIVIDUAL NEEDS | DOCUMENT SHIPPING ]</msg>
-<status status="PASS" starttime="20201113 16:41:54.858" endtime="20201113 16:41:54.861"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${user_info}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:54.862" level="INFO">['84143032222', 'Jennifer Harris', 'testuseraccount43032222@gmail.com', 'Individual', 'INDIVIDUAL NEEDS', 'DOCUMENT SHIPPING']</msg>
-<status status="PASS" starttime="20201113 16:41:54.861" endtime="20201113 16:41:54.862"></status>
-</kw>
-<msg timestamp="20201113 16:41:54.862" level="INFO">@{user_info} = [ 84143032222 | Jennifer Harris | testuseraccount43032222@gmail.com | Individual | INDIVIDUAL NEEDS | DOCUMENT SHIPPING ]</msg>
-<status status="PASS" starttime="20201113 16:41:50.805" endtime="20201113 16:41:54.862"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${data_info}[2]</arg>
-<arg>${user_info}[0]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.862" endtime="20201113 16:41:54.863"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${data_info}[0]</arg>
-<arg>${user_info}[1]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.863" endtime="20201113 16:41:54.863"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${data_info}[1]</arg>
-<arg>${user_info}[2]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.863" endtime="20201113 16:41:54.864"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${user_type}</arg>
-<arg>${user_info}[3]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.864" endtime="20201113 16:41:54.864"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${cat}</arg>
-<arg>${user_info}[4]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.864" endtime="20201113 16:41:54.865"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${subcat}</arg>
-<arg>${user_info}[5]</arg>
-<arg>msg=Fail</arg>
-</arguments>
-<status status="PASS" starttime="20201113 16:41:54.865" endtime="20201113 16:41:54.865"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${user_info}</arg>
-</arguments>
-<msg timestamp="20201113 16:41:54.865" level="INFO">['84143032222', 'Jennifer Harris', 'testuseraccount43032222@gmail.com', 'Individual', 'INDIVIDUAL NEEDS', 'DOCUMENT SHIPPING']</msg>
-<status status="PASS" starttime="20201113 16:41:54.865" endtime="20201113 16:41:54.865"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.805" endtime="20201113 16:41:54.866"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:50.783" endtime="20201113 16:41:54.866"></status>
-</kw>
-<kw name="End Web Test" library="Common" type="teardown">
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<arguments>
-<arg>${EXECDIR}/Report/image/custom_name_{index}.png</arg>
-</arguments>
-<msg timestamp="20201113 16:41:55.240" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/custom_name_37.png"&gt;&lt;img src="image/custom_name_37.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201113 16:41:54.867" endtime="20201113 16:41:55.240"></status>
-</kw>
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20201113 16:41:55.240" endtime="20201113 16:41:55.322"></status>
-</kw>
-<status status="PASS" starttime="20201113 16:41:54.866" endtime="20201113 16:41:55.322"></status>
-</kw>
-<tags>
-<tag>TC_signup_with_category_Individual</tag>
-</tags>
-<status status="PASS" starttime="20201113 16:41:21.410" endtime="20201113 16:41:55.322" critical="yes"></status>
+<status status="PASS" starttime="20201116 11:02:57.696" endtime="20201116 11:02:57.699" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20201113 16:41:20.545" endtime="20201113 16:41:55.323"></status>
+<status status="PASS" starttime="20201116 11:02:57.177" endtime="20201116 11:02:57.700"></status>
 </suite>
 <statistics>
 <total>
@@ -695,10 +78,9 @@ get a TypeError error.</doc>
 <stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">TC_signup_with_category_Individual</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="SignUp">SignUp</stat>
+<stat pass="1" fail="0" id="s1" name="FakeData">FakeData</stat>
 </suite>
 </statistics>
 <errors>
