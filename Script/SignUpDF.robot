@@ -19,22 +19,17 @@ User open app to sign up screen
 
 User already exist on system
     [Arguments]  ${data}
-    User Id In Database  ${data}
+    Verify Phone Existed  ${data}
 
 Email already exist in system
     [Arguments]  ${data}
-    Email In Database  ${data}
+    Verify Email Existed  ${data}
 
 User input success full all info
     Input User Info
 
-User input success full all info but phone is existed
-    [Arguments]  ${name}  ${email}  ${phone}
-    Input Name  ${name}
-    Input Email  ${email}
-    Input Phone  ${phone}
 
-User input success full all info but email is existed
+User input success full all info with exist info
     [Arguments]  ${name}  ${email}  ${phone}
     Input Name  ${name}
     Input Email  ${email}

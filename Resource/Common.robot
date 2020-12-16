@@ -5,7 +5,7 @@ Library  OperatingSystem
 *** Variables ***
 &{URL}  stg=https://appstg.ahamove.com  uat=https://appuat.ahamove.com  prod=https://app.ahamove.com
 ${ENVIROMENT} =  stg
-${BROWSER} =  headlesschrome
+${BROWSER} =  chrome
 #run -v BROWSER:headlesschrome
 
 *** Keywords ***

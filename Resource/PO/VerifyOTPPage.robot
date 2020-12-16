@@ -8,6 +8,7 @@ Library  BuiltIn
 
 Resource  ../Common.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
+Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
 *** Variables ***
 ${TXT_OTP1}  xpath://*[@class='digits my-4']/input[1]
@@ -18,7 +19,8 @@ ${ERR_CODE}  xpath://div[contains(text(),'Bạn đã nhập sai OTP, vui lòng n
 
 *** Keywords ***
 Input Activate Code
-    [Arguments]  @{otp}
+    [Arguments]  ${phone}
+    ${otp} =  UserDB.Get OTP  ${phone}
     BasePage.Wait And Input  ${TXT_OTP1}   ${otp}[0]
     BasePage.Wait And Input  ${TXT_OTP2}   ${otp}[1]
     BasePage.Wait And Input  ${TXT_OTP3}   ${otp}[2]

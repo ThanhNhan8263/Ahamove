@@ -113,12 +113,12 @@ Verify Referral Info Not Phone
     ${referee_ref_id} =  Get Referral Id From Id  ${data_info}[2]
     Should Be Equal As Strings  ${referrer_ref_code}  ${referee_ref_id}  msg=Fail
 
-User Id In Database
+Verify Phone Existed
     [Arguments]  ${id}
     ${user_id} =  UserDB.Get User Id  ${id}
     Should Be Equal As Strings  ${user_id}  ${id}  msg=Fail
 
-Email In Database
+Verify Email Existed
     [Arguments]  ${email}
     ${user_email} =  UserDB.Get User Email  ${email}
     Should Be Equal As Strings  ${user_email}  ${email}  msg=Fail

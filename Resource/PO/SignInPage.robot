@@ -38,3 +38,8 @@ Click To Sign Up At Popup Account Not Found
 
 Click To Tap SignUp
     BasePage.Wait And Click  ${TAB_SIGNUP}
+
+Login Success
+    [Arguments]  ${phone}
+    BasePage.Wait And Input  ${TXT_PHONE}  ${phone}
+    BasePage.Wait And Click  ${BTN_LOGIN}

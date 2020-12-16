@@ -14,7 +14,7 @@ Get Records
     @{allResults}  Retrieve Some MongoDB Records  ${dbName}  ${dbCollName}  ${recordJSON}  True
     &{dict} =  Set To Dictionary  @{allResults}
     Log  ${dict}
-    [return]  ${dict}
+    [return]  &{dict}
     Disconnect From MongoDB
 
 Get Blank Records
@@ -28,11 +28,19 @@ Get Field
     [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}
     Connect To Mongodb  ${HOST.${DB_ENV}}  ${27017}
     @{allResults}  Retrieve Mongodb Records With Desired Fields  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}  True  True
-    Log  ${allResults}
+    log  ${allResults}
     &{dict} =  Set To Dictionary  @{allResults}
     [return]  &{dict}
     Disconnect From MongoDB
 
+
+Get Field And Return Array
+    [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}
+    Connect To Mongodb  ${HOST.${DB_ENV}}  ${27017}
+    @{allResults}  Retrieve Mongodb Records With Desired Fields  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}  False  True
+    log  ${allResults}
+    [return]  ${allResults}
+    Disconnect From MongoDB
 
 
 

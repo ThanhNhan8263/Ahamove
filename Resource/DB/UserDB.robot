@@ -4,6 +4,12 @@ Library  JSONLibrary
 Library  Collections
 
 Resource   ${EXECDIR}/Resource/DB/MongoDB.robot
+
+Resource   ${EXECDIR}/Resource/PO/ProfilePage.robot
+Resource   ${EXECDIR}/Resource/PO/VerifyOTPPage.robot
+Resource   ${EXECDIR}/Resource/PO/SignInPage.robot
+Resource   ${EXECDIR}/Resource/Base/constants.robot
+
 *** Keywords ***
 Get User Id
     [Arguments]  ${id}
@@ -41,8 +47,11 @@ Get Referral Id From Id
     Log  ${user_ref_id.referral_id}
     [return]  ${user_ref_id.referral_id}
 
-
-
+Get OTP
+    [Arguments]  ${id}
+    &{user_ref_id} =  MongoDB.Get Field  ahamove  user  {"_id": "${id}"}  activation_code
+    Log  ${user_ref_id.activation_code}
+    [return]  ${user_ref_id.activation_code}
 
 
 
@@ -53,10 +62,13 @@ Get Referral Id From Id
 
 
 #*** Test Cases ***
-#Get abc
-#    ${referrer_ref_code} =  Get User Id Form Referral Code  0981875523
-#    ${referee_ref_id} =  Get Referral Id From Id  84922936471
-#    Should Be Equal As Strings  ${referrer_ref_code}  ${referee_ref_id}  msg=Fail
+#Get sample
+#    Open Browser  https://appstg.ahamove.com/sign-in  chrome
+#    BasePage.Wait And Input  ${TXT_PHONE}  84910000005
+#    BasePage.Wait And Click  ${BTN_LOGIN}
+#    ${otp} =  Get OTP  84910000005
+#    Input Activate Code  ${otp}
+
 
 
 
