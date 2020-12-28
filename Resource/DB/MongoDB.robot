@@ -24,6 +24,7 @@ Get Blank Records
     Should Be Equal As Strings  ${allResults}  []
     Disconnect From MongoDB
 
+
 Get Field
     [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}
     Connect To Mongodb  ${HOST.${DB_ENV}}  ${27017}
@@ -33,6 +34,21 @@ Get Field
     [return]  &{dict}
     Disconnect From MongoDB
 
+Get Blank Field
+    [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}
+    Connect To Mongodb  ${HOST.${DB_ENV}}  ${27017}
+    @{allResults}  Retrieve Mongodb Records With Desired Fields  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}  False  True
+    log  ${allResults}
+    Should Be Equal As Strings  ${allResults}  [{}]
+    Disconnect From MongoDB
+
+Get Exist Field
+    [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}
+    Connect To Mongodb  ${HOST.${DB_ENV}}  ${27017}
+    @{allResults}  Retrieve Mongodb Records With Desired Fields  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}  False  True
+    log  ${allResults}
+    Should Not Be Equal As Strings  ${allResults}  [{}]
+    Disconnect From MongoDB
 
 Get Field And Return Array
     [Arguments]  ${dbName}  ${dbCollName}  ${recordJSON}  ${recordField}

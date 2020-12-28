@@ -12,6 +12,12 @@ Get Category Name
     Log  ${user_type.name.${language}}
     [return]  ${user_type.name.${language}}
 
+Get Category Code
+    [Arguments]  ${category_name}  ${type}  ${language}
+    ${user_type} =  MongoDB.Get Field  masterdata  user_category  {"name.${language}":"${category_name}","type":"${type}"}  code
+    Log  ${user_type.code}
+    [return]  ${user_type.code}
+
 Get Category List
     [Arguments]  ${type}  ${language}
     ${user_type} =  MongoDB.Get Field And Return Array  masterdata  user_category  {"level":1,"type":"${type}"}  name
@@ -32,7 +38,7 @@ Get Subcategory List
     Log  ${subcategory_list}
     [return]  ${subcategory_list}
 
-Get Category And User When Save Success
+Get User Type And Category
     [Arguments]  ${id}
     &{user_category} =  MongoDB.Get Records  ahamove  user  {"_id": "${id}"}
     @{user_category} =  Create List  ${user_category.user_type}  ${user_category.categories[0].code}  ${user_category.categories[0].child_code[0]}
@@ -40,9 +46,12 @@ Get Category And User When Save Success
     [return]  @{user_category}
 
 
+
+
+
 #*** Test Cases ***
 #Get sample
-#     Get Subcategory List  SMEs  FOOD  vi
-#
+#     Get Category Code  Đồ ăn  SMEs  vi
+
 
 

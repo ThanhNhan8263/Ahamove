@@ -4,12 +4,6 @@ Library  JSONLibrary
 Library  Collections
 
 Resource   ${EXECDIR}/Resource/DB/MongoDB.robot
-
-Resource   ${EXECDIR}/Resource/PO/ProfilePage.robot
-Resource   ${EXECDIR}/Resource/PO/VerifyOTPPage.robot
-Resource   ${EXECDIR}/Resource/PO/SignInPage.robot
-Resource   ${EXECDIR}/Resource/Base/constants.robot
-
 *** Keywords ***
 Get User Id
     [Arguments]  ${id}
@@ -17,16 +11,16 @@ Get User Id
     Log  ${user_id}
     [return]  ${user_id._id}
 
+Get Blank User Id
+    [Arguments]  ${id}
+    &{user_id} =  MongoDB.Get Blank Records  ahamove  user  {"_id": "${id}"}
+    Log  ${user_id}
+
 Get User Email
     [Arguments]  ${email}
     &{user_email} =  MongoDB.Get Field  ahamove  user  {"email": "${email}"}  email
     Log  ${user_email.email}
     [return]  ${user_email.email}
-
-Get Blank User Id
-    [Arguments]  ${id}
-    &{user_id} =  MongoDB.Get Blank Records  ahamove  user  {"_id": "${id}"}
-    Log  ${user_id}
 
 Get User Info When Sign Up
     [Arguments]  ${id}
@@ -53,7 +47,19 @@ Get OTP
     Log  ${user_ref_id.activation_code}
     [return]  ${user_ref_id.activation_code}
 
+Get Blank Field User Type Categories Category
+    [Arguments]  ${id}
+    &{user_type} =  MongoDB.Get Blank Field  ahamove  user  {"_id": "${id}"}  user_type
 
+Get Exist Field User Type Categories Category
+    [Arguments]  ${id}
+    &{user_type} =  MongoDB.Get Exist Field  ahamove  user  {"_id": "${id}"}  user_type
+
+Get Verify Status
+    [Arguments]  ${id}
+    &{user_ref_id} =  MongoDB.Get Field  ahamove  user  {"_id": "${id}"}  verify_status
+    Log  ${user_ref_id.verify_status}
+    [return]  ${user_ref_id.verify_status}
 
 
 
@@ -63,11 +69,16 @@ Get OTP
 
 #*** Test Cases ***
 #Get sample
+#    Get verify status  84981875523
+
+
+#Get OT
 #    Open Browser  https://appstg.ahamove.com/sign-in  chrome
 #    BasePage.Wait And Input  ${TXT_PHONE}  84910000005
 #    BasePage.Wait And Click  ${BTN_LOGIN}
 #    ${otp} =  Get OTP  84910000005
 #    Input Activate Code  ${otp}
+
 
 
 

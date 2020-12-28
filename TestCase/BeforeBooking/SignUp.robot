@@ -47,7 +47,7 @@ Verify That User Can Sign Up Success With Category Corporate
     When User input success full all info
     And User choosing category is Corporate  Corporation  OTHER  CONVENIENCE STORES  vi
     And User click to Sign Up button
-    And Go to input activation code screen and input code success  2  0  0  7
+    And Go to input activation code screen and input code success
     Then User sign up success to new order screen  Corporation  OTHER  CONVENIENCE STORES
 
 Verify That User Can Sign Up Success With Valid Referral Code
@@ -57,7 +57,7 @@ Verify That User Can Sign Up Success With Valid Referral Code
     And User choosing category is Individual  Individual  INDIVIDUAL NEEDS  DOCUMENT SHIPPING  vi
     And User input referral code  0981875523
     And User click to Sign Up button
-    And Go to input activation code screen and input code success  2  0  0  7
+    And Go to input activation code screen and input code success
     Then User sign up success to new order screen  Individual  INDIVIDUAL NEEDS  DOCUMENT SHIPPING
     And Referral info matching with input  0981875523
 

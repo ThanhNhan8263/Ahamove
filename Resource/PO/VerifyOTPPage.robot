@@ -10,12 +10,6 @@ Resource  ../Common.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
-*** Variables ***
-${TXT_OTP1}  xpath://*[@class='digits my-4']/input[1]
-${TXT_OTP2}  xpath://*[@class='digits my-4']/input[2]
-${TXT_OTP3}  xpath://*[@class='digits my-4']/input[3]
-${TXT_OTP4}  xpath://*[@class='digits my-4']/input[4]
-${ERR_CODE}  xpath://div[contains(text(),'Bạn đã nhập sai OTP, vui lòng nhập lại')]
 
 *** Keywords ***
 Input Activate Code

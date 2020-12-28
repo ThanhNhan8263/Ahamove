@@ -10,8 +10,6 @@ Resource  ../Common.robot
 Resource   ${EXECDIR}/Resource/DB/User_categoryDB.robot
 Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
-Resource   ${EXECDIR}/Resource/Base/constants.robot
-
 
 
 *** Keywords ***
@@ -20,7 +18,7 @@ Choose Category Individual
     BasePage.Wait And Click  ${BTN_INDIVIDUAL}
     ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
-    Click Save Category
+    CategoryPage.Click Save Category
 
 Choose Category SMEs
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
@@ -29,7 +27,7 @@ Choose Category SMEs
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
     ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
-    Click Save Category
+    CategoryPage.Click Save Category
 
 Choose Category Corporate
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
@@ -38,13 +36,14 @@ Choose Category Corporate
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
     ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
-    Click Save Category
+    CategoryPage.Click Save Category
 
 Click Save Category
-    BasePage.Wait And Click  ${BTN-SAVE}
+    BasePage.Wait And Click  ${BTN_SAVE_CATEGORY}
 
-Click Menu Individual
-    BasePage.Wait And Click  ${BTN_INDIVIDUAL}
+Click Menu Category
+    [Arguments]  ${div}
+    BasePage.Wait And Click  xpath://*[@class='business__types']/div[${div}]
 
 Get list category Individual
     ${count_element}  Get Element Count  xpath://*[@class='category-group']
@@ -54,45 +53,31 @@ Get list category Individual
     [return]  ${list_categoryIndividual}
 
 
-Click Menu SMEs
-    BasePage.Wait And Click  ${BTN_SMEs}
-
-Get list category SMEs
+Get list category
     ${count_element}  Get Element Count  xpath://*[@class='category-group']
-    ${list_categorySMEs} =  Create List
+    ${list_category} =  Create List
     FOR  ${i}  IN RANGE  1  ${count_element}+1
-        ${i} =  Get Text  xpath://*[@class='category-group'][${i}]
-        Append to list  ${list_categorySMEs}  ${i}
+        ${i} =  Get Text  xpath://*[@class='select-category-group']/div[${i}]
+        Append to list  ${list_category}  ${i}
     END
-    Log  ${list_categorySMEs}
-    [return]  ${list_categorySMEs}
+    Log  ${list_category}
+    [return]  ${list_category}
 
 
-Click Menu Corporation
-    BasePage.Wait And Click  ${BTN_CORPORATE}
-
-Get list category Corporation
-    ${count_element}  Get Element Count  xpath://*[@class='category-group']
-    ${list_categoryCorporation} =  Create List
+Get list subcategory
+    [Arguments]  ${type}  ${category}  ${language}
+    ${category_name} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    ${count_element}  Get Element Count  xpath://*[text()='${category_name}']/following-sibling::*//*[@class='category-item']//label
+    ${list_subcategory} =  Create List
     FOR  ${i}  IN RANGE  1  ${count_element}+1
-        ${i} =  Get Text  xpath://*[@class='category-group'][${i}]
-        Append to list  ${list_categoryCorporation}  ${i}
+        ${i} =  Get Text  xpath://*[text()='${category_name}']/following-sibling::*//*[@class='category-item'][${i}]//label
+        Append to list  ${list_subcategory}  ${i}
     END
-    Log  ${list_categoryCorporation}
-    [return]  ${list_categoryCorporation}
-
-#Get list subcategory
-#    ${count_element}  Get Element Count  xpath://*[@class='category-item']
-#    ${list_categoryCorporation} =  Create List
-#    FOR  ${i}  IN RANGE  1  ${count_element}+1
-#        ${i} =  Get Text  xpath://*[@class='category-item'][${i}]
-#        Append to list  ${list_categoryCorporation}  ${i}
-#    END
-#    Log  ${list_categoryCorporation}
-#    [return]  ${list_categoryCorporation}
+    Log  ${list_subcategory}
+    [return]  ${list_subcategory}
 
 
-Click choose any category
+Click choose category
     [Arguments]  ${type}  ${category}  ${language}
     ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
     Log  ${txt_cat}
@@ -102,11 +87,11 @@ Click choose any subcategory
     [Arguments]  ${type}  ${sub_cat}  ${language}
     ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
     Log  ${txt_subcat}
-    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
+    BasePage.Scroll And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
 
 Verify User Type And Category Info
     [Arguments]  ${phone}  ${user_type}  ${cat}  ${subcat}
-    @{user_category} =  User_categoryDB.Get Category And User When Save Success  ${phone}
+    @{user_category} =  User_categoryDB.Get User Type And Category  ${phone}
     Should Be Equal As Strings  ${user_type}  ${user_category}[0]  msg=Fail
     Should Be Equal As Strings  ${cat}  ${user_category}[1]  msg=Fail
     Should Be Equal As Strings  ${subcat}  ${user_category}[2]  msg=Fail
@@ -119,7 +104,8 @@ Input search
 
 Show text not found category
     [Arguments]  ${search_data}
-    BasePage.Wait Page Contains  Không tìm thấy "${search_data}"
+    ${not_found} =  Get Text  ${ELM_BLANK}
+    BasePage.Wait Page Contains  ${not_found}
 
 Click search result
     [Arguments]  ${search_data}
@@ -127,8 +113,35 @@ Click search result
 
 Choose sreach category
     [Arguments]  ${search_data}
-    Element Should Be Visible  xpath://*[contains(@aria-label,'${search_data}')][contains(@aria-checked,'true')]
+    Element Attribute Value Should Be  xpath://*[@aria-label='${search_data}']  aria-checked  true
 
+Blank screen
+    ${text_blank} =  Get Text  ${ELM_BLANK}
+    BasePage.Wait Page Contains  ${text_blank}
+
+Click choose all category
+    [Arguments]  ${div}
+    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div}]
+
+Click On Toggle Selected
+    BasePage.Wait And Click  ${SELECTED_CAT}
+
+Selected Category
+    [Arguments]  ${type}  ${category}  ${language}
+    ${text_selected} =  Get Text  ${CAT_GROUP_SELECTED}
+    ${text_selected} =  User_categoryDB.Get Category Code  ${text_selected}  ${type}  ${language}
+    Should Be Equal As Strings  ${text_selected}  ${category}  msg=Fail
+
+Selected Subategory
+    [Arguments]  ${type}  ${subcategory}  ${language}
+    ${text_selected} =  User_categoryDB.Get Category Name  ${subcategory}  ${type}  ${language}
+    ${text_selected} =  Get Text  //*[@class='category-item']//*[contains(text(),'${text_selected}')]
+    ${text_selected} =  User_categoryDB.Get Category Code  ${text_selected}  ${type}  ${language}
+    Should Be Equal As Strings  ${text_selected}  ${subcategory}  msg=Fail
+
+Bussiness Type Screen
+    ${text_title_business} =  Get Text  ${TITLE_BUSINESS}
+    BasePage.Wait Page Contains   ${text_title_business}
 
 
 #*** Test Cases ***

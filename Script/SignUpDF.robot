@@ -15,7 +15,7 @@ Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
 *** Keywords ***
 User open app to sign up screen
-    Click To Tap SignUp
+    SignInPage.Click To Tap SignUp
 
 User already exist on system
     [Arguments]  ${data}
@@ -64,12 +64,13 @@ User click to Sign Up button
     Click Button Sign Up
 
 Go to input activation code screen and input code success
-    [Arguments]  @{otp}
-    Input Activate Code  @{otp}
+    ${phone} =  Remove String  ${data_info}[2]  0
+    ${phone} =  Set Variable  84${phone}
+    Input Activate Code  ${phone}
 
 Go to input activation code screen and input invalid code
-    [Arguments]  @{otp}
-    Input Activate Code  @{otp}
+    [Arguments]  @{phone}
+    Input Activate Code  @{phone}
 
 User sign up success to new order screen
     [Arguments]  ${user_type}  ${cat}  ${subcat}

@@ -14,12 +14,12 @@ Get Referral Info
     Log  ${user_ref.referrer_id}
     [return]  ${user_ref.referrer_id}
 
-Get abc
-    [Arguments]  ${id}
-    ${referee_id} =  Get Referral Info  84185640138
-    ${referrer_id} =  Remove String  ${id}  0
-    ${referrer_id} =  Set Variable  84${referrer_id}
-    Should Be Equal As Strings  ${referee_id}  ${referrer_id}  msg=Fail
+#Get abc
+#    [Arguments]  ${id}
+#    ${referee_id} =  Get Referral Info  84185640138
+#    ${referrer_id} =  Remove String  ${id}  0
+#    ${referrer_id} =  Set Variable  84${referrer_id}
+#    Should Be Equal As Strings  ${referee_id}  ${referrer_id}  msg=Fail
 
 
 
