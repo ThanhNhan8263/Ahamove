@@ -4,7 +4,7 @@ Library  JSONLibrary
 Library  Collections
 
 *** Variables ***
-&{HOST}  stg=mongodb+srv://admin:Aha2020@ahamove-sz8j3.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE  uat=mongodb+srv://tan:gtsa4934@ahamove-uat.sjm3i.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE
+&{HOST}  stg=mongodb+srv://admin:Aha2020@ahamove-sz8j3.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE  uat=mongodb+srv://nhanddt:acftjJZLTG6LAMq7@ahamove-uat.sjm3i.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE
 ${DB_ENV} =  stg
 
 *** Keywords ***

@@ -62,6 +62,7 @@ ${TOGGLE_SELECTED_CAT} =  xpath://*[@class='select-categories__footer']//*[conta
 ${SELECTED_CAT} =  xpath://*[@class='select-categories__footer']//*[@class='v-input--selection-controls__ripple']
 ${BACK_CATEGORY} =  xpath://*[@class='header__back']
 ${ELM_BLANK} =  xpath://*[@class='no-data__title']
+${TXB_OTHER} =  xpath://*[@class='category-input-manually']//input
 
 ${TXT_SEARCH_CAT} =  xpath://*[@class='v-input v-text-field v-text-field--placeholder theme--light']
 ${TXB_SEARCH_CAT} =  xpath://input[contains(@placeholder,'Nhập')]

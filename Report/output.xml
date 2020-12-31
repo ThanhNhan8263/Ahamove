@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201228 09:44:13.416" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201228 17:17:07.472" rpa="false">
 <suite id="s1" name="Category" source="/Users/mac/Desktop/Ahamove/TestCase/BeforeBooking/Category.robot">
-<test id="s1-t1" name="Verify that when click confirm close popup">
+<test id="s1-t1" name="Verify that save category success when input other category">
 <kw name="Begin Web Test" library="Common" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
@@ -9,31 +9,62 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20201228 09:44:14.686" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20201228 09:44:14.684" endtime="20201228 09:44:17.020"></status>
+<msg timestamp="20201228 17:17:08.598" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201228 17:17:08.598" endtime="20201228 17:17:10.910"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the current browser window to the provided ``url``.</doc>
 <arguments>
 <arg>${URL.${ENVIROMENT}}</arg>
 </arguments>
-<msg timestamp="20201228 09:44:17.021" level="INFO">Opening url 'https://appstg.ahamove.com'</msg>
-<status status="PASS" starttime="20201228 09:44:17.021" endtime="20201228 09:44:22.702"></status>
+<msg timestamp="20201228 17:17:10.911" level="INFO">Opening url 'https://appuat.ahamove.com'</msg>
+<status status="PASS" starttime="20201228 17:17:10.910" endtime="20201228 17:17:16.675"></status>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <doc>Sets the directory for captured screenshots.</doc>
 <arguments>
 <arg>${EXECDIR}/Report/image</arg>
 </arguments>
-<status status="PASS" starttime="20201228 09:44:22.703" endtime="20201228 09:44:22.703"></status>
+<status status="PASS" starttime="20201228 17:17:16.675" endtime="20201228 17:17:16.676"></status>
 </kw>
-<status status="PASS" starttime="20201228 09:44:14.683" endtime="20201228 09:44:22.704"></status>
+<status status="PASS" starttime="20201228 17:17:08.597" endtime="20201228 17:17:16.676"></status>
 </kw>
-<kw name="Given User open app to sign up screen" library="SignUpDF">
-<kw name="Click To Tap SignUp" library="SignInPage">
+<kw name="Given User open to profile screen" library="CategoryDF">
+<arguments>
+<arg>84910000005</arg>
+</arguments>
+<kw name="Login Success" library="SignInPage">
+<arguments>
+<arg>${phone}</arg>
+</arguments>
+<kw name="Wait And Input" library="BasePage">
+<arguments>
+<arg>${TXT_PHONE}</arg>
+<arg>${phone}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${textbox}</arg>
+<arg>25s</arg>
+<arg>Not found</arg>
+</arguments>
+<status status="PASS" starttime="20201228 17:17:16.679" endtime="20201228 17:17:16.720"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${textbox}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20201228 17:17:16.721" level="INFO">Typing text '84910000005' into text field 'xpath://input[@data-test-id='phone-number']'.</msg>
+<status status="PASS" starttime="20201228 17:17:16.720" endtime="20201228 17:17:16.896"></status>
+</kw>
+<status status="PASS" starttime="20201228 17:17:16.678" endtime="20201228 17:17:16.896"></status>
+</kw>
 <kw name="Wait And Click" library="BasePage">
 <arguments>
-<arg>${TAB_SIGNUP}</arg>
+<arg>${BTN_LOGIN}</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -42,146 +73,40 @@
 <arg>25s</arg>
 <arg>not found</arg>
 </arguments>
-<status status="PASS" starttime="20201228 09:44:22.707" endtime="20201228 09:44:22.751"></status>
+<status status="PASS" starttime="20201228 17:17:16.897" endtime="20201228 17:17:16.919"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${element}</arg>
 </arguments>
-<msg timestamp="20201228 09:44:22.753" level="INFO">Clicking element 'xpath://*[@class="ahamove-auth__methods"]/div[2]'.</msg>
-<status status="PASS" starttime="20201228 09:44:22.752" endtime="20201228 09:44:22.889"></status>
+<msg timestamp="20201228 17:17:16.920" level="INFO">Clicking element 'xpath://*[@class='signin-methods__submit v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
+<status status="PASS" starttime="20201228 17:17:16.920" endtime="20201228 17:17:16.987"></status>
 </kw>
-<status status="PASS" starttime="20201228 09:44:22.706" endtime="20201228 09:44:22.889"></status>
+<status status="PASS" starttime="20201228 17:17:16.896" endtime="20201228 17:17:16.988"></status>
 </kw>
-<status status="PASS" starttime="20201228 09:44:22.705" endtime="20201228 09:44:22.890"></status>
+<status status="PASS" starttime="20201228 17:17:16.678" endtime="20201228 17:17:16.988"></status>
 </kw>
-<status status="PASS" starttime="20201228 09:44:22.704" endtime="20201228 09:44:22.890"></status>
-</kw>
-<kw name="And User click on category menu" library="CategoryDF">
-<kw name="Click Menu Category" library="SignUpPage">
-<kw name="Wait And Click" library="BasePage">
+<kw name="Input Activate Code" library="VerifyOTPPage">
 <arguments>
-<arg>${MNU_CAT}</arg>
+<arg>${phone}</arg>
 </arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Get OTP" library="UserDB">
 <arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:22.893" endtime="20201228 09:44:22.917"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:22.918" level="INFO">Clicking element 'xpath://*[@class='category__label__content-placeholder']'.</msg>
-<status status="PASS" starttime="20201228 09:44:22.917" endtime="20201228 09:44:23.009"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:22.892" endtime="20201228 09:44:23.009"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:22.892" endtime="20201228 09:44:23.009"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:22.891" endtime="20201228 09:44:23.010"></status>
-</kw>
-<kw name="And User click choose business type" library="CategoryDF">
-<arguments>
-<arg>SMEs</arg>
-</arguments>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${type}" == "Individual"</arg>
-<arg>Set Variable</arg>
-<arg>1</arg>
-<arg>ELSE IF</arg>
-<arg>"${type}" == "SMEs"</arg>
-<arg>Set Variable</arg>
-<arg>2</arg>
-<arg>ELSE IF</arg>
-<arg>"${type}" == "Corporation"</arg>
-<arg>Set Variable</arg>
-<arg>3</arg>
-<arg>ELSE</arg>
-<arg>Fail</arg>
+<arg>${phone}</arg>
 </arguments>
 <assign>
-<var>${div}</var>
-</assign>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>2</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:23.011" endtime="20201228 09:44:23.011"></status>
-</kw>
-<msg timestamp="20201228 09:44:23.011" level="INFO">${div} = 2</msg>
-<status status="PASS" starttime="20201228 09:44:23.010" endtime="20201228 09:44:23.011"></status>
-</kw>
-<kw name="Click Menu Category" library="CategoryPage">
-<arguments>
-<arg>${div}</arg>
-</arguments>
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>xpath://*[@class='business__types']/div[${div}]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:23.012" endtime="20201228 09:44:23.033"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:23.034" level="INFO">Clicking element 'xpath://*[@class='business__types']/div[2]'.</msg>
-<status status="PASS" starttime="20201228 09:44:23.034" endtime="20201228 09:44:23.332"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:23.012" endtime="20201228 09:44:23.332"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:23.012" endtime="20201228 09:44:23.332"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:23.010" endtime="20201228 09:44:23.333"></status>
-</kw>
-<kw name="When User click on category on the left" library="CategoryDF">
-<arguments>
-<arg>SMEs</arg>
-<arg>FOOD</arg>
-<arg>vi</arg>
-</arguments>
-<kw name="Click choose category" library="CategoryPage">
-<arguments>
-<arg>${type}</arg>
-<arg>${category}</arg>
-<arg>${language}</arg>
-</arguments>
-<kw name="Get Category Name" library="User_categoryDB">
-<arguments>
-<arg>${category}</arg>
-<arg>${type}</arg>
-<arg>${language}</arg>
-</arguments>
-<assign>
-<var>${txt_cat}</var>
+<var>${otp}</var>
 </assign>
 <kw name="Get Field" library="MongoDB">
 <arguments>
-<arg>masterdata</arg>
-<arg>user_category</arg>
-<arg>{"code":"${category_code}","type":"${type}"}</arg>
-<arg>name</arg>
+<arg>ahamove</arg>
+<arg>user</arg>
+<arg>{"_id": "${id}"}</arg>
+<arg>activation_code</arg>
 </arguments>
 <assign>
-<var>${user_type}</var>
+<var>&amp;{user_ref_id}</var>
 </assign>
 <kw name="Connect To Mongodb" library="MongoDBLibrary">
 <doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
@@ -189,7 +114,7 @@
 <arg>${HOST.${DB_ENV}}</arg>
 <arg>${27017}</arg>
 </arguments>
-<status status="PASS" starttime="20201228 09:44:23.339" endtime="20201228 09:44:27.535"></status>
+<status status="PASS" starttime="20201228 17:17:16.992" endtime="20201228 17:17:17.141"></status>
 </kw>
 <kw name="Retrieve Mongodb Records With Desired Fields" library="MongoDBLibrary">
 <doc>Retrieves from a document(s) the desired projection. In a sql terms: select a and b from table;
@@ -207,339 +132,16 @@ documentation.</doc>
 <assign>
 <var>@{allResults}</var>
 </assign>
-<msg timestamp="20201228 09:44:31.458" level="INFO">@{allResults} = [ {'_id': ObjectId('5eb0eae78c34723f2f6ffd43'), 'name': {'en': 'Food', 'vi': 'Đồ ăn'}} ]</msg>
-<status status="PASS" starttime="20201228 09:44:27.536" endtime="20201228 09:44:31.458"></status>
+<msg timestamp="20201228 17:17:47.492" level="FAIL">ServerSelectionTimeoutError: ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 5fe9b0ad5d61995c8eba5b13, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ahamove-uat-shard-00-00.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-01.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-02.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out')&gt;]&gt;</msg>
+<status status="FAIL" starttime="20201228 17:17:17.141" endtime="20201228 17:17:47.492"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${allResults}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:31.459" level="INFO">[{'_id': ObjectId('5eb0eae78c34723f2f6ffd43'), 'name': {'en': 'Food', 'vi': 'Đồ ăn'}}]</msg>
-<status status="PASS" starttime="20201228 09:44:31.459" endtime="20201228 09:44:31.459"></status>
+<status status="FAIL" starttime="20201228 17:17:16.991" endtime="20201228 17:17:47.493"></status>
 </kw>
-<kw name="Set To Dictionary" library="Collections">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<arguments>
-<arg>@{allResults}</arg>
-</arguments>
-<assign>
-<var>&amp;{dict}</var>
-</assign>
-<msg timestamp="20201228 09:44:31.460" level="INFO">&amp;{dict} = { _id=5eb0eae78c34723f2f6ffd43 | name={'en': 'Food', 'vi': 'Đồ ăn'} }</msg>
-<status status="PASS" starttime="20201228 09:44:31.460" endtime="20201228 09:44:31.460"></status>
+<status status="FAIL" starttime="20201228 17:17:16.989" endtime="20201228 17:17:47.494"></status>
 </kw>
-<kw name="Disconnect From Mongodb" library="MongoDBLibrary">
-<doc>Disconnects from the MongoDB server.</doc>
-<status status="PASS" starttime="20201228 09:44:31.460" endtime="20201228 09:44:31.524"></status>
+<status status="FAIL" starttime="20201228 17:17:16.989" endtime="20201228 17:17:47.494"></status>
 </kw>
-<msg timestamp="20201228 09:44:31.525" level="INFO">${user_type} = {'_id': ObjectId('5eb0eae78c34723f2f6ffd43'), 'name': {'en': 'Food', 'vi': 'Đồ ăn'}}</msg>
-<status status="PASS" starttime="20201228 09:44:23.337" endtime="20201228 09:44:31.525"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${user_type.name.${language}}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:31.526" level="INFO">Đồ ăn</msg>
-<status status="PASS" starttime="20201228 09:44:31.525" endtime="20201228 09:44:31.526"></status>
-</kw>
-<msg timestamp="20201228 09:44:31.526" level="INFO">${txt_cat} = Đồ ăn</msg>
-<status status="PASS" starttime="20201228 09:44:23.336" endtime="20201228 09:44:31.527"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${txt_cat}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:31.527" level="INFO">Đồ ăn</msg>
-<status status="PASS" starttime="20201228 09:44:31.527" endtime="20201228 09:44:31.527"></status>
-</kw>
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:31.528" endtime="20201228 09:44:31.554"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:31.555" level="INFO">Clicking element 'xpath://*[@class='select-category-group']/*[contains(text(),'Đồ ăn')]'.</msg>
-<status status="PASS" starttime="20201228 09:44:31.554" endtime="20201228 09:44:31.793"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:31.527" endtime="20201228 09:44:31.793"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:23.335" endtime="20201228 09:44:31.794"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:23.334" endtime="20201228 09:44:31.794"></status>
-</kw>
-<kw name="And User click on subcategory" library="CategoryDF">
-<arguments>
-<arg>SMEs</arg>
-<arg>FAST FOOD</arg>
-<arg>vi</arg>
-</arguments>
-<kw name="Click choose any subcategory" library="CategoryPage">
-<arguments>
-<arg>${type}</arg>
-<arg>${sub_cat}</arg>
-<arg>${language}</arg>
-</arguments>
-<kw name="Get Category Name" library="User_categoryDB">
-<arguments>
-<arg>${sub_cat}</arg>
-<arg>${type}</arg>
-<arg>${language}</arg>
-</arguments>
-<assign>
-<var>${txt_subcat}</var>
-</assign>
-<kw name="Get Field" library="MongoDB">
-<arguments>
-<arg>masterdata</arg>
-<arg>user_category</arg>
-<arg>{"code":"${category_code}","type":"${type}"}</arg>
-<arg>name</arg>
-</arguments>
-<assign>
-<var>${user_type}</var>
-</assign>
-<kw name="Connect To Mongodb" library="MongoDBLibrary">
-<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
-<arguments>
-<arg>${HOST.${DB_ENV}}</arg>
-<arg>${27017}</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:31.797" endtime="20201228 09:44:35.886"></status>
-</kw>
-<kw name="Retrieve Mongodb Records With Desired Fields" library="MongoDBLibrary">
-<doc>Retrieves from a document(s) the desired projection. In a sql terms: select a and b from table;
-For more details about querying records from Mongodb and comparison to sql see the
-[http://docs.mongodb.org/manual/reference/sql-comparison|Mongodb]
-documentation.</doc>
-<arguments>
-<arg>${dbName}</arg>
-<arg>${dbCollName}</arg>
-<arg>${recordJSON}</arg>
-<arg>${recordField}</arg>
-<arg>True</arg>
-<arg>True</arg>
-</arguments>
-<assign>
-<var>@{allResults}</var>
-</assign>
-<msg timestamp="20201228 09:44:36.682" level="INFO">@{allResults} = [ {'_id': ObjectId('5eb0eae78c34723f2f6ffce4'), 'name': {'en': 'Fast food', 'vi': 'Đồ ăn nhanh'}} ]</msg>
-<status status="PASS" starttime="20201228 09:44:35.887" endtime="20201228 09:44:36.682"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${allResults}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:36.683" level="INFO">[{'_id': ObjectId('5eb0eae78c34723f2f6ffce4'), 'name': {'en': 'Fast food', 'vi': 'Đồ ăn nhanh'}}]</msg>
-<status status="PASS" starttime="20201228 09:44:36.683" endtime="20201228 09:44:36.683"></status>
-</kw>
-<kw name="Set To Dictionary" library="Collections">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
-<arguments>
-<arg>@{allResults}</arg>
-</arguments>
-<assign>
-<var>&amp;{dict}</var>
-</assign>
-<msg timestamp="20201228 09:44:36.684" level="INFO">&amp;{dict} = { _id=5eb0eae78c34723f2f6ffce4 | name={'en': 'Fast food', 'vi': 'Đồ ăn nhanh'} }</msg>
-<status status="PASS" starttime="20201228 09:44:36.684" endtime="20201228 09:44:36.684"></status>
-</kw>
-<kw name="Disconnect From Mongodb" library="MongoDBLibrary">
-<doc>Disconnects from the MongoDB server.</doc>
-<status status="PASS" starttime="20201228 09:44:36.685" endtime="20201228 09:44:36.755"></status>
-</kw>
-<msg timestamp="20201228 09:44:36.755" level="INFO">${user_type} = {'_id': ObjectId('5eb0eae78c34723f2f6ffce4'), 'name': {'en': 'Fast food', 'vi': 'Đồ ăn nhanh'}}</msg>
-<status status="PASS" starttime="20201228 09:44:31.796" endtime="20201228 09:44:36.755"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${user_type.name.${language}}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:36.756" level="INFO">Đồ ăn nhanh</msg>
-<status status="PASS" starttime="20201228 09:44:36.756" endtime="20201228 09:44:36.756"></status>
-</kw>
-<msg timestamp="20201228 09:44:36.757" level="INFO">${txt_subcat} = Đồ ăn nhanh</msg>
-<status status="PASS" starttime="20201228 09:44:31.796" endtime="20201228 09:44:36.757"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${txt_subcat}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:36.757" level="INFO">Đồ ăn nhanh</msg>
-<status status="PASS" starttime="20201228 09:44:36.757" endtime="20201228 09:44:36.757"></status>
-</kw>
-<kw name="Scroll And Click" library="BasePage">
-<arguments>
-<arg>xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]</arg>
-</arguments>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:36.758" endtime="20201228 09:44:37.034"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.035" endtime="20201228 09:44:37.051"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:37.051" level="INFO">Clicking element 'xpath://*[@class='category-item']//*[contains(text(),'Đồ ăn nhanh')]'.</msg>
-<status status="PASS" starttime="20201228 09:44:37.051" endtime="20201228 09:44:37.153"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:36.758" endtime="20201228 09:44:37.153"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:31.795" endtime="20201228 09:44:37.153"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:31.794" endtime="20201228 09:44:37.153"></status>
-</kw>
-<kw name="When User click x" library="CategoryDF">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_X_CAT}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.155" endtime="20201228 09:44:37.178"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:37.179" level="INFO">Clicking element 'xpath://*[@class='header__close']//*[@class='v-menu__activator']'.</msg>
-<status status="PASS" starttime="20201228 09:44:37.178" endtime="20201228 09:44:37.228"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.154" endtime="20201228 09:44:37.228"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.154" endtime="20201228 09:44:37.228"></status>
-</kw>
-<kw name="And Click no at cofirm popup and still Show popup" library="CategoryDF">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_CANCEL_CLOSE}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.229" endtime="20201228 09:44:37.518"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:37.519" level="INFO">Clicking element 'xpath://*[@class='v-btn v-btn--flat v-btn--small theme--light']'.</msg>
-<status status="PASS" starttime="20201228 09:44:37.519" endtime="20201228 09:44:37.570"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.229" endtime="20201228 09:44:37.570"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.228" endtime="20201228 09:44:37.570"></status>
-</kw>
-<kw name="And User click x" library="CategoryDF">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_X_CAT}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.571" endtime="20201228 09:44:37.588"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:37.589" level="INFO">Clicking element 'xpath://*[@class='header__close']//*[@class='v-menu__activator']'.</msg>
-<status status="PASS" starttime="20201228 09:44:37.589" endtime="20201228 09:44:37.626"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.571" endtime="20201228 09:44:37.626"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.570" endtime="20201228 09:44:37.626"></status>
-</kw>
-<kw name="And Click yes at cofirm popup" library="CategoryDF">
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_YES_CLOSE}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.627" endtime="20201228 09:44:37.653"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 09:44:37.654" level="INFO">Clicking element 'xpath://*[@class='v-btn v-btn--depressed v-btn--small theme--light']'.</msg>
-<status status="PASS" starttime="20201228 09:44:37.653" endtime="20201228 09:44:37.771"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.627" endtime="20201228 09:44:37.771"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.627" endtime="20201228 09:44:37.771"></status>
-</kw>
-<kw name="Then Close popup" library="CategoryDF">
-<kw name="Wait Not Visible" library="BasePage">
-<arguments>
-<arg>${POPUP_CATEGORY}</arg>
-</arguments>
-<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 09:44:37.772" endtime="20201228 09:44:37.781"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.771" endtime="20201228 09:44:37.781"></status>
-</kw>
-<status status="PASS" starttime="20201228 09:44:37.771" endtime="20201228 09:44:37.781"></status>
+<status status="FAIL" starttime="20201228 17:17:16.677" endtime="20201228 17:17:47.495"></status>
 </kw>
 <kw name="End Web Test" library="Common" type="teardown">
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
@@ -547,32 +149,32 @@ documentation.</doc>
 <arguments>
 <arg>${EXECDIR}/Report/image/custom_name_{index}.png</arg>
 </arguments>
-<msg timestamp="20201228 09:44:38.277" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/custom_name_266.png"&gt;&lt;img src="image/custom_name_266.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201228 09:44:37.782" endtime="20201228 09:44:38.278"></status>
+<msg timestamp="20201228 17:17:48.168" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/custom_name_299.png"&gt;&lt;img src="image/custom_name_299.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201228 17:17:47.497" endtime="20201228 17:17:48.168"></status>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20201228 09:44:38.278" endtime="20201228 09:44:38.400"></status>
+<status status="PASS" starttime="20201228 17:17:48.169" endtime="20201228 17:17:48.318"></status>
 </kw>
-<status status="PASS" starttime="20201228 09:44:37.781" endtime="20201228 09:44:38.400"></status>
+<status status="PASS" starttime="20201228 17:17:47.496" endtime="20201228 17:17:48.318"></status>
 </kw>
 <tags>
-<tag>TC_click_confirm_close_popup</tag>
+<tag>TC_save_category_success_when_input_other_category</tag>
 </tags>
-<status status="PASS" starttime="20201228 09:44:14.682" endtime="20201228 09:44:38.400" critical="yes"></status>
+<status status="FAIL" starttime="20201228 17:17:08.595" endtime="20201228 17:17:48.319" critical="yes">ServerSelectionTimeoutError: ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 5fe9b0ad5d61995c8eba5b13, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ahamove-uat-shard-00-00.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-01.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-02.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out')&gt;]&gt;</status>
 </test>
-<status status="PASS" starttime="20201228 09:44:13.418" endtime="20201228 09:44:38.401"></status>
+<status status="FAIL" starttime="20201228 17:17:07.474" endtime="20201228 17:17:48.321"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">TC_click_confirm_close_popup</stat>
+<stat pass="0" fail="1">TC_save_category_success_when_input_other_category</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Category">Category</stat>
+<stat pass="0" fail="1" id="s1" name="Category">Category</stat>
 </suite>
 </statistics>
 <errors>

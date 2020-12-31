@@ -13,6 +13,7 @@ Begin Web Test
     Open Browser  about:blank  ${BROWSER}
     Go To  ${URL.${ENVIROMENT}}
     Set Screenshot Directory  ${EXECDIR}/Report/image
+
 End Web Test
     Capture Page Screenshot  ${EXECDIR}/Report/image/custom_name_{index}.png
     Close All Browsers

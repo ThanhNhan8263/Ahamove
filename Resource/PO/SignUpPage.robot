@@ -69,7 +69,7 @@ Click Menu Category
 
 Verify User Info
     [Arguments]  ${user_type}  ${cat}  ${subcat}
-    ${phone} =  Remove String  ${data_info}[2]  0
+    ${phone} =  Get Substring  ${data_info}[2]  1
     ${phone} =  Set Variable  84${phone}
     @{user_info} =  UserDB.Get User Info When Sign Up  ${phone}
     Should Be Equal As Strings  ${phone}  ${user_info}[0]  msg=Fail

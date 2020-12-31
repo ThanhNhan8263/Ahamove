@@ -30,6 +30,13 @@ Verify that choose category success when sign up
 
 
 ######### NEW ORDER #########
+#Verify that when click out popup should be able close popup
+#    [Tags] TC_click_out_of_popup_should_close_popup
+#    Given User don't have field "user_type","categories" and "category"
+#    When User open to new order page
+#    And User click to out of popup update category
+#    Then Open to new order page
+
 #2
 Verify that update category form popup request update catgory
     [Tags]  TC_update_category_form_popup_request_update_category
@@ -62,7 +69,21 @@ Verify that update category form banner update category at user profle
     And User click on category on the left  SMEs  FOOD  vi
     And User click on subcategory  SMEs  FAST FOOD  vi
     And User click on Save button
-    Then Save category success to database  84910000008  SMEs  FOOD  FAST FOOD
+    Then Save category success to database  84910000009  SMEs  FOOD  FAST FOOD
+
+#4.1
+Verify that update category form popup update category at user profle
+    [Tags]  TC_update_catgeory_form_popup_update_at_user_profile
+    Given User don't have field "user_type","categories" and "category"  84910000005
+    And User open to profile screen  84910000005
+    And Show popup update category
+    When Click to popup category at user profile
+    And User click choose business type  SMEs
+    And User click on category on the left  SMEs  FOOD  vi
+    And User click on subcategory  SMEs  FAST FOOD  vi
+    And User click on Save button
+    Then Save category success to database  84910000005  SMEs  FOOD  FAST FOOD
+
 
 #5
 Verify that don't show popup and banner update category at user profle if user have been update
@@ -131,7 +152,7 @@ Verify that list subcategory show matching with data
     And User click on category menu
     And User click choose business type  Corporation
     When User click on category on the left  Corporation  FOOD  vi
-    Then Show subcategory on the right  Corporation  FOOD  vi
+    Then Show subcategory on the right  Corporation  FAST FOOD  vi
 
 #13
 Verify that click again on choose category should be able hide list subcategory
@@ -190,6 +211,14 @@ Verify that click back on category screen to business screen
     When User click back
     Then Open to bussiness type screen
 
+19
+Verify that when click x on popup should be able close popup
+    [Tags]  TC_click_x_on_popup
+    Given User open app to sign up screen
+    And User click on category menu
+    And User click out of popup then still show popup
+    When User click x
+    Then Close popup
 
 #20
 Verify that when click confirm close popup
@@ -215,3 +244,14 @@ Verify that when click save category should be able save success on database
     And User click on subcategory  Corporation  FAST FOOD  vi
     When User click on Save button
     Then Save category success to database  84910000009  Corporation  FOOD  FAST FOOD
+
+#22
+Verify that save category success when input other category
+    [Tags]  TC_save_category_success_when_input_other_category
+    Given User open to profile screen  84910000005
+    And User click on category menu at profile
+    And User click choose business type  Corporation
+    And User click on category on the left  Corporation  OTHER  vi
+    When User input other category  Đồ linh tinh
+    And User click on Save button
+    Then Save category success to database  84910000005  Corporation  OTHER  Đồ linh tinh

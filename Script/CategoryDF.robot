@@ -183,8 +183,6 @@ Show selected category
     CategoryPage.Selected Category  ${type}  ${cat}  ${language}
     CategoryPage.Selected Subategory  ${type}  ${sub_cat}  ${language}
 
-Click again should show all list again
-
 User click back
     BasePage.Wait And Click  ${BACK_CATEGORY}
 
@@ -211,6 +209,17 @@ Save category success to database
 User click on category menu at profile
     ProfilePage.Click menu category
 
+User click out of popup then still show popup
+
+User input other category
+    [Arguments]  ${subcategory}
+    BasePage.Wait And Input  ${TXB_OTHER}
+
+Show popup update category
+    BasePage.Wait Visible  ${POP_CAT_PROFILE}
+
+Click to popup category at user profile
+    BasePage.Wait And Click
 
 #*** Test Cases ***
 #Test
