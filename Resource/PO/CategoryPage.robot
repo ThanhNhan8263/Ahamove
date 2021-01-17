@@ -7,34 +7,35 @@ Library  Collections
 Library  BuiltIn
 
 Resource  ../Common.robot
-Resource   ${EXECDIR}/Resource/DB/User_categoryDB.robot
 Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
+Resource   ${EXECDIR}/Resource/API/APIUser.robot
+
 
 
 *** Keywords ***
 Choose Category Individual
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_INDIVIDUAL}
-    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    ${txt_subcat} =  APIUser.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     CategoryPage.Click Save Category
 
 Choose Category SMEs
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_SMEs}
-    ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    ${txt_cat} =  APIUser.Get Category Name  ${category}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
-    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    ${txt_subcat} =  APIUser.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     CategoryPage.Click Save Category
 
 Choose Category Corporate
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}
     BasePage.Wait And Click  ${BTN_CORPORATE}
-    ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    ${txt_cat} =  APIUser.Get Category Name  ${category}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
-    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    ${txt_subcat} =  APIUser.Get Category Name  ${sub_cat}  ${type}  ${language}
     BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
     CategoryPage.Click Save Category
 
@@ -52,7 +53,6 @@ Get list category Individual
     Log  ${list_categoryIndividual}
     [return]  ${list_categoryIndividual}
 
-
 Get list category
     ${count_element}  Get Element Count  xpath://*[@class='category-group']
     ${list_category} =  Create List
@@ -66,7 +66,7 @@ Get list category
 
 Get list subcategory
     [Arguments]  ${type}  ${category}  ${language}
-    ${category_name} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    ${category_name} =  APIUser.Get Category Name  ${category}  ${type}  ${language}
     ${count_element}  Get Element Count  xpath://*[text()='${category_name}']/following-sibling::*//*[@class='category-item']//label
     ${list_subcategory} =  Create List
     FOR  ${i}  IN RANGE  1  ${count_element}+1
@@ -79,19 +79,26 @@ Get list subcategory
 
 Click choose category
     [Arguments]  ${type}  ${category}  ${language}
-    ${txt_cat} =  User_categoryDB.Get Category Name  ${category}  ${type}  ${language}
+    ${txt_cat} =  APIUser.Get Category Name  ${category}  ${type}  ${language}
     Log  ${txt_cat}
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/*[contains(text(),'${txt_cat}')]
 
 Click choose any subcategory
     [Arguments]  ${type}  ${sub_cat}  ${language}
-    ${txt_subcat} =  User_categoryDB.Get Category Name  ${sub_cat}  ${type}  ${language}
+    ${txt_subcat} =  APIUser.Get Category Name  ${sub_cat}  ${type}  ${language}
     Log  ${txt_subcat}
-    BasePage.Scroll And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
+    BasePage.Wait And Click  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
+
+Scroll and click choose any subcategory
+    [Arguments]  ${type}  ${sub_cat}  ${language}  ${scroll_element}
+    ${txt_subcat} =  APIUser.Get Category Name  ${sub_cat}  ${type}  ${language}
+    Log  ${txt_subcat}
+    BasePage.Scroll And Click  xpath://*[@class='category-item__title'][contains(text(),'${scroll_element}')]  xpath://*[@class='category-item']//*[contains(text(),'${txt_subcat}')]
 
 Verify User Type And Category Info
     [Arguments]  ${phone}  ${user_type}  ${cat}  ${subcat}
-    @{user_category} =  User_categoryDB.Get User Type And Category  ${phone}
+    ${token} =  APIUser.User Activate  ${phone}
+    @{user_category} =  APIUser.Get User Type And Category  ${token}
     Should Be Equal As Strings  ${user_type}  ${user_category}[0]  msg=Fail
     Should Be Equal As Strings  ${cat}  ${user_category}[1]  msg=Fail
     Should Be Equal As Strings  ${subcat}  ${user_category}[2]  msg=Fail
@@ -129,14 +136,14 @@ Click On Toggle Selected
 Selected Category
     [Arguments]  ${type}  ${category}  ${language}
     ${text_selected} =  Get Text  ${CAT_GROUP_SELECTED}
-    ${text_selected} =  User_categoryDB.Get Category Code  ${text_selected}  ${type}  ${language}
+    ${text_selected} =  APIUser.Get Category Code  ${text_selected}  ${type}  ${language}
     Should Be Equal As Strings  ${text_selected}  ${category}  msg=Fail
 
 Selected Subategory
     [Arguments]  ${type}  ${subcategory}  ${language}
-    ${text_selected} =  User_categoryDB.Get Category Name  ${subcategory}  ${type}  ${language}
+    ${text_selected} =  APIUser.Get Category Name  ${subcategory}  ${type}  ${language}
     ${text_selected} =  Get Text  //*[@class='category-item']//*[contains(text(),'${text_selected}')]
-    ${text_selected} =  User_categoryDB.Get Category Code  ${text_selected}  ${type}  ${language}
+    ${text_selected} =  APIUser.Get Category Code  ${text_selected}  ${type}  ${language}
     Should Be Equal As Strings  ${text_selected}  ${subcategory}  msg=Fail
 
 Bussiness Type Screen

@@ -20,5 +20,12 @@ Input Activate Code
     BasePage.Wait And Input  ${TXT_OTP3}   ${otp}[2]
     BasePage.Wait And Input  ${TXT_OTP4}   ${otp}[3]
 
+Input Invalid Activate Code
+    [Arguments]  @{otp}
+    BasePage.Wait And Input  ${TXT_OTP1}   ${otp}[0]
+    BasePage.Wait And Input  ${TXT_OTP2}   ${otp}[1]
+    BasePage.Wait And Input  ${TXT_OTP3}   ${otp}[2]
+    BasePage.Wait And Input  ${TXT_OTP4}   ${otp}[3]
+
 Error Mess Invalid Activate Code
-    Wait Until Page Contains  Mã kích hoạt của bạn đã hết hạn.  15s  not found
+    BasePage.Wait Visible  ${ERR_CODE}

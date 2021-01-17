@@ -20,3 +20,12 @@ Popup update category
 
 Click update at popup category
     BasePage.Wait And Click  ${BTN_POP_CAT}
+
+Close popup category
+    ${check_update_category} =  Run Keyword And Return Status  BasePage.Wait Visible  ${POP_CAT_NEWORDER} 
+    Run Keyword If  '${check_update_category}'=='True'  Press Keys  None  ESC
+    ...         ELSE  Log  ${POP_CAT_NEWORDER} not found
+
+Click to home screen 
+    BasePage.Wait And Click  ${MNU_NEWORDER}
+

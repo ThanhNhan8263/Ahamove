@@ -25,7 +25,7 @@ ${ERR_BLANK_CAT}  xpath://*[contains(@class,'sign-up__category')][contains(text(
 
 ${TXT_REF}  xpath://*[@data-test-id='signupReferralCode']//input
 
-${BTN_SIGNUP}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']
+${BTN_SIGNUP}  xpath://*[contains(@data-test-id,'signUpBtn')]
 ${BTN_SIGNUP_DISABLE}  xpath://*[@class='mt-4 submit-signup v-btn v-btn--block v-btn--disabled v-btn--large v-btn--depressed theme--light accent--text']
 
 ########### LOGIN  ##############
@@ -41,7 +41,8 @@ ${TXT_OTP1}  xpath://*[@class='digits my-4']/input[1]
 ${TXT_OTP2}  xpath://*[@class='digits my-4']/input[2]
 ${TXT_OTP3}  xpath://*[@class='digits my-4']/input[3]
 ${TXT_OTP4}  xpath://*[@class='digits my-4']/input[4]
-${ERR_CODE}  xpath://div[contains(text(),'Bạn đã nhập sai OTP, vui lòng nhập lại')]
+${ERR_CODE}  xpath://*[@class='active-form__invalid-code']
+
 
 ############ CATEGORY ############
 ${POPUP_CATEGORY} =  xpath://*[@class='v-dialog select-category-modal select-step-2 v-dialog--active v-dialog--persistent']
@@ -54,7 +55,6 @@ ${BTN_CORPORATE}  xpath://*[@class='business__types']/div[3]
 #${CONTENT_CATEGORY} =  xpath://*[@class='category__label__content-title']
 #${CONTENT_SUBCATEGORY} =  xpath://*[@class='category__label__content-sub-title']
 
-
 ${CAT_GROUP} =  xpath://*[@class='select-category-group']/div
 ${CAT_GROUP_SELECTED} =  xpath://*[@class='category-group selected']
 ${BTN_SAVE_CATEGORY} =  xpath://*[@class='select-categories__footer']/button
@@ -63,6 +63,7 @@ ${SELECTED_CAT} =  xpath://*[@class='select-categories__footer']//*[@class='v-in
 ${BACK_CATEGORY} =  xpath://*[@class='header__back']
 ${ELM_BLANK} =  xpath://*[@class='no-data__title']
 ${TXB_OTHER} =  xpath://*[@class='category-input-manually']//input
+${BTN_SAVE_OTHER} =  xpath://*[@class='input-manually__actions']/button[2]
 
 ${TXT_SEARCH_CAT} =  xpath://*[@class='v-input v-text-field v-text-field--placeholder theme--light']
 ${TXB_SEARCH_CAT} =  xpath://input[contains(@placeholder,'Nhập')]
@@ -81,6 +82,7 @@ ${HOME_LAYOUT} =  xpath://*[@class='v-overlay v-overlay--active']
 ######## LEFT MENU ###########
 ${HOME_MNU} =  xpath://*[@class='v-toolbar__content']
 ${MNU_PROFILE} =  xpath://*[@class='v-list__tile v-list__tile--avatar theme--light']
+${MNU_NEWORDER} =  xpath://*[contains(@name,'new-order')]
 
 ######## PROFILE  #########
 ${BANNER_CAT} =  xpath://*[@class='suggest-update-category-banner mt-2']
@@ -89,43 +91,47 @@ ${BUT_X_POP_CAT} =  xpath://*[@class='content__close']
 ${MNU_CAT_PROFILE} =  xpath://*[@class='category']
 
 
-
+######## MOENGATE #########
+${BTN_CLOSE_MOENGATE} =  xpath://*[@class='moe-inapp-close']
 *** Keywords ***
 Wait And Click
     [Arguments]  ${element}
-    Wait until element is visible  ${element}  25s  not found
+    Wait until element is visible  ${element}  25s  ${element} not found
     Click Element  ${element}
 
 Wait And Input
-    [Arguments]  ${textbox}  ${data}
-    Wait Until Element Is Visible  ${textbox}  25s  Not found
-    Input Text  ${textbox}  ${data}
+    [Arguments]  ${element}  ${data}
+    Wait Until Element Is Visible  ${element}  25s  ${element} Not found
+    Input Text  ${element}  ${data}
 
 Wait Visible
     [Arguments]  ${element}
-    Wait until element is visible  ${element}  25s  not found
+    Wait until element is visible  ${element}  5s  ${element} not found
 
 Wait Not Visible
     [Arguments]  ${element}
-    Wait Until Element Is Not Visible  ${element}  25s  not found
+    Wait Until Element Is Not Visible  ${element}  25s  ${element} not found
 
 Wait Page Contains
     [Arguments]  ${element}
-    Wait Until Page Contains  ${element}  25s  not found
+    Wait Until Page Contains  ${element}  25s  ${element} not found
 
 Wait Page Not Contains
     [Arguments]  ${element}
-    Wait Until Page Does Not Contain  ${element}  25s  not found
+    Wait Until Page Does Not Contain  ${element}  25s  ${element} not found
 
 Wait Element Enabled
     [Arguments]  ${element}
-    Wait Until Element Is Enabled   ${element}  25s  not found
+    Wait Until Element Is Enabled   ${element}  25s  ${element} not found
 
 Scroll And Click
-    [Arguments]  ${element}
-    Scroll Element Into View  ${element}
-    Wait until element is visible  ${element}  25s  not found
-    Click Element  ${element}
+    [Arguments]  ${element_scroll}  ${element_click}
+    Set Focus To Element  xpath://*[@class='select-categories']
+    Scroll Element Into View  ${element_scroll}
+    Wait until element is visible  ${element_click}  25s  ${element_click} not found
+    Click Element  ${element_click}
+
+
 
 
 #*** Test Cases ***

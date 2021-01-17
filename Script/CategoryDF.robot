@@ -6,7 +6,6 @@ Library  String
 Library  Collections
 Library  BuiltIn
 
-Resource   ${EXECDIR}/Resource/DB/User_categoryDB.robot
 Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 
 Resource   ${EXECDIR}/Resource/PO/CategoryPage.robot
@@ -30,6 +29,7 @@ User open to profile screen
     [Arguments]  ${phone}
     SignInPage.Login Success  ${phone}
     VerifyOTPPage.Input Activate Code  ${phone}
+    NewOrderPage.Close popup category
     ProfilePage.Open to profile screen
 
 Show popup request to update category
@@ -52,7 +52,8 @@ Click to banner category at user profile
 
 User have verify status "reject" or "completed" or "submitted"
     [Arguments]  ${id}
-    ${verify_status} =  UserDB.Get Verify Status  ${id}
+    ${token} =  APIUser.User Activate  ${id}
+    ${verify_status} =  APIUser.Get Verify Status  ${token}
     Run Keyword If    "${verify_status}" == "COMPLETED"  Log  pass
     ...   ELSE IF  "${verify_status}" == "REJECT"  Log  pass
     ...   ELSE IF  "${verify_status}" == "SUBMITTED"  Log  pass
@@ -75,13 +76,13 @@ Open to bussiness type screen
 
 List category Individual is displayed and automatically selected
     [Arguments]  ${type}  ${language}
-    ${list_category_db} =  Get Category List  ${type}  ${language}
+    ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
     ${list_category_ui} =  Get list category Individual
     Lists Should Be Equal  ${list_category_db}  ${list_category_ui}
 
 List category SMEs is displayed and blank screen
     [Arguments]  ${type}  ${language}
-    ${list_category_db} =  User_categoryDB.Get Category List  ${type}  ${language}
+    ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
     ${list_category_ui} =  CategoryPage.Get list category
     Lists Should Be Equal  ${list_category_db}  ${list_category_ui}
     CategoryPage.Blank screen
@@ -96,7 +97,7 @@ User click choose business type
 
 List category Corporation is displayed and blank screen
     [Arguments]  ${type}  ${language}
-    ${list_category_db} =  User_categoryDB.Get Category List  ${type}  ${language}
+    ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
     ${list_category_ui} =  CategoryPage.Get list category
     Lists Should Be Equal  ${list_category_db}  ${list_category_ui}  ignore_order=True
     CategoryPage.Blank screen
@@ -119,11 +120,11 @@ Choose that category success
 
 User click on category on the left
     [Arguments]  ${type}  ${category}  ${language}
-    CategoryPage. Click choose category  ${type}  ${category}  ${language}
+    CategoryPage.Click choose category  ${type}  ${category}  ${language}
 
 Show subcategory on the right
     [Arguments]  ${type}  ${category}  ${language}
-    ${list_category_db} =  User_categoryDB.Get Subcategory List  ${type}  ${category}  ${language}
+    ${list_category_db} =  APIUser.Get Subcategory List  ${type}  ${category}  ${language}
     ${list_category_ui} =  CategoryPage.Get list subcategory  ${type}  ${category}  ${language}
     Lists Should Be Equal   ${list_category_db}  ${list_category_ui}  ignore_order=True
 
@@ -149,15 +150,15 @@ Verify all list subcategory
     END
 
 User click on many category on the left
-    [Arguments]  ${div1}  ${div2}  ${div3}  ${div4}
+    [Arguments]  ${div1}  ${div2}
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div1}]
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div2}]
-    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div3}]
-    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div4}]
+#    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div3}]
+#    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div4}]
 
 Scroll and click list subcategory
-    [Arguments]  ${type}  ${subcategory}  ${language}
-    CategoryPage.Click choose any subcategory  ${type}  ${subcategory}  ${language}
+    [Arguments]  ${type}  ${subcategory}  ${language}  ${scroll_element}
+    CategoryPage.Scroll and click choose any subcategory  ${type}  ${subcategory}  ${language}  ${scroll_element}
 
 Save button is disable
     Element Should Be Disabled  ${BTN_SAVE_CATEGORY}
@@ -209,17 +210,23 @@ Save category success to database
 User click on category menu at profile
     ProfilePage.Click menu category
 
-User click out of popup then still show popup
 
 User input other category
     [Arguments]  ${subcategory}
-    BasePage.Wait And Input  ${TXB_OTHER}
+    BasePage.Wait And Input  ${TXB_OTHER}  ${subcategory}
+    BasePage.Wait And Click  ${BTN_SAVE_OTHER}
 
 Show popup update category
     BasePage.Wait Visible  ${POP_CAT_PROFILE}
+    BasePage.Wait Visible  ${POP_CAT_PROFILE}
 
-Click to popup category at user profile
-    BasePage.Wait And Click
+ Click to popup category at user profile
+     BasePage.Wait And Click  ${BUT_X_POP_CAT}
+
+User click back new order page
+    BasePage.Wait And Click  ${MNU_NEWORDER}
+
+
 
 #*** Test Cases ***
 #Test

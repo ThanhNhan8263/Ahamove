@@ -7,18 +7,15 @@ Library  Collections
 Library  BuiltIn
 
 Resource  ../Common.robot
-Resource   ${EXECDIR}/Resource/DB/User_categoryDB.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 
 
 *** Keywords ***
 Open to profile screen
-    Sleep  2s
-    Go To  https://appstg.ahamove.com/profile
-#    Sleep  10s
-#    Click Element At Coordinates  ${HOME_LAYOUT}  600  600
-#    BasePage.Wait And Click  ${HOME_MNU}
-#    BasePage.Wait And Click  ${MNU_PROFILE}
+    # Sleep  2s
+    # Go To  https://appstg.ahamove.com/profile
+   BasePage.Wait And Click  ${HOME_MNU}
+   BasePage.Wait And Click  ${MNU_PROFILE}
 
 Click menu category
     BasePage.Wait And Click  ${MNU_CAT_PROFILE}

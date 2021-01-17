@@ -13,7 +13,7 @@ Resource   ${EXECDIR}/Resource/Base/FakeData.robot
 Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 
 *** Keywords ***
-Input User Info
+Input Fake User Info
     @{data_info} =  FakeData.Fake Data Info
     Set Global Variable  @{data_info}  @{data_info}
     BasePage.Wait And Input  ${TXT_NAME}  ${data_info}[0]
@@ -37,7 +37,8 @@ Input Referral Code
     BasePage.Wait And Input  ${TXT_REF}  ${ref}
 
 Click Button Sign Up
-    Click Button  ${BTN_SIGNUP}
+    Sleep  2s 
+    BasePage.Wait And Click  ${BTN_SIGNUP}
 
 Show Error Message Blank Name
     BasePage.Wait visible  ${ERR_BLANK_NAME}
@@ -67,11 +68,14 @@ Error Referral Code
 Click Menu Category
     BasePage.Wait And Click  ${MNU_CAT}
 
+
 Verify User Info
     [Arguments]  ${user_type}  ${cat}  ${subcat}
     ${phone} =  Get Substring  ${data_info}[2]  1
     ${phone} =  Set Variable  84${phone}
-    @{user_info} =  UserDB.Get User Info When Sign Up  ${phone}
+    Log  ${phone}
+    ${token} =  APIUser.User Activate  ${phone}
+    @{user_info} =  APIUser.Get User Info When Sign Up  ${token}
     Should Be Equal As Strings  ${phone}  ${user_info}[0]  msg=Fail
     Should Be Equal As Strings  ${data_info}[0]  ${user_info}[1]  msg=Fail
     Should Be Equal As Strings  ${data_info}[1]  ${user_info}[2]  msg=Fail
@@ -82,16 +86,18 @@ Verify User Info
 
 Verify Referral Info
     [Arguments]  ${referral_code}
-    ${referee_id} =  User_referralDB.Get Referral Info  ${data_info}[2]
-    ${referrer_id} =  Remove String  ${referral_code}  0
+    ${referee_id} =  Get Substring   ${data_info}[2]  1
+    ${referee_id} =  Set Variable  84${referee_id}
+    ${referee_id} =  User_referralDB.Get Referral Info  ${referee_id}
+    ${referrer_id} =  Get Substring   ${referral_code}  1
     ${referrer_id} =  Set Variable  84${referrer_id}
     Should Be Equal As Strings  ${referee_id}  ${referrer_id}  msg=Fail
 
-Verify Referral Info Not Phone
-    [Arguments]  ${referral_code}
-    ${referrer_ref_code} =  Get User Id Form Referral Code  ${referral_code}
-    ${referee_ref_id} =  Get Referral Id From Id  ${data_info}[2]
-    Should Be Equal As Strings  ${referrer_ref_code}  ${referee_ref_id}  msg=Fail
+# Verify Referral Info Not Phone
+#     [Arguments]  ${referral_code}
+#     ${referrer_ref_code} =  Get User Id Form Referral Code  ${referral_code}
+#     ${referee_ref_id} =  Get Referral Id From Id  ${data_info}[2]
+#     Should Be Equal As Strings  ${referrer_ref_code}  ${referee_ref_id}  msg=Fail
 
 Verify Phone Existed
     [Arguments]  ${id}

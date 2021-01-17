@@ -20,5 +20,4 @@ End Web Test
 
 
 
-#{biến check}BuldIn.Run Keyeord and Return Status Element SHould Be Visiable {Xpath-nút đó}
-#Run keywords if {biến check = true}  click {xpath}
+

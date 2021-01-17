@@ -1,169 +1,1311 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20201228 17:17:07.472" rpa="false">
-<suite id="s1" name="Category" source="/Users/mac/Desktop/Ahamove/TestCase/BeforeBooking/Category.robot">
-<test id="s1-t1" name="Verify that save category success when input other category">
-<kw name="Begin Web Test" library="Common" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
+<robot generator="Robot 3.2.2 (Python 3.8.5 on darwin)" generated="20210117 15:13:35.228" rpa="false">
+<suite id="s1" name="APIUser" source="/Users/mac/Dropbox/My Mac (AHA-TECH-MB0037)/Desktop/Ahamove/Resource/API/APIUser.robot">
+<test id="s1-t1" name="Test">
+<kw name="Get Subcategory List">
 <arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
+<arg>Individual</arg>
+<arg>INDIVIDUAL NEEDS</arg>
+<arg>vi</arg>
 </arguments>
-<msg timestamp="20201228 17:17:08.598" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20201228 17:17:08.598" endtime="20201228 17:17:10.910"></status>
+<kw name="Get Category List Master Data">
+<assign>
+<var>${category}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>User-Category</arg>
+<arg>${API_URL}[${ENVIRONMENT}]</arg>
+<arg>verify=true</arg>
+</arguments>
+<msg timestamp="20210117 15:13:35.746" level="INFO">Creating Session using : alias=User-Category, url=https://apistg.ahamove.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20210117 15:13:35.746" endtime="20210117 15:13:35.747"></status>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
 <arguments>
-<arg>${URL.${ENVIROMENT}}</arg>
-</arguments>
-<msg timestamp="20201228 17:17:10.911" level="INFO">Opening url 'https://appuat.ahamove.com'</msg>
-<status status="PASS" starttime="20201228 17:17:10.910" endtime="20201228 17:17:16.675"></status>
-</kw>
-<kw name="Set Screenshot Directory" library="SeleniumLibrary">
-<doc>Sets the directory for captured screenshots.</doc>
-<arguments>
-<arg>${EXECDIR}/Report/image</arg>
-</arguments>
-<status status="PASS" starttime="20201228 17:17:16.675" endtime="20201228 17:17:16.676"></status>
-</kw>
-<status status="PASS" starttime="20201228 17:17:08.597" endtime="20201228 17:17:16.676"></status>
-</kw>
-<kw name="Given User open to profile screen" library="CategoryDF">
-<arguments>
-<arg>84910000005</arg>
-</arguments>
-<kw name="Login Success" library="SignInPage">
-<arguments>
-<arg>${phone}</arg>
-</arguments>
-<kw name="Wait And Input" library="BasePage">
-<arguments>
-<arg>${TXT_PHONE}</arg>
-<arg>${phone}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>25s</arg>
-<arg>Not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 17:17:16.679" endtime="20201228 17:17:16.720"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>${textbox}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20201228 17:17:16.721" level="INFO">Typing text '84910000005' into text field 'xpath://input[@data-test-id='phone-number']'.</msg>
-<status status="PASS" starttime="20201228 17:17:16.720" endtime="20201228 17:17:16.896"></status>
-</kw>
-<status status="PASS" starttime="20201228 17:17:16.678" endtime="20201228 17:17:16.896"></status>
-</kw>
-<kw name="Wait And Click" library="BasePage">
-<arguments>
-<arg>${BTN_LOGIN}</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-<arg>25s</arg>
-<arg>not found</arg>
-</arguments>
-<status status="PASS" starttime="20201228 17:17:16.897" endtime="20201228 17:17:16.919"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<msg timestamp="20201228 17:17:16.920" level="INFO">Clicking element 'xpath://*[@class='signin-methods__submit v-btn v-btn--block v-btn--large v-btn--depressed theme--light accent']'.</msg>
-<status status="PASS" starttime="20201228 17:17:16.920" endtime="20201228 17:17:16.987"></status>
-</kw>
-<status status="PASS" starttime="20201228 17:17:16.896" endtime="20201228 17:17:16.988"></status>
-</kw>
-<status status="PASS" starttime="20201228 17:17:16.678" endtime="20201228 17:17:16.988"></status>
-</kw>
-<kw name="Input Activate Code" library="VerifyOTPPage">
-<arguments>
-<arg>${phone}</arg>
-</arguments>
-<kw name="Get OTP" library="UserDB">
-<arguments>
-<arg>${phone}</arg>
+<arg>User-Category</arg>
+<arg>/api/v3/public/master-data/user-category?format=list</arg>
 </arguments>
 <assign>
-<var>${otp}</var>
+<var>${response}</var>
 </assign>
-<kw name="Get Field" library="MongoDB">
+<msg timestamp="20210117 15:13:35.894" level="INFO">GET Request : url=https://apistg.ahamove.com/api/v3/public/master-data/user-category?format=list 
+ path_url=/api/v3/public/master-data/user-category?format=list 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210117 15:13:35.894" level="INFO">GET Response : url=https://apistg.ahamove.com/api/v3/public/master-data/user-category?format=list 
+ status=200, reason=OK 
+ body=[{"code":"FAST FOOD","level":2,"name":{"en":"Fast food","vi":"Đồ ăn nhanh"},"parent_code":"FOOD","type":"Corporation"},{"code":"SNACK","level":2,"name":{"en":"Snack","vi":"Đồ ăn vặt"},"parent_code":"FOOD","type":"Corporation"},{"code":"PHO \u0026 NOODLES","level":2,"name":{"en":"Pho \u0026 Noodles","vi":"Phở - Mì - Bún"},"parent_code":"FOOD","type":"Corporation"},{"code":"SWEET SOUP","level":2,"name":{"en":"Sweet soup","vi":"Chè"},"parent_code":"FOOD","type":"Corporation"},{"code":"ICE-CREAM","level":2,"name":{"en":"Ice-cream","vi":"Kem"},"parent_code":"FOOD","type":"Corporation"},{"code":"VIETNAMESE SPECIALTIES","level":2,"name":{"en":"Vietnamese specialties","vi":"Đặc sản Việt"},"parent_code":"FOOD","type":"Corporation"},{"code":"BEVERAGE","level":2,"name":{"en":"Beverage","vi":"Nước giải khát"},"parent_code":"DRINK","type":"Corporation"},{"code":"CAFE","level":2,"name":{"en":"Cafe","vi":"Cafe"},"parent_code":"DRINK","type":"Corporation"},{"code":"MILK TEA","level":2,"name":{"en":"Milk tea","vi":"Trà sữa"},"parent_code":"DRINK","type":"Corporation"},{"code":"SMOOTHIE \u0026 JUICE","level":2,"name":{"en":"Smoothie \u0026 Juice","vi":"Sinh tố \u0026 Nước ép"},"parent_code":"DRINK","type":"Corporation"},{"code":"ALCOHOL","level":2,"name":{"en":"Alcohol","vi":"Đồ uống có cồn"},"parent_code":"DRINK","type":"Corporation"},{"code":"BREAD","level":2,"name":{"en":"Bread","vi":"Bánh mì"},"parent_code":"CAKE","type":"Corporation"},{"code":"GATEAU","level":2,"name":{"en":"Gateau","vi":"Bánh ngọt"},"parent_code":"CAKE","type":"Corporation"},{"code":"BIRTHDAY CAKE","level":2,"name":{"en":"Birthday cake","vi":"Bánh sinh nhật"},"parent_code":"CAKE","type":"Corporation"},{"code":"TRADITIONAL CAKES","level":2,"name":{"en":"Traditional cakes","vi":"Các loại bánh truyền thống"},"parent_code":"CAKE","type":"Corporation"},{"code":"OTHER CAKES","level":2,"name":{"en":"Other cakes","vi":"Các loại bánh khác"},"parent_code":"CAKE","type":"Corporation"},{"code":"OFFICE LUNCH","level":2,"name":{"en":"Office lunch","vi":"Cơm trưa văn phòng"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"VEGAN \u0026 VEGETARIAN","level":2,"name":{"en":"Vegan \u0026 Vegetarian","vi":"Món ăn chay"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"KOREAN","level":2,"name":{"en":"Korean","vi":"Món Hàn"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"JAPANESE","level":2,"name":{"en":"Japanese","vi":"Món Nhật \u0026 Sushi"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"CHINESE","level":2,"name":{"en":"Chinese","vi":"Món Trung"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"WESTERN","level":2,"name":{"en":"Western","vi":"Món Âu - Mỹ"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"FUSION","level":2,"name":{"en":"Fusion","vi":"Ẩm thực kết hợp"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"DESSERT","level":2,"name":{"en":"Dessert","vi":"Món tráng miệng"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"HOT POT","level":2,"name":{"en":"Hot pot","vi":"Lẩu"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"OTHER RESTAURANTS","level":2,"name":{"en":"Other restaurants","vi":"Nhà hàng khác"},"parent_code":"RESTAURANT","type":"Corporation"},{"code":"FRUITS","level":2,"name":{"en":"Fruits","vi":"Trái cây"},"parent_code":"GROCERY","type":"Corporation"},{"code":"FRESH FOODS","level":2,"name":{"en":"Fresh foods","vi":"Thực phẩm tươi"},"parent_code":"GROCERY","type":"Corporation"},{"code":"FROZEN FOODS","level":2,"name":{"en":"Frozen foods","vi":"Thực phẩm đông lạnh"},"parent_code":"GROCERY","type":"Corporation"},{"code":"DRY FOODS","level":2,"name":{"en":"Dry foods","vi":"Thực phẩm khô"},"parent_code":"GROCERY","type":"Corporation"},{"code":"PACKAGED \u0026 CANNED FOODS","level":2,"name":{"en":"Packaged \u0026 Canned foods","vi":"Đồ hộp và đóng gói"},"parent_code":"GROCERY","type":"Corporation"},{"code":"RICE, BEANS \u0026 NUTS","level":2,"name":{"en":"Rice, Beans \u0026 Nuts","vi":"Gạo \u0026 Các loại hạt"},"parent_code":"GROCERY","type":"Corporation"},{"code":"SPICES","level":2,"name":{"en":"Spices","vi":"Gia vị"},"parent_code":"GROCERY","type":"Corporation"},{"code":"BAKING INGREDIENTS","level":2,"name":{"en":"Baking ingredients","vi":"Nguyên liệu làm bánh"},"parent_code":"GROCERY","type":"Corporation"},{"code":"DRINK INGREDIENTS","level":2,"name":{"en":"Drink ingredients","vi":"Nguyên liệu đồ uống"},"parent_code":"GROCERY","type":"Corporation"},{"code":"DAIRY PRODUCTS","level":2,"name":{"en":"Dairy products","vi":"Sản phẩm sữa"},"parent_code":"GROCERY","type":"Corporation"},{"code":"CONFECTIONERY","level":2,"name":{"en":"Confectionery","vi":"Bánh kẹo \u0026 Sô-cô-la"},"parent_code":"GROCERY","type":"Corporation"},{"code":"IMPLEMENT FOR BABY","level":2,"name":{"en":"Implement for baby","vi":"Đồ dùng cho bé"},"parent_code":"MOTHER \u0026 BABY","type":"Corporation"},{"code":"FASHION FOR BABY","level":2,"name":{"en":"Fashion for baby","vi":"Thời trang cho bé"},"parent_code":"MOTHER \u0026 BABY","type":"Corporation"},{"code":"TOYS","level":2,"name":{"en":"Toys","vi":"Đồ chơi"},"parent_code":"MOTHER \u0026 BABY","type":"Corporation"},{"code":"MILK \u0026 COMMODITY FOR BABY","level":2,"name":{"en":"Milk \u0026 Commodity for baby","vi":"Sữa \u0026 Thực phẩm cho bé"},"parent_code":"MOTHER \u0026 BABY","type":"Corporation"},{"code":"COMMODITY \u0026 IMPLEMENT FOR MOTHERS","level":2,"name":{"en":"Commodity \u0026 Implement for mothers","vi":"Thực phẩm \u0026 Đồ dùng cho mẹ"},"parent_code":"MOTHER \u0026 BABY","type":"Corporation"},{"code":"HOME FURNITURE","level":2,"name":{"en":"Home furniture","vi":"Đồ nội thất"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"DECORATIONS","level":2,"name":{"en":"Decorations","vi":"Đồ trang trí"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"HOUSEHOLD APPLIANCES","level":2,"name":{"en":"Household appliances","vi":"Đồ dùng gia dụng"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"BEDDING","level":2,"name":{"en":"Bedding","vi":"Đồ dùng phòng ngủ"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"PETS PRODUCTS","level":2,"name":{"en":"Pets products","vi":"Sản phẩm thú cưng"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"PLANTS \u0026 GARDENING","level":2,"name":{"en":"Plants \u0026 Gardening","vi":"Cây cảnh \u0026 Đồ làm vườn"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"BOOKS \u0026 STATIONARY","level":2,"name":{"en":"Books \u0026 Stationary","vi":"Sách \u0026 Văn phòng phẩm"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"HYGIENNE PRODUCTS","level":2,"name":{"en":"Hygienne products","vi":"Sản phẩm vệ sinh"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"BAGS \u0026 PACKAGING","level":2,"name":{"en":"Bags \u0026 Packaging","vi":"Túi, bao bì và đóng gói"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"FLOWERS","level":2,"name":{"en":"Flowers","vi":"Hoa"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"GIFTS \u0026 PROMOTIONS","level":2,"name":{"en":"Gifts \u0026 Promotions","vi":"Quà tặng \u0026 Ưu đãi"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"LAUNDRY","level":2,"name":{"en":"Laundry","vi":"Giặt ủi"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"INSTRUMENTS","level":2,"name":{"en":"Instruments","vi":"Nhạc cụ"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"PERFORMANCE PROPS","level":2,"name":{"en":"Performance props","vi":"Đạo cụ \u0026 Trang phục biểu diễn"},"parent_code":"HOUSING \u0026 LIFESTYLE","type":"Corporation"},{"code":"COSMETICS","level":2,"name":{"en":"Cosmetics","vi":"Mỹ phẩm"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"PERFUME \u0026 ESSENCE","level":2,"name":{"en":"Perfume \u0026 Essence","vi":"Nước hoa \u0026 Tinh dầu"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"PERSONAL CARE","level":2,"name":{"en":"Personal care","vi":"Sản phẩm chăm sóc cơ thể"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"SEXUAL WELLNESS","level":2,"name":{"en":"Sexual wellness","vi":"Hỗ trợ Tình Dục"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"SUPPLEMENT FOODS","level":2,"name":{"en":"Supplement foods","vi":"Thực phẩm chức năng"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"PHARMACEUTICAL PRODUCTS \u0026 MEDICINE","level":2,"name":{"en":"Pharmaceutical products \u0026 Medicine","vi":"Dược phẩm \u0026 Thuốc"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"HEALTH \u0026 MEDICAL WARE","level":2,"name":{"en":"Health \u0026 Medical Ware","vi":"Thiết bị sức khoẻ và y tế"},"parent_code":"HEALTH \u0026 BEAUTY","type":"Corporation"},{"code":"SMARTPHONES \u0026 TABLETS","level":2,"name":{"en":"Smartphones \u0026 Tablets","vi":"Điện thoại \u0026 Máy tính bảng"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"COMPUTER \u0026 LAPTOP","level":2,"name":{"en":"Computer \u0026 Laptop","vi":"Máy tính"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"CAMERAS","level":2,"name":{"en":"Cameras","vi":"Máy ảnh \u0026 Quay phim"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"GAMING GEARS","level":2,"name":{"en":"Gaming gears","vi":"Phụ kiện \u0026 Thiết bị game"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"ELECTRONIC GEARS","level":2,"name":{"en":"Electronic gears","vi":"Phụ kiện \u0026 Linh kiện điện tử"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"E-BOOK READER","level":2,"name":{"en":"E-book reader","vi":"Thiết bị đọc sách"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"AUDIO DEVICES","level":2,"name":{"en":"Audio devices","vi":"Thiết bị âm thanh"},"parent_code":"ELECTRONICS","type":"Corporation"},{"code":"CLOTHING","level":2,"name":{"en":"Clot... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20210117 15:13:35.895" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210117 15:13:35.747" endtime="20210117 15:13:35.895"></status>
+</kw>
+<msg timestamp="20210117 15:13:35.897" level="INFO">${category} = [{'code': 'FAST FOOD', 'level': 2, 'name': {'en': 'Fast food', 'vi': 'Đồ ăn nhanh'}, 'parent_code': 'FOOD', 'type': 'Corporation'}, {'code': 'SNACK', 'level': 2, 'name': {'en': 'Snack', 'vi': 'Đồ ăn v...</msg>
+<status status="PASS" starttime="20210117 15:13:35.745" endtime="20210117 15:13:35.897"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
 <arguments>
-<arg>ahamove</arg>
-<arg>user</arg>
-<arg>{"_id": "${id}"}</arg>
-<arg>activation_code</arg>
+<arg>${category}</arg>
 </arguments>
+<status status="PASS" starttime="20210117 15:13:35.898" endtime="20210117 15:13:35.948"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
 <assign>
-<var>&amp;{user_ref_id}</var>
+<var>${category_list2}</var>
 </assign>
-<kw name="Connect To Mongodb" library="MongoDBLibrary">
-<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
+<msg timestamp="20210117 15:13:35.949" level="INFO">${category_list2} = []</msg>
+<status status="PASS" starttime="20210117 15:13:35.949" endtime="20210117 15:13:35.949"></status>
+</kw>
+<kw name="${i} IN [ @{category} ]" type="for">
+<kw name="${i} = {'code': 'FAST FOOD', 'level': 2, 'name': {'en': 'Fast food', 'vi': 'Đồ ăn nhanh'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${HOST.${DB_ENV}}</arg>
-<arg>${27017}</arg>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
 </arguments>
-<status status="PASS" starttime="20201228 17:17:16.992" endtime="20201228 17:17:17.141"></status>
+<status status="PASS" starttime="20210117 15:13:35.950" endtime="20210117 15:13:35.950"></status>
 </kw>
-<kw name="Retrieve Mongodb Records With Desired Fields" library="MongoDBLibrary">
-<doc>Retrieves from a document(s) the desired projection. In a sql terms: select a and b from table;
-For more details about querying records from Mongodb and comparison to sql see the
-[http://docs.mongodb.org/manual/reference/sql-comparison|Mongodb]
-documentation.</doc>
+<status status="PASS" starttime="20210117 15:13:35.949" endtime="20210117 15:13:35.950"></status>
+</kw>
+<kw name="${i} = {'code': 'SNACK', 'level': 2, 'name': {'en': 'Snack', 'vi': 'Đồ ăn vặt'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${dbName}</arg>
-<arg>${dbCollName}</arg>
-<arg>${recordJSON}</arg>
-<arg>${recordField}</arg>
-<arg>True</arg>
-<arg>True</arg>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
 </arguments>
-<assign>
-<var>@{allResults}</var>
-</assign>
-<msg timestamp="20201228 17:17:47.492" level="FAIL">ServerSelectionTimeoutError: ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 5fe9b0ad5d61995c8eba5b13, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ahamove-uat-shard-00-00.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-01.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-02.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out')&gt;]&gt;</msg>
-<status status="FAIL" starttime="20201228 17:17:17.141" endtime="20201228 17:17:47.492"></status>
+<status status="PASS" starttime="20210117 15:13:35.950" endtime="20210117 15:13:35.951"></status>
 </kw>
-<status status="FAIL" starttime="20201228 17:17:16.991" endtime="20201228 17:17:47.493"></status>
+<status status="PASS" starttime="20210117 15:13:35.950" endtime="20210117 15:13:35.951"></status>
 </kw>
-<status status="FAIL" starttime="20201228 17:17:16.989" endtime="20201228 17:17:47.494"></status>
-</kw>
-<status status="FAIL" starttime="20201228 17:17:16.989" endtime="20201228 17:17:47.494"></status>
-</kw>
-<status status="FAIL" starttime="20201228 17:17:16.677" endtime="20201228 17:17:47.495"></status>
-</kw>
-<kw name="End Web Test" library="Common" type="teardown">
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<kw name="${i} = {'code': 'PHO &amp; NOODLES', 'level': 2, 'name': {'en': 'Pho &amp; Noodles', 'vi': 'Phở - Mì - Bún'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${EXECDIR}/Report/image/custom_name_{index}.png</arg>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
 </arguments>
-<msg timestamp="20201228 17:17:48.168" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="image/custom_name_299.png"&gt;&lt;img src="image/custom_name_299.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201228 17:17:47.497" endtime="20201228 17:17:48.168"></status>
+<status status="PASS" starttime="20210117 15:13:35.951" endtime="20210117 15:13:35.952"></status>
 </kw>
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20201228 17:17:48.169" endtime="20201228 17:17:48.318"></status>
+<status status="PASS" starttime="20210117 15:13:35.951" endtime="20210117 15:13:35.952"></status>
 </kw>
-<status status="PASS" starttime="20201228 17:17:47.496" endtime="20201228 17:17:48.318"></status>
+<kw name="${i} = {'code': 'SWEET SOUP', 'level': 2, 'name': {'en': 'Sweet soup', 'vi': 'Chè'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.952" endtime="20210117 15:13:35.952"></status>
 </kw>
-<tags>
-<tag>TC_save_category_success_when_input_other_category</tag>
-</tags>
-<status status="FAIL" starttime="20201228 17:17:08.595" endtime="20201228 17:17:48.319" critical="yes">ServerSelectionTimeoutError: ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out,ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 5fe9b0ad5d61995c8eba5b13, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ahamove-uat-shard-00-00.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-00.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-01.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-01.sjm3i.mongodb.net:27017: timed out')&gt;, &lt;ServerDescription ('ahamove-uat-shard-00-02.sjm3i.mongodb.net', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('ahamove-uat-shard-00-02.sjm3i.mongodb.net:27017: timed out')&gt;]&gt;</status>
+<status status="PASS" starttime="20210117 15:13:35.952" endtime="20210117 15:13:35.952"></status>
+</kw>
+<kw name="${i} = {'code': 'ICE-CREAM', 'level': 2, 'name': {'en': 'Ice-cream', 'vi': 'Kem'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.952" endtime="20210117 15:13:35.953"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.952" endtime="20210117 15:13:35.953"></status>
+</kw>
+<kw name="${i} = {'code': 'VIETNAMESE SPECIALTIES', 'level': 2, 'name': {'en': 'Vietnamese specialties', 'vi': 'Đặc sản Việt'}, 'parent_code': 'FOOD', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.953" endtime="20210117 15:13:35.953"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.953" endtime="20210117 15:13:35.953"></status>
+</kw>
+<kw name="${i} = {'code': 'BEVERAGE', 'level': 2, 'name': {'en': 'Beverage', 'vi': 'Nước giải khát'}, 'parent_code': 'DRINK', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.954" endtime="20210117 15:13:35.954"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.953" endtime="20210117 15:13:35.954"></status>
+</kw>
+<kw name="${i} = {'code': 'CAFE', 'level': 2, 'name': {'en': 'Cafe', 'vi': 'Cafe'}, 'parent_code': 'DRINK', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.954" endtime="20210117 15:13:35.955"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.954" endtime="20210117 15:13:35.955"></status>
+</kw>
+<kw name="${i} = {'code': 'MILK TEA', 'level': 2, 'name': {'en': 'Milk tea', 'vi': 'Trà sữa'}, 'parent_code': 'DRINK', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.955" endtime="20210117 15:13:35.956"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.955" endtime="20210117 15:13:35.956"></status>
+</kw>
+<kw name="${i} = {'code': 'SMOOTHIE &amp; JUICE', 'level': 2, 'name': {'en': 'Smoothie &amp; Juice', 'vi': 'Sinh tố &amp; Nước ép'}, 'parent_code': 'DRINK', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.956" endtime="20210117 15:13:35.957"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.956" endtime="20210117 15:13:35.957"></status>
+</kw>
+<kw name="${i} = {'code': 'ALCOHOL', 'level': 2, 'name': {'en': 'Alcohol', 'vi': 'Đồ uống có cồn'}, 'parent_code': 'DRINK', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.957" endtime="20210117 15:13:35.957"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.957" endtime="20210117 15:13:35.957"></status>
+</kw>
+<kw name="${i} = {'code': 'BREAD', 'level': 2, 'name': {'en': 'Bread', 'vi': 'Bánh mì'}, 'parent_code': 'CAKE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.957" endtime="20210117 15:13:35.958"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.957" endtime="20210117 15:13:35.958"></status>
+</kw>
+<kw name="${i} = {'code': 'GATEAU', 'level': 2, 'name': {'en': 'Gateau', 'vi': 'Bánh ngọt'}, 'parent_code': 'CAKE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.958" endtime="20210117 15:13:35.959"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.958" endtime="20210117 15:13:35.959"></status>
+</kw>
+<kw name="${i} = {'code': 'BIRTHDAY CAKE', 'level': 2, 'name': {'en': 'Birthday cake', 'vi': 'Bánh sinh nhật'}, 'parent_code': 'CAKE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.960" endtime="20210117 15:13:35.961"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.959" endtime="20210117 15:13:35.961"></status>
+</kw>
+<kw name="${i} = {'code': 'TRADITIONAL CAKES', 'level': 2, 'name': {'en': 'Traditional cakes', 'vi': 'Các loại bánh truyền thống'}, 'parent_code': 'CAKE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.962" endtime="20210117 15:13:35.962"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.961" endtime="20210117 15:13:35.962"></status>
+</kw>
+<kw name="${i} = {'code': 'OTHER CAKES', 'level': 2, 'name': {'en': 'Other cakes', 'vi': 'Các loại bánh khác'}, 'parent_code': 'CAKE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.963" endtime="20210117 15:13:35.963"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.963" endtime="20210117 15:13:35.963"></status>
+</kw>
+<kw name="${i} = {'code': 'OFFICE LUNCH', 'level': 2, 'name': {'en': 'Office lunch', 'vi': 'Cơm trưa văn phòng'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.964" endtime="20210117 15:13:35.964"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.964" endtime="20210117 15:13:35.964"></status>
+</kw>
+<kw name="${i} = {'code': 'VEGAN &amp; VEGETARIAN', 'level': 2, 'name': {'en': 'Vegan &amp; Vegetarian', 'vi': 'Món ăn chay'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.965" endtime="20210117 15:13:35.966"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.965" endtime="20210117 15:13:35.966"></status>
+</kw>
+<kw name="${i} = {'code': 'KOREAN', 'level': 2, 'name': {'en': 'Korean', 'vi': 'Món Hàn'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.966" endtime="20210117 15:13:35.967"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.966" endtime="20210117 15:13:35.967"></status>
+</kw>
+<kw name="${i} = {'code': 'JAPANESE', 'level': 2, 'name': {'en': 'Japanese', 'vi': 'Món Nhật &amp; Sushi'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.967" endtime="20210117 15:13:35.968"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.967" endtime="20210117 15:13:35.968"></status>
+</kw>
+<kw name="${i} = {'code': 'CHINESE', 'level': 2, 'name': {'en': 'Chinese', 'vi': 'Món Trung'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.968" endtime="20210117 15:13:35.969"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.968" endtime="20210117 15:13:35.969"></status>
+</kw>
+<kw name="${i} = {'code': 'WESTERN', 'level': 2, 'name': {'en': 'Western', 'vi': 'Món Âu - Mỹ'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.969" endtime="20210117 15:13:35.970"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.969" endtime="20210117 15:13:35.970"></status>
+</kw>
+<kw name="${i} = {'code': 'FUSION', 'level': 2, 'name': {'en': 'Fusion', 'vi': 'Ẩm thực kết hợp'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.971" endtime="20210117 15:13:35.971"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.970" endtime="20210117 15:13:35.971"></status>
+</kw>
+<kw name="${i} = {'code': 'DESSERT', 'level': 2, 'name': {'en': 'Dessert', 'vi': 'Món tráng miệng'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.972" endtime="20210117 15:13:35.972"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.972" endtime="20210117 15:13:35.972"></status>
+</kw>
+<kw name="${i} = {'code': 'HOT POT', 'level': 2, 'name': {'en': 'Hot pot', 'vi': 'Lẩu'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.973" endtime="20210117 15:13:35.973"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.972" endtime="20210117 15:13:35.973"></status>
+</kw>
+<kw name="${i} = {'code': 'OTHER RESTAURANTS', 'level': 2, 'name': {'en': 'Other restaurants', 'vi': 'Nhà hàng khác'}, 'parent_code': 'RESTAURANT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.973" endtime="20210117 15:13:35.974"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.973" endtime="20210117 15:13:35.974"></status>
+</kw>
+<kw name="${i} = {'code': 'FRUITS', 'level': 2, 'name': {'en': 'Fruits', 'vi': 'Trái cây'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.974" endtime="20210117 15:13:35.974"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.974" endtime="20210117 15:13:35.974"></status>
+</kw>
+<kw name="${i} = {'code': 'FRESH FOODS', 'level': 2, 'name': {'en': 'Fresh foods', 'vi': 'Thực phẩm tươi'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.974" endtime="20210117 15:13:35.975"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.974" endtime="20210117 15:13:35.975"></status>
+</kw>
+<kw name="${i} = {'code': 'FROZEN FOODS', 'level': 2, 'name': {'en': 'Frozen foods', 'vi': 'Thực phẩm đông lạnh'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.975" endtime="20210117 15:13:35.975"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.975" endtime="20210117 15:13:35.975"></status>
+</kw>
+<kw name="${i} = {'code': 'DRY FOODS', 'level': 2, 'name': {'en': 'Dry foods', 'vi': 'Thực phẩm khô'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.976" endtime="20210117 15:13:35.976"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.975" endtime="20210117 15:13:35.976"></status>
+</kw>
+<kw name="${i} = {'code': 'PACKAGED &amp; CANNED FOODS', 'level': 2, 'name': {'en': 'Packaged &amp; Canned foods', 'vi': 'Đồ hộp và đóng gói'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.976" endtime="20210117 15:13:35.977"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.976" endtime="20210117 15:13:35.977"></status>
+</kw>
+<kw name="${i} = {'code': 'RICE, BEANS &amp; NUTS', 'level': 2, 'name': {'en': 'Rice, Beans &amp; Nuts', 'vi': 'Gạo &amp; Các loại hạt'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.977" endtime="20210117 15:13:35.978"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.977" endtime="20210117 15:13:35.978"></status>
+</kw>
+<kw name="${i} = {'code': 'SPICES', 'level': 2, 'name': {'en': 'Spices', 'vi': 'Gia vị'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.978" endtime="20210117 15:13:35.978"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.978" endtime="20210117 15:13:35.978"></status>
+</kw>
+<kw name="${i} = {'code': 'BAKING INGREDIENTS', 'level': 2, 'name': {'en': 'Baking ingredients', 'vi': 'Nguyên liệu làm bánh'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.978" endtime="20210117 15:13:35.979"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.978" endtime="20210117 15:13:35.979"></status>
+</kw>
+<kw name="${i} = {'code': 'DRINK INGREDIENTS', 'level': 2, 'name': {'en': 'Drink ingredients', 'vi': 'Nguyên liệu đồ uống'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.979" endtime="20210117 15:13:35.979"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.979" endtime="20210117 15:13:35.979"></status>
+</kw>
+<kw name="${i} = {'code': 'DAIRY PRODUCTS', 'level': 2, 'name': {'en': 'Dairy products', 'vi': 'Sản phẩm sữa'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.980" endtime="20210117 15:13:35.981"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.979" endtime="20210117 15:13:35.981"></status>
+</kw>
+<kw name="${i} = {'code': 'CONFECTIONERY', 'level': 2, 'name': {'en': 'Confectionery', 'vi': 'Bánh kẹo &amp; Sô-cô-la'}, 'parent_code': 'GROCERY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.981" endtime="20210117 15:13:35.982"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.981" endtime="20210117 15:13:35.982"></status>
+</kw>
+<kw name="${i} = {'code': 'IMPLEMENT FOR BABY', 'level': 2, 'name': {'en': 'Implement for baby', 'vi': 'Đồ dùng cho bé'}, 'parent_code': 'MOTHER &amp; BABY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.982" endtime="20210117 15:13:35.983"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.982" endtime="20210117 15:13:35.983"></status>
+</kw>
+<kw name="${i} = {'code': 'FASHION FOR BABY', 'level': 2, 'name': {'en': 'Fashion for baby', 'vi': 'Thời trang cho bé'}, 'parent_code': 'MOTHER &amp; BABY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.984" endtime="20210117 15:13:35.984"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.983" endtime="20210117 15:13:35.984"></status>
+</kw>
+<kw name="${i} = {'code': 'TOYS', 'level': 2, 'name': {'en': 'Toys', 'vi': 'Đồ chơi'}, 'parent_code': 'MOTHER &amp; BABY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.985" endtime="20210117 15:13:35.985"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.984" endtime="20210117 15:13:35.985"></status>
+</kw>
+<kw name="${i} = {'code': 'MILK &amp; COMMODITY FOR BABY', 'level': 2, 'name': {'en': 'Milk &amp; Commodity for baby', 'vi': 'Sữa &amp; Thực phẩm cho bé'}, 'parent_code': 'MOTHER &amp; BABY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.986" endtime="20210117 15:13:35.987"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.986" endtime="20210117 15:13:35.987"></status>
+</kw>
+<kw name="${i} = {'code': 'COMMODITY &amp; IMPLEMENT FOR MOTHERS', 'level': 2, 'name': {'en': 'Commodity &amp; Implement for mothers', 'vi': 'Thực phẩm &amp; Đồ dùng cho mẹ'}, 'parent_code': 'MOTHER &amp; BABY', 'type': 'Corporation'..." type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.988" endtime="20210117 15:13:35.989"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.987" endtime="20210117 15:13:35.989"></status>
+</kw>
+<kw name="${i} = {'code': 'HOME FURNITURE', 'level': 2, 'name': {'en': 'Home furniture', 'vi': 'Đồ nội thất'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.989" endtime="20210117 15:13:35.989"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.989" endtime="20210117 15:13:35.989"></status>
+</kw>
+<kw name="${i} = {'code': 'DECORATIONS', 'level': 2, 'name': {'en': 'Decorations', 'vi': 'Đồ trang trí'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.990" endtime="20210117 15:13:35.990"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.989" endtime="20210117 15:13:35.990"></status>
+</kw>
+<kw name="${i} = {'code': 'HOUSEHOLD APPLIANCES', 'level': 2, 'name': {'en': 'Household appliances', 'vi': 'Đồ dùng gia dụng'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.990" endtime="20210117 15:13:35.991"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.990" endtime="20210117 15:13:35.991"></status>
+</kw>
+<kw name="${i} = {'code': 'BEDDING', 'level': 2, 'name': {'en': 'Bedding', 'vi': 'Đồ dùng phòng ngủ'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.991" endtime="20210117 15:13:35.991"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.991" endtime="20210117 15:13:35.991"></status>
+</kw>
+<kw name="${i} = {'code': 'PETS PRODUCTS', 'level': 2, 'name': {'en': 'Pets products', 'vi': 'Sản phẩm thú cưng'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.991" endtime="20210117 15:13:35.992"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.991" endtime="20210117 15:13:35.992"></status>
+</kw>
+<kw name="${i} = {'code': 'PLANTS &amp; GARDENING', 'level': 2, 'name': {'en': 'Plants &amp; Gardening', 'vi': 'Cây cảnh &amp; Đồ làm vườn'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.992" endtime="20210117 15:13:35.993"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.992" endtime="20210117 15:13:35.993"></status>
+</kw>
+<kw name="${i} = {'code': 'BOOKS &amp; STATIONARY', 'level': 2, 'name': {'en': 'Books &amp; Stationary', 'vi': 'Sách &amp; Văn phòng phẩm'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.993" endtime="20210117 15:13:35.993"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.993" endtime="20210117 15:13:35.993"></status>
+</kw>
+<kw name="${i} = {'code': 'HYGIENNE PRODUCTS', 'level': 2, 'name': {'en': 'Hygienne products', 'vi': 'Sản phẩm vệ sinh'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.994" endtime="20210117 15:13:35.994"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.993" endtime="20210117 15:13:35.994"></status>
+</kw>
+<kw name="${i} = {'code': 'BAGS &amp; PACKAGING', 'level': 2, 'name': {'en': 'Bags &amp; Packaging', 'vi': 'Túi, bao bì và đóng gói'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.995" endtime="20210117 15:13:35.995"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.994" endtime="20210117 15:13:35.995"></status>
+</kw>
+<kw name="${i} = {'code': 'FLOWERS', 'level': 2, 'name': {'en': 'Flowers', 'vi': 'Hoa'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.995" endtime="20210117 15:13:35.996"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.995" endtime="20210117 15:13:35.996"></status>
+</kw>
+<kw name="${i} = {'code': 'GIFTS &amp; PROMOTIONS', 'level': 2, 'name': {'en': 'Gifts &amp; Promotions', 'vi': 'Quà tặng &amp; Ưu đãi'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.996" endtime="20210117 15:13:35.996"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.996" endtime="20210117 15:13:35.996"></status>
+</kw>
+<kw name="${i} = {'code': 'LAUNDRY', 'level': 2, 'name': {'en': 'Laundry', 'vi': 'Giặt ủi'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.997" endtime="20210117 15:13:35.997"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.996" endtime="20210117 15:13:35.997"></status>
+</kw>
+<kw name="${i} = {'code': 'INSTRUMENTS', 'level': 2, 'name': {'en': 'Instruments', 'vi': 'Nhạc cụ'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.997" endtime="20210117 15:13:35.998"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.997" endtime="20210117 15:13:35.998"></status>
+</kw>
+<kw name="${i} = {'code': 'PERFORMANCE PROPS', 'level': 2, 'name': {'en': 'Performance props', 'vi': 'Đạo cụ &amp; Trang phục biểu diễn'}, 'parent_code': 'HOUSING &amp; LIFESTYLE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.998" endtime="20210117 15:13:35.999"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.998" endtime="20210117 15:13:35.999"></status>
+</kw>
+<kw name="${i} = {'code': 'COSMETICS', 'level': 2, 'name': {'en': 'Cosmetics', 'vi': 'Mỹ phẩm'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:35.999" endtime="20210117 15:13:36.000"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:35.999" endtime="20210117 15:13:36.000"></status>
+</kw>
+<kw name="${i} = {'code': 'PERFUME &amp; ESSENCE', 'level': 2, 'name': {'en': 'Perfume &amp; Essence', 'vi': 'Nước hoa &amp; Tinh dầu'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.000" endtime="20210117 15:13:36.001"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.000" endtime="20210117 15:13:36.001"></status>
+</kw>
+<kw name="${i} = {'code': 'PERSONAL CARE', 'level': 2, 'name': {'en': 'Personal care', 'vi': 'Sản phẩm chăm sóc cơ thể'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.001" endtime="20210117 15:13:36.001"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.001" endtime="20210117 15:13:36.001"></status>
+</kw>
+<kw name="${i} = {'code': 'SEXUAL WELLNESS', 'level': 2, 'name': {'en': 'Sexual wellness', 'vi': 'Hỗ trợ Tình Dục'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.002" endtime="20210117 15:13:36.002"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.002" endtime="20210117 15:13:36.002"></status>
+</kw>
+<kw name="${i} = {'code': 'SUPPLEMENT FOODS', 'level': 2, 'name': {'en': 'Supplement foods', 'vi': 'Thực phẩm chức năng'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.003" endtime="20210117 15:13:36.003"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.002" endtime="20210117 15:13:36.003"></status>
+</kw>
+<kw name="${i} = {'code': 'PHARMACEUTICAL PRODUCTS &amp; MEDICINE', 'level': 2, 'name': {'en': 'Pharmaceutical products &amp; Medicine', 'vi': 'Dược phẩm &amp; Thuốc'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.003" endtime="20210117 15:13:36.004"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.003" endtime="20210117 15:13:36.004"></status>
+</kw>
+<kw name="${i} = {'code': 'HEALTH &amp; MEDICAL WARE', 'level': 2, 'name': {'en': 'Health &amp; Medical Ware', 'vi': 'Thiết bị sức khoẻ và y tế'}, 'parent_code': 'HEALTH &amp; BEAUTY', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.004" endtime="20210117 15:13:36.004"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.004" endtime="20210117 15:13:36.004"></status>
+</kw>
+<kw name="${i} = {'code': 'SMARTPHONES &amp; TABLETS', 'level': 2, 'name': {'en': 'Smartphones &amp; Tablets', 'vi': 'Điện thoại &amp; Máy tính bảng'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.005" endtime="20210117 15:13:36.005"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.004" endtime="20210117 15:13:36.005"></status>
+</kw>
+<kw name="${i} = {'code': 'COMPUTER &amp; LAPTOP', 'level': 2, 'name': {'en': 'Computer &amp; Laptop', 'vi': 'Máy tính'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.006" endtime="20210117 15:13:36.006"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.005" endtime="20210117 15:13:36.006"></status>
+</kw>
+<kw name="${i} = {'code': 'CAMERAS', 'level': 2, 'name': {'en': 'Cameras', 'vi': 'Máy ảnh &amp; Quay phim'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.007" endtime="20210117 15:13:36.007"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.007" endtime="20210117 15:13:36.007"></status>
+</kw>
+<kw name="${i} = {'code': 'GAMING GEARS', 'level': 2, 'name': {'en': 'Gaming gears', 'vi': 'Phụ kiện &amp; Thiết bị game'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.007" endtime="20210117 15:13:36.008"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.007" endtime="20210117 15:13:36.008"></status>
+</kw>
+<kw name="${i} = {'code': 'ELECTRONIC GEARS', 'level': 2, 'name': {'en': 'Electronic gears', 'vi': 'Phụ kiện &amp; Linh kiện điện tử'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.008" endtime="20210117 15:13:36.008"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.008" endtime="20210117 15:13:36.008"></status>
+</kw>
+<kw name="${i} = {'code': 'E-BOOK READER', 'level': 2, 'name': {'en': 'E-book reader', 'vi': 'Thiết bị đọc sách'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.009" endtime="20210117 15:13:36.009"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.008" endtime="20210117 15:13:36.009"></status>
+</kw>
+<kw name="${i} = {'code': 'AUDIO DEVICES', 'level': 2, 'name': {'en': 'Audio devices', 'vi': 'Thiết bị âm thanh'}, 'parent_code': 'ELECTRONICS', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.009" endtime="20210117 15:13:36.011"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.009" endtime="20210117 15:13:36.011"></status>
+</kw>
+<kw name="${i} = {'code': 'CLOTHING', 'level': 2, 'name': {'en': 'Clothing', 'vi': 'Quần áo'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.011" endtime="20210117 15:13:36.011"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.011" endtime="20210117 15:13:36.011"></status>
+</kw>
+<kw name="${i} = {'code': 'SHOES', 'level': 2, 'name': {'en': 'Shoes', 'vi': 'Giày dép'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.012" endtime="20210117 15:13:36.012"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.011" endtime="20210117 15:13:36.012"></status>
+</kw>
+<kw name="${i} = {'code': 'SLEEPWEAR &amp; UNDERWEAR', 'level': 2, 'name': {'en': 'Sleepwear &amp; Underwear', 'vi': 'Đồ ngủ &amp; Nội y'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.012" endtime="20210117 15:13:36.013"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.012" endtime="20210117 15:13:36.013"></status>
+</kw>
+<kw name="${i} = {'code': 'ACCESSORIES', 'level': 2, 'name': {'en': 'Accessories', 'vi': 'Phụ kiện thời trang'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.013" endtime="20210117 15:13:36.013"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.013" endtime="20210117 15:13:36.013"></status>
+</kw>
+<kw name="${i} = {'code': 'BAGS, BACKPACKS &amp; SUITCASES', 'level': 2, 'name': {'en': 'Bags, Backpacks &amp; Suitcases', 'vi': 'Vali, Balo &amp; Túi Xách'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.013" endtime="20210117 15:13:36.014"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.013" endtime="20210117 15:13:36.014"></status>
+</kw>
+<kw name="${i} = {'code': 'JEWELRY', 'level': 2, 'name': {'en': 'Jewelry', 'vi': 'Đồ trang sức'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.014" endtime="20210117 15:13:36.015"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.014" endtime="20210117 15:13:36.015"></status>
+</kw>
+<kw name="${i} = {'code': 'WATCHES', 'level': 2, 'name': {'en': 'Watches', 'vi': 'Đồng hồ'}, 'parent_code': 'FASHION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.015" endtime="20210117 15:13:36.016"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.015" endtime="20210117 15:13:36.016"></status>
+</kw>
+<kw name="${i} = {'code': 'PICNICS', 'level': 2, 'name': {'en': 'Picnics', 'vi': 'Dụng cụ dã ngoại'}, 'parent_code': 'SPORT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.016" endtime="20210117 15:13:36.017"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.016" endtime="20210117 15:13:36.017"></status>
+</kw>
+<kw name="${i} = {'code': 'SPORTS', 'level': 2, 'name': {'en': 'Sports', 'vi': 'Dụng cụ thể thao'}, 'parent_code': 'SPORT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.017" endtime="20210117 15:13:36.017"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.017" endtime="20210117 15:13:36.017"></status>
+</kw>
+<kw name="${i} = {'code': 'GYM', 'level': 2, 'name': {'en': 'Gym', 'vi': 'Dụng cụ tập gym'}, 'parent_code': 'SPORT', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.018" endtime="20210117 15:13:36.018"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.017" endtime="20210117 15:13:36.018"></status>
+</kw>
+<kw name="${i} = {'code': 'VEHICLES', 'level': 2, 'name': {'en': 'Vehicles', 'vi': 'Phương tiện'}, 'parent_code': 'TRANSPORTATION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.018" endtime="20210117 15:13:36.018"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.018" endtime="20210117 15:13:36.018"></status>
+</kw>
+<kw name="${i} = {'code': 'PARTS &amp; ACCESSORIES', 'level': 2, 'name': {'en': 'Parts &amp; Accessories', 'vi': 'Phụ tùng &amp; Phụ kiện'}, 'parent_code': 'TRANSPORTATION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.019" endtime="20210117 15:13:36.019"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.018" endtime="20210117 15:13:36.019"></status>
+</kw>
+<kw name="${i} = {'code': 'INSURANCE', 'level': 2, 'name': {'en': 'Insurance', 'vi': 'Mũ bảo hiểm'}, 'parent_code': 'TRANSPORTATION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.019" endtime="20210117 15:13:36.020"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.019" endtime="20210117 15:13:36.020"></status>
+</kw>
+<kw name="${i} = {'code': 'MAINTENANCE', 'level': 2, 'name': {'en': 'Maintenance', 'vi': 'Sản phẩm bảo dưỡng'}, 'parent_code': 'TRANSPORTATION', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.020" endtime="20210117 15:13:36.020"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.020" endtime="20210117 15:13:36.021"></status>
+</kw>
+<kw name="${i} = {'code': 'CIGARETTE', 'level': 2, 'name': {'en': 'Cigarette', 'vi': 'Thuốc lá'}, 'parent_code': 'CIGARETTE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.021" endtime="20210117 15:13:36.021"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.021" endtime="20210117 15:13:36.021"></status>
+</kw>
+<kw name="${i} = {'code': 'E-CIGARETTE', 'level': 2, 'name': {'en': 'E-cigarette', 'vi': 'Thuốc lá điện tử'}, 'parent_code': 'CIGARETTE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.022" endtime="20210117 15:13:36.022"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.022" endtime="20210117 15:13:36.022"></status>
+</kw>
+<kw name="${i} = {'code': 'CIGAR', 'level': 2, 'name': {'en': 'Cigar', 'vi': 'Xì gà'}, 'parent_code': 'CIGARETTE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.022" endtime="20210117 15:13:36.023"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.022" endtime="20210117 15:13:36.023"></status>
+</kw>
+<kw name="${i} = {'code': 'CIGARETTE FLAVORING', 'level': 2, 'name': {'en': 'Cigarette Flavoring', 'vi': 'Hương liệu thuốc lá'}, 'parent_code': 'CIGARETTE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.023" endtime="20210117 15:13:36.024"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.023" endtime="20210117 15:13:36.024"></status>
+</kw>
+<kw name="${i} = {'code': 'CIGARETTE ACCESSORIES', 'level': 2, 'name': {'en': 'Cigarette Accessories', 'vi': 'Phụ kiện thuốc lá'}, 'parent_code': 'CIGARETTE', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.025" endtime="20210117 15:13:36.025"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.024" endtime="20210117 15:13:36.025"></status>
+</kw>
+<kw name="${i} = {'code': 'CONVENIENCE STORES', 'level': 2, 'name': {'en': 'Convenience stores', 'vi': 'Cửa hàng tiện ích'}, 'parent_code': 'OTHER', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.025" endtime="20210117 15:13:36.026"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.025" endtime="20210117 15:13:36.026"></status>
+</kw>
+<kw name="${i} = {'code': 'OMNICHANNEL SYSTEM', 'level': 2, 'name': {'en': 'Omnichannel system', 'vi': 'Hệ thống bán hàng đa kênh'}, 'parent_code': 'OTHER', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.026" endtime="20210117 15:13:36.027"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.026" endtime="20210117 15:13:36.027"></status>
+</kw>
+<kw name="${i} = {'code': 'POS SYSTEM', 'level': 2, 'name': {'en': 'POS system', 'vi': 'Máy bán hàng'}, 'parent_code': 'OTHER', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.027" endtime="20210117 15:13:36.028"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.027" endtime="20210117 15:13:36.028"></status>
+</kw>
+<kw name="${i} = {'code': '3RD-PARTY LOGISTIC', 'level': 2, 'name': {'en': '3rd-party logistic', 'vi': 'Đối tác vận chuyển'}, 'parent_code': 'OTHER', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.028" endtime="20210117 15:13:36.029"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.028" endtime="20210117 15:13:36.029"></status>
+</kw>
+<kw name="${i} = {'code': 'E-COMMERCE PLATFORM', 'level': 2, 'name': {'en': 'E-commerce platform', 'vi': 'Sàn thương mại điện tử'}, 'parent_code': 'OTHER', 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<status status="PASS" starttime="20210117 15:13:36.029" endtime="20210117 15:13:36.029"></status>
+</kw>
+<status status="PASS" starttime="20210117 15:13:36.029" endtime="20210117 15:13:36.029"></status>
+</kw>
+<kw name="${i} = {'code': 'FOOD', 'level': 1, 'name': {'en': 'Food', 'vi': 'Đồ ăn'}, 'type': 'Corporation'}" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'</arg>
+<arg>Append to list</arg>
+<arg>${category_list2}</arg>
+<arg>${i}[name][${language}]</arg>
+</arguments>
+<msg timestamp="20210117 15:13:36.030" level="FAIL">Dictionary '${i}' has no key 'parent_code'.</msg>
+<status status="FAIL" starttime="20210117 15:13:36.030" endtime="20210117 15:13:36.030"></status>
+</kw>
+<status status="FAIL" starttime="20210117 15:13:36.029" endtime="20210117 15:13:36.030"></status>
+</kw>
+<status status="FAIL" starttime="20210117 15:13:35.949" endtime="20210117 15:13:36.030"></status>
+</kw>
+<status status="FAIL" starttime="20210117 15:13:35.745" endtime="20210117 15:13:36.031"></status>
+</kw>
+<status status="FAIL" starttime="20210117 15:13:35.744" endtime="20210117 15:13:36.031" critical="yes">Dictionary '${i}' has no key 'parent_code'.</status>
 </test>
-<status status="FAIL" starttime="20201228 17:17:07.474" endtime="20201228 17:17:48.321"></status>
+<status status="FAIL" starttime="20210117 15:13:35.231" endtime="20210117 15:13:36.031"></status>
 </suite>
 <statistics>
 <total>
@@ -171,12 +1313,12 @@ documentation.</doc>
 <stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1">TC_save_category_success_when_input_other_category</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="Category">Category</stat>
+<stat pass="0" fail="1" id="s1" name="APIUser">APIUser</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20210117 15:13:35.742" level="ERROR">Error in file '/Users/mac/Dropbox/My Mac (AHA-TECH-MB0037)/Desktop/Ahamove/Resource/PO/CategoryPage.robot' on line 12: Error in file '/Users/mac/Dropbox/My Mac (AHA-TECH-MB0037)/Desktop/Ahamove/Resource/API/APIUser.robot' on line 110: Resource file with 'Test Cases' section is invalid.</msg>
 </errors>
 </robot>
