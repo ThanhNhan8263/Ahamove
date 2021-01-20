@@ -12,7 +12,6 @@ Resource   ${EXECDIR}/Resource/Base/BasePage.robot
 Resource   ${EXECDIR}/Resource/API/APIUser.robot
 
 
-
 *** Keywords ***
 Choose Category Individual
     [Arguments]  ${type}  ${category}  ${sub_cat}  ${language}

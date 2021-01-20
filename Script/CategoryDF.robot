@@ -79,6 +79,11 @@ List category Individual is displayed and automatically selected
     ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
     ${list_category_ui} =  Get list category Individual
     Lists Should Be Equal  ${list_category_db}  ${list_category_ui}
+    ${category_selected} =  Get text  ${CAT_GROUP_SELECTED}
+    ${category} =  APIUser.Get Category Code  ${category_selected}  ${type}  ${language}
+    ${list_subcategory_db} =  APIUser.Get Subcategory List  ${type}  ${category}  ${language}
+    ${list_subcategory_ui} =  CategoryPage.Get list subcategory  ${type}  ${category}  ${language}
+    Lists Should Be Equal   ${list_category_db}  ${list_category_ui}  ignore_order=True
 
 List category SMEs is displayed and blank screen
     [Arguments]  ${type}  ${language}
@@ -86,6 +91,25 @@ List category SMEs is displayed and blank screen
     ${list_category_ui} =  CategoryPage.Get list category
     Lists Should Be Equal  ${list_category_db}  ${list_category_ui}
     CategoryPage.Blank screen
+
+List category Corporation is displayed and blank screen
+    [Arguments]  ${type}  ${language}
+    ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
+    ${list_category_ui} =  CategoryPage.Get list category
+    Lists Should Be Equal  ${list_category_db}  ${list_category_ui}  ignore_order=True
+    CategoryPage.Blank screen
+
+Verify all list subcategory
+    [Arguments]  ${type}  ${language}
+    ${count_element} =  Get Element Count  ${CAT_GROUP}
+    FOR  ${i}  IN RANGE  1  ${count_element}+1
+        CategoryPage.Click choose all category  ${i}
+        ${category_selected} =  Get text  ${CAT_GROUP_SELECTED}
+        ${category} =  APIUser.Get Category Code  ${category_selected}  ${type}  ${language}
+        ${list_category_db} =  APIUser.Get Subcategory List  ${type}  ${category}  ${language}
+        ${list_category_ui} =  CategoryPage.Get list subcategory  ${type}  ${category}  ${language}
+        Lists Should Be Equal   ${list_category_db}  ${list_category_ui}  ignore_order=True
+    END
 
 User click choose business type
     [Arguments]  ${type}
@@ -95,12 +119,6 @@ User click choose business type
     ...     ELSE  Fail
     CategoryPage.Click Menu Category  ${div}
 
-List category Corporation is displayed and blank screen
-    [Arguments]  ${type}  ${language}
-    ${list_category_db} =  APIUser.Get Category List  ${type}  ${language}
-    ${list_category_ui} =  CategoryPage.Get list category
-    Lists Should Be Equal  ${list_category_db}  ${list_category_ui}  ignore_order=True
-    CategoryPage.Blank screen
 
 User click on search bar and input category
     [Arguments]  ${search_data}
@@ -136,25 +154,10 @@ User click category twice
 Hide subcategory on the right
     CategoryPage.Blank screen
 
-Verify all list subcategory
-    [Arguments]  ${type}  ${language}
-    ${count_element} =  Get Element Count  ${CAT_GROUP}
-    FOR  ${i}  IN RANGE  1  ${count_element}+1
-        CategoryPage.Click choose all category  ${i}
-        ${category_selected} =  Get text  ${CAT_GROUP_SELECTED}
-        ${category} =  User_categoryDB.Get Category Code  ${category_selected}  ${type}  ${language}
-        ${list_category_db} =  User_categoryDB.Get Subcategory List  ${type}  ${category}  ${language}
-        ${list_category_ui} =  CategoryPage.Get list subcategory  ${type}  ${category}  ${language}
-        Lists Should Be Equal   ${list_category_db}  ${list_category_ui}  ignore_order=True
-        CategoryPage.Click choose all category  ${i}
-    END
-
 User click on many category on the left
     [Arguments]  ${div1}  ${div2}
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div1}]
     BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div2}]
-#    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div3}]
-#    BasePage.Wait And Click  xpath://*[@class='select-category-group']/div[${div4}]
 
 Scroll and click list subcategory
     [Arguments]  ${type}  ${subcategory}  ${language}  ${scroll_element}

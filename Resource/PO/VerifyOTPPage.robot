@@ -15,17 +15,11 @@ Resource   ${EXECDIR}/Resource/DB/UserDB.robot
 Input Activate Code
     [Arguments]  ${phone}
     ${otp} =  UserDB.Get OTP  ${phone}
-    BasePage.Wait And Input  ${TXT_OTP1}   ${otp}[0]
-    BasePage.Wait And Input  ${TXT_OTP2}   ${otp}[1]
-    BasePage.Wait And Input  ${TXT_OTP3}   ${otp}[2]
-    BasePage.Wait And Input  ${TXT_OTP4}   ${otp}[3]
+    BasePage.Wait And Input  ${TXT_OTP}    ${otp}
 
 Input Invalid Activate Code
     [Arguments]  @{otp}
-    BasePage.Wait And Input  ${TXT_OTP1}   ${otp}[0]
-    BasePage.Wait And Input  ${TXT_OTP2}   ${otp}[1]
-    BasePage.Wait And Input  ${TXT_OTP3}   ${otp}[2]
-    BasePage.Wait And Input  ${TXT_OTP4}   ${otp}[3]
+    BasePage.Wait And Input  ${TXT_OTP}   ${otp}
 
 Error Mess Invalid Activate Code
     BasePage.Wait Visible  ${ERR_CODE}

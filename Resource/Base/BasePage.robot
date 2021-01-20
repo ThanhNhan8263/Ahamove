@@ -42,6 +42,7 @@ ${TXT_OTP2}  xpath://*[@class='digits my-4']/input[2]
 ${TXT_OTP3}  xpath://*[@class='digits my-4']/input[3]
 ${TXT_OTP4}  xpath://*[@class='digits my-4']/input[4]
 ${ERR_CODE}  xpath://*[@class='active-form__invalid-code']
+${TXT_OTP}  xpath://*[@class='digits__input']  
 
 
 ############ CATEGORY ############

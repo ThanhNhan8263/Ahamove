@@ -80,10 +80,9 @@ Get Category List
 Get Subcategory List
     [Arguments]  ${type}  ${parent_code}  ${language}
     ${category} =  Get Category List Master Data
-    Log to console  ${category}
     ${category_list2} =  Create List
     FOR  ${i}  IN  @{category}
-        Run keyword if  ${i}[level]==2 and '${i}[parent_code]'=='${parent_code}' and '${i}[type]'=='${type}'   Append to list  ${category_list2}  ${i}[name][${language}]
+        Run keyword if  ${i}[level]==2 and '${i}[type]'=='${type}'  Run keyword if  '${i}[parent_code]'=='${parent_code}'  Append to list  ${category_list2}  ${i}[name][${language}]
     END
     Log  ${category_list2}
     [Return]  ${category_list2}
@@ -98,20 +97,13 @@ Get User Type And Category
     Log  ${user_category}
     [return]  @{user_category}
 
-Get Verify Status 
-    [Arguments]  ${token}
-    Create Session  User-Profile  ${API_URL}[${ENVIRONMENT}]  verify=true
-    ${param} =  Create Dictionary  token=${token}
-    ${response} =  Get Request  User-Profile  /v1/user/profile  params=${param}
-    &{user_status} =  Set To Dictionary  ${response.json()}
-    Log  ${user_status.verify_status}
-    [return]  ${user_status.verify_status}
 
-*** Test Cases *** 
-Test
-        Get Subcategory List  Individual  INDIVIDUAL NEEDS  vi
+
+# *** Test Cases *** 
+# Test
+#     Get Subcategory List  SMEs  FOOD  vi
 #     ${token} =  User Activate  84981875523
-#     Get Verify Status   ${token}
+#     Get User Info When Sign Up   ${token}
     # Open browser  https://appstg.ahamove.com/sign-in   chrome
     # SignInPage.Click To Tap SignUp
     # SignUpPage.Click Menu Category
