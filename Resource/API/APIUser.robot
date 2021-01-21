@@ -47,8 +47,8 @@ Get Verify Status
     ${response} =  Get Request  User-Profile  /v1/user/profile  params=${param}
     &{user_info} =  Set To Dictionary  ${response.json()}
     @{user_info} =  Create List  ${user_info.verify_status} 
-    Log  ${user_info}
-    [return]  @{user_info}
+    Log  ${user_info}[0]
+    [return]  ${user_info}[0]
 
 ###########CATEGORY###########
 Get Category List Master Data
@@ -111,7 +111,7 @@ Get User Type And Category
 
 # *** Test Cases *** 
 # Test
-#     Get Subcategory List  SMEs  FOOD  vi
+#     # Get Subcategory List  SMEs  FOOD  vi
 #     ${token} =  User Activate  84981875523
 #     Get Verify Status   ${token}
     # Open browser  https://appstg.ahamove.com/sign-in   chrome
