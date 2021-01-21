@@ -40,6 +40,16 @@ Get User Info When Sign Up
     Log  ${user_info}
     [return]  @{user_info}
 
+Get Verify Status
+    [Arguments]  ${token}
+    Create Session  User-Profile  ${API_URL}[${ENVIRONMENT}]  verify=true
+    ${param} =  Create Dictionary  token=${token}
+    ${response} =  Get Request  User-Profile  /v1/user/profile  params=${param}
+    &{user_info} =  Set To Dictionary  ${response.json()}
+    @{user_info} =  Create List  ${user_info.verify_status} 
+    Log  ${user_info}
+    [return]  @{user_info}
+
 ###########CATEGORY###########
 Get Category List Master Data
     Create Session  User-Category  ${API_URL}[${ENVIRONMENT}]  verify=true
@@ -103,7 +113,7 @@ Get User Type And Category
 # Test
 #     Get Subcategory List  SMEs  FOOD  vi
 #     ${token} =  User Activate  84981875523
-#     Get User Info When Sign Up   ${token}
+#     Get Verify Status   ${token}
     # Open browser  https://appstg.ahamove.com/sign-in   chrome
     # SignInPage.Click To Tap SignUp
     # SignUpPage.Click Menu Category
